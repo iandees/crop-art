@@ -32,7 +32,6 @@ import { loadWorldRotation } from './world-rotation';
 import { computeRoomBounds } from './room-bounds';
 import { resolveRoomPolygon, type RoomPolygon } from './room-polygon';
 import { clampToPolygon } from './polygon-2d';
-import { createRoomFloor } from './room-shell';
 
 /** URL the compressed-ply splat is loaded from. Set VITE_SPLAT_URL for production (e.g. an R2 bucket URL). */
 const SPLAT_URL = import.meta.env.VITE_SPLAT_URL ?? '/splat/splat-trained-compressed.ply';
@@ -151,9 +150,6 @@ export async function createScene(canvas: HTMLCanvasElement): Promise<SceneHandl
     const splatCenters: Float32Array = (assets.splat.resource as { centers: Float32Array }).centers;
 
     const initialPolygon = await resolveRoomPolygon();
-    if (initialPolygon) {
-        createRoomFloor(app, worldRoot, initialPolygon, splatCenters);
-    }
     const collision = setupCollision(
         app,
         camera,
