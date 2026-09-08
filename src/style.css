@@ -40,6 +40,14 @@ html, body {
     display: none !important;
 }
 
+/* In edit mode, a hotspot dot happening to sit at the crosshair/click point would
+ * otherwise swallow the click (opening that piece's public modal) instead of it reaching
+ * the canvas for whatever edit action is in progress (placing a piece, a boundary point, a
+ * leveling point). Editing intent always wins here — dots go click-through while editing. */
+body.edit-mode .pc-annotation-hotspot {
+    pointer-events: none !important;
+}
+
 .hud {
     position: fixed;
     left: 16px;

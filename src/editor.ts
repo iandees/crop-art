@@ -10,7 +10,7 @@ import { pickSplatSurface } from './raypick';
 import { getPhotoPose } from './photo-poses';
 import { getPhotoCandidates } from './photo-candidates';
 import { resolveRoomPolygon, saveLocalRoomPolygon, type RoomPolygon } from './room-polygon';
-import { computeLevelingRotation } from './plane-fit';
+import { computeColumnAlignRotation, computeLevelingRotation } from './plane-fit';
 
 const tmpForward = new Vec3();
 const tmpWorldPoint = new Vec3();
@@ -43,10 +43,15 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
      * or an unreliable splat-density estimate. */
     let boundaryRawWorldYs: number[] = boundaryPoints.map((p) => localToWorld(p).y);
 
-    /** When true, the next 3 clean clicks are floor points used to auto-level the scene
-     * rotation, instead of hand-tuning the Euler sliders (see plane-fit.ts). */
-    let levelingMode = false;
+    /** When set, the next clicks are collected as leveling reference points and used to
+     * auto-level the scene rotation, instead of hand-tuning the Euler sliders (see
+     * plane-fit.ts). 'floor' needs 3 points on a flat floor area (a plane); 'column' needs
+     * 2 points along a real vertical structural column (base + top) — more reliable than
+     * the floor when the room has one, since a column is guaranteed straight/plumb while a
+     * real floor (and its splat reconstruction) can have genuine unevenness. */
+    let levelingKind: 'floor' | 'column' | null = null;
     let levelingPoints: [number, number, number][] = [];
+    const LEVELING_POINTS_NEEDED = { floor: 3, column: 2 } as const;
 
     const hud = document.createElement('div');
     hud.className = 'hud';
@@ -57,8 +62,10 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
             hud.innerHTML =
                 '<div><kbd>WASD</kbd> move &middot; <kbd>Q</kbd>/<kbd>E</kbd> down/up &middot; drag to look</div>' +
                 '<div><kbd>F2</kbd> toggle edit mode</div>';
-        } else if (levelingMode) {
-            hud.innerHTML = `<div>Click 3 points on a flat floor area to level the scene (${levelingPoints.length}/3) — <kbd>Esc</kbd> to cancel</div>`;
+        } else if (levelingKind) {
+            const needed = LEVELING_POINTS_NEEDED[levelingKind];
+            const what = levelingKind === 'floor' ? 'a flat floor area' : 'a straight vertical column (base, then top)';
+            hud.innerHTML = `<div>Click ${needed} points on ${what} to level the scene (${levelingPoints.length}/${needed}) — <kbd>Esc</kbd> to cancel</div>`;
         } else if (boundaryMode) {
             hud.innerHTML = `<div>Click floor corners to outline the walkable area (${boundaryPoints.length} so far) — <kbd>Esc</kbd> to stop</div>`;
         } else if (armedPieceId) {
@@ -162,7 +169,7 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
         boundaryMode = on;
         if (on) {
             armedPieceId = null;
-            levelingMode = false;
+            levelingKind = null;
             levelingPoints = [];
             closeForm();
         }
@@ -172,16 +179,24 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
     }
 
     function renderLevelingUI(): void {
-        const toggleBtn = editorPanel.querySelector('.f-level-toggle') as HTMLButtonElement | null;
-        if (!toggleBtn) return;
-        toggleBtn.textContent = levelingMode ? `Click floor (${levelingPoints.length}/3)` : 'Level floor (3-point)';
-        toggleBtn.classList.toggle('primary', levelingMode);
+        const floorBtn = editorPanel.querySelector('.f-level-floor') as HTMLButtonElement | null;
+        const columnBtn = editorPanel.querySelector('.f-level-column') as HTMLButtonElement | null;
+        if (floorBtn) {
+            floorBtn.textContent =
+                levelingKind === 'floor' ? `Click floor (${levelingPoints.length}/3)` : 'Level via floor (3-point)';
+            floorBtn.classList.toggle('primary', levelingKind === 'floor');
+        }
+        if (columnBtn) {
+            columnBtn.textContent =
+                levelingKind === 'column' ? `Click column (${levelingPoints.length}/2)` : 'Level via column (2-point)';
+            columnBtn.classList.toggle('primary', levelingKind === 'column');
+        }
     }
 
-    function setLevelingMode(on: boolean): void {
-        levelingMode = on;
+    function setLevelingMode(kind: 'floor' | 'column' | null): void {
+        levelingKind = kind;
         levelingPoints = [];
-        if (on) {
+        if (kind) {
             armedPieceId = null;
             boundaryMode = false;
             closeForm();
@@ -308,7 +323,7 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
                 armedPieceId = armedPieceId === piece.id ? null : piece.id;
                 if (armedPieceId) {
                     boundaryMode = false;
-                    levelingMode = false;
+                    levelingKind = null;
                     levelingPoints = [];
                     renderBoundaryUI();
                     renderLevelingUI();
@@ -612,7 +627,11 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
         <button class="f-copy-rotation">Copy rotation values</button>
         <div class="editor-hint">Sliders are fiddly to get perfectly flat. Instead, aim the crosshair at 3 points on an
             obviously flat part of the floor and click each — the exact tilt gets computed from those points.</div>
-        <button class="f-level-toggle">Level floor (3-point)</button>
+        <button class="f-level-floor">Level via floor (3-point)</button>
+        <div class="editor-hint">A real floor can have genuine unevenness the splat then reconstructs faithfully, which
+            throws off floor-based leveling. If the room has a straight structural column, this is more reliable: click
+            its base, then a point near its top — it's known to be plumb, so that fully determines vertical.</div>
+        <button class="f-level-column">Level via column (2-point)</button>
         <h4>Room boundary</h4>
         <div class="editor-hint">
             By default the camera is kept inside a rectangle auto-fitted to the splat, which can be too generous
@@ -635,7 +654,10 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
         <button class="primary f-export">Export pieces.json</button>
         <button class="f-reload">Reload from pieces.json</button>
     `;
-    (editorPanel.querySelector('.f-level-toggle') as HTMLButtonElement).onclick = () => setLevelingMode(!levelingMode);
+    (editorPanel.querySelector('.f-level-floor') as HTMLButtonElement).onclick = () =>
+        setLevelingMode(levelingKind === 'floor' ? null : 'floor');
+    (editorPanel.querySelector('.f-level-column') as HTMLButtonElement).onclick = () =>
+        setLevelingMode(levelingKind === 'column' ? null : 'column');
     (editorPanel.querySelector('.f-boundary-toggle') as HTMLButtonElement).onclick = () => setBoundaryMode(!boundaryMode);
     (editorPanel.querySelector('.f-boundary-undo') as HTMLButtonElement).onclick = () => {
         boundaryPoints.pop();
@@ -710,11 +732,12 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
         editMode = on;
         crosshair.hidden = !on;
         editorPanel.hidden = !on;
+        document.body.classList.toggle('edit-mode', on);
         scene.setCollisionEnabled(!on);
         if (!on) {
             armedPieceId = null;
             boundaryMode = false;
-            levelingMode = false;
+            levelingKind = null;
             levelingPoints = [];
             closeForm();
             stopReposition();
@@ -734,8 +757,8 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
             editorPanel.querySelector('.dist')!.textContent = placementDistance.toFixed(2);
         } else if (e.key === 'Escape') {
             if (pendingForm) closeForm();
-            else if (levelingMode) {
-                setLevelingMode(false);
+            else if (levelingKind) {
+                setLevelingMode(null);
             } else if (boundaryMode) {
                 setBoundaryMode(false);
             } else if (armedPieceId) {
@@ -784,26 +807,33 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
             position = worldToLocal(tmpWorldPoint);
         }
 
-        if (levelingMode) {
+        if (levelingKind) {
             levelingPoints.push(position);
-            if (levelingPoints.length === 3) {
+            if (levelingPoints.length === LEVELING_POINTS_NEEDED[levelingKind]) {
                 // Points are in splat-native local space (unaffected by the current
                 // rotation — see localToWorld/worldToLocal above), so this fully replaces
                 // the old rotation rather than composing with it. upHint uses the CURRENT
                 // rotation's notion of "up" purely to pick the correct one of the two
-                // possible normal directions — it has no bearing on the computed tilt.
+                // possible directions — it has no bearing on the computed tilt.
                 const upHintWorld = new Vec3(0, 1, 0);
                 const upHintLocal = new Vec3();
                 invWorldRoot.transformVector(upHintWorld, upHintLocal);
-                const q = computeLevelingRotation(
-                    new Vec3(...levelingPoints[0]),
-                    new Vec3(...levelingPoints[1]),
-                    new Vec3(...levelingPoints[2]),
-                    upHintLocal
-                );
+                const q =
+                    levelingKind === 'floor'
+                        ? computeLevelingRotation(
+                              new Vec3(...levelingPoints[0]),
+                              new Vec3(...levelingPoints[1]),
+                              new Vec3(...levelingPoints[2]),
+                              upHintLocal
+                          )
+                        : computeColumnAlignRotation(
+                              new Vec3(...levelingPoints[0]),
+                              new Vec3(...levelingPoints[1]),
+                              upHintLocal
+                          );
                 const euler = q.getEulerAngles();
                 applyRotation([euler.x, euler.y, euler.z]);
-                setLevelingMode(false);
+                setLevelingMode(null);
             } else {
                 renderHud();
                 renderLevelingUI();
