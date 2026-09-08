@@ -5,7 +5,12 @@
         "artist": "Luella Gehrke",
         "hometown": "Burnsville, MN",
         "description": "A round orange alarm clock face showing the time 11:11 AM in pink digital-style lettering.",
-        "photo": "PXL_20260907_003312360.jpg"
+        "photo": "PXL_20260907_003312360.jpg",
+        "position": [
+            -1.875779628753662,
+            0.344774454832077,
+            -2.398689031600952
+        ]
     },
     {
         "id": "1986-portrait",
@@ -17,7 +22,12 @@
         "id": "1986-2026-solidarity-forever",
         "title": "1986-2026: Solidarity Forever",
         "description": "A city skyline glows at night against a black background beneath the words \"1986-2026, Solidarity Forever.\"",
-        "photo": "PXL_20260907_002921155.jpg"
+        "photo": "PXL_20260907_002921155.jpg",
+        "position": [
+            1.8783988952636719,
+            0.2396543323993683,
+            -2.319920778274536
+        ]
     },
     {
         "id": "2026",
@@ -25,7 +35,12 @@
         "artist": "Smith",
         "hometown": "Saint Paul, MN",
         "description": "A fan-shaped badge in green and brown tones prominently displaying the number 2026.",
-        "photo": "PXL_20260907_002237650.jpg"
+        "photo": "PXL_20260907_002237650.jpg",
+        "position": [
+            1.5628559161858129,
+            -0.208862287102818,
+            2.5357563438473036
+        ]
     },
     {
         "id": "30-years-of-fargo",
@@ -411,7 +426,12 @@
         "id": "bug-ballet",
         "title": "Bug Ballet",
         "description": "An anthropomorphic insect dressed in a flowing red ballet costume dances on pointe, titled \"Bug Ballet.\"",
-        "photo": "PXL_20260907_002622906.jpg"
+        "photo": "PXL_20260907_002622906.jpg",
+        "position": [
+            3.981382131576538,
+            0.05139879137277603,
+            1.357833981513977
+        ]
     },
     {
         "id": "building-2007-2026",
@@ -457,7 +477,12 @@
         "title": "Car with Canoe",
         "hometown": "Minnetonka, MN",
         "description": "A colorful patchwork car carrying a red canoe strapped to its roof, driving through a birch forest.",
-        "photo": "PXL_20260907_002621723.jpg"
+        "photo": "PXL_20260907_002621723.jpg",
+        "position": [
+            3.692540407180786,
+            0.266128808259964,
+            1.5275059938430786
+        ]
     },
     {
         "id": "cat",
@@ -474,7 +499,12 @@
         "artist": "Raleigh Johnson",
         "hometown": "Minneapolis, MN",
         "description": "A minimalist tan cat face set against a patchwork of pink, white, and blue panels evoking the transgender pride flag.",
-        "photo": "PXL_20260907_002723793.jpg"
+        "photo": "PXL_20260907_002723793.jpg",
+        "position": [
+            3.8303534984588623,
+            0.022945469245314598,
+            -0.48414695262908936
+        ]
     },
     {
         "id": "cat-napping-on-books",
@@ -585,7 +615,12 @@
         "artist": "David Smeltzer",
         "hometown": "Minneapolis, MN",
         "description": "A close-up portrait of a black-and-white calf's face against a tan background.",
-        "photo": "PXL_20260907_002510207.jpg"
+        "photo": "PXL_20260907_002510207.jpg",
+        "position": [
+            2.6064302921295166,
+            0.06182180345058441,
+            2.0429370403289795
+        ]
     },
     {
         "id": "crap-art-vs-crop-art-know-the-difference",
@@ -640,7 +675,12 @@
         "hometown": "Minneapolis, MN",
         "description": "An irregularly-shaped piece depicting the Smithsonian's Renwick Gallery building, with a blue ribbon medallion and \"State Fairs\" banners worked into the facade, commemorating Minnesota crop art's exhibition there.",
         "ribbon": "Second Premium, Class 5 — Artistic, irregular forms, amateur",
-        "photo": "PXL_20260907_002737037.jpg"
+        "photo": "PXL_20260907_002737037.jpg",
+        "position": [
+            2.176677703857422,
+            0.2776015102863312,
+            2.2370872497558594
+        ]
     },
     {
         "id": "crop-art-not-slop-art",
@@ -1704,7 +1744,12 @@
         "id": "land-back-to-dakota-people",
         "title": "Return MN Owe... to Dakota People",
         "description": "A piece with a light green background and figures with dogs, bearing text about returning land to Dakota people.",
-        "photo": "PXL_20260907_003151398.jpg"
+        "photo": "PXL_20260907_003151398.jpg",
+        "position": [
+            -1.4312529563903809,
+            -0.43264782428741455,
+            -5.183134078979492
+        ]
     },
     {
         "id": "largest-bore-214-pounds",
@@ -2012,7 +2057,18 @@
         "title": "Minneapolis: The Ol' Slippery",
         "hometown": "Minneapolis, MN",
         "description": "A piece with a stylized skyline and waterfall motif and gold cursive lettering reading 'Minneapolis: The Ol' Slippery.'",
-        "photo": "PXL_20260907_001959694.jpg"
+        "photo": "PXL_20260907_001959694.jpg",
+        "position": [
+            -0.3403427302837372,
+            0.4278506934642792,
+            3.4242913722991943
+        ],
+        "photoCrop": [
+            0.6433333333333333,
+            0.4819881939454689,
+            0.3483333333333334,
+            0.19204217102514776
+        ]
     },
     {
         "id": "minnebar-20",
@@ -2029,11 +2085,17 @@
         "artist": "Lisa Engler",
         "hometown": "Minneapolis, MN",
         "description": "A decorative geometric-patterned piece titled 'Minnehaha Falls,' referencing the Minneapolis waterfall landmark.",
-        "photo": "PXL_20260907_001959694.jpg",
+        "photo": "PXL_20260907_002022492.jpg",
         "position": [
             -0.36390790343284607,
             0.2126462608575821,
             3.4193930625915527
+        ],
+        "photoCrop": [
+            0.235,
+            0.28618049015512215,
+            0.49,
+            0.562319559603047
         ]
     },
     {
@@ -3177,7 +3239,12 @@
         "artist": "Kristen Bywater",
         "hometown": "St. Paul, MN",
         "description": "A neon-sign-style piece spelling out \"Squirrels Squirrels Squirrels\" in glowing pink seed lettering against a dark background.",
-        "photo": "PXL_20260907_002755685.jpg"
+        "photo": "PXL_20260907_002755685.jpg",
+        "position": [
+            2.8460261821746826,
+            -0.1910756528377533,
+            -1.373050332069397
+        ]
     },
     {
         "id": "stardew-valley",
@@ -3218,7 +3285,12 @@
         "id": "stillwater-public-library",
         "title": "Stillwater Public Library",
         "description": "A small framed piece depicting the Stillwater Public Library building.",
-        "photo": "PXL_20260907_003036568.jpg"
+        "photo": "PXL_20260907_003036568.jpg",
+        "position": [
+            0.3546478603752061,
+            0.2866048812562635,
+            -3.699703441036199
+        ]
     },
     {
         "id": "stone-tunnel",
@@ -3685,7 +3757,12 @@
         "artist": "Lynn Perrin",
         "hometown": "Minneapolis, MN",
         "description": "A portrait of an orange tabby cat and a black cat sitting side by side.",
-        "photo": "PXL_20260907_003148932.jpg"
+        "photo": "PXL_20260907_003148932.jpg",
+        "position": [
+            -1.105070948600769,
+            -0.26885440945625305,
+            -4.954598903656006
+        ]
     },
     {
         "id": "two-pears",
@@ -3706,7 +3783,12 @@
         "artist": "Michelle Ciesielski",
         "hometown": "Detroit Lakes, MN",
         "description": "A postage-stamp-styled seed art piece with scalloped edges depicting a black rabbit silhouette, titled like a forever stamp reading 'USA Forever Rabbit.'",
-        "photo": "PXL_20260907_001751916.jpg"
+        "photo": "PXL_20260907_001751916.jpg",
+        "position": [
+            -1.6098875999450684,
+            0.01044150348752737,
+            4.036001205444336
+        ]
     },
     {
         "id": "valleyfair",
@@ -3765,7 +3847,18 @@
         "artist": "Brian Barber",
         "hometown": "Duluth, MN",
         "description": "A detailed illustration of a wasp or hornet rendered in seeds.",
-        "photo": "PXL_20260907_002017157.jpg"
+        "photo": "PXL_20260907_002017157.jpg",
+        "position": [
+            0.3483196321573683,
+            0.1972532075437973,
+            3.1029036471275475
+        ],
+        "photoCrop": [
+            0.8929443359375,
+            0.2606166657460703,
+            0.1070556640625,
+            0.22350526881170985
+        ]
     },
     {
         "id": "watch-the-queen-conquer",
@@ -3868,6 +3961,12 @@
             3.6465234756469727,
             -0.29013776779174805,
             1.5521310567855835
+        ],
+        "photoCrop": [
+            0.6516666666666666,
+            0.30751850915791634,
+            0.10666666666666669,
+            0.1179866933095679
         ]
     },
     {
