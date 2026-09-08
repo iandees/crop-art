@@ -136,7 +136,12 @@
         "artist": "Nora Deiman",
         "hometown": "St. Paul, MN",
         "description": "A detailed acoustic guitar rendered in brown and tan seeds against a gray background.",
-        "photo": "PXL_20260907_003257347.jpg"
+        "photo": "PXL_20260907_003257347.jpg",
+        "position": [
+            -1.8838087320327759,
+            0.5263089537620544,
+            -2.499826431274414
+        ]
     },
     {
         "id": "african-style-beaded-mask",
@@ -258,7 +263,12 @@
         "artist": "Maura McDaniel",
         "hometown": "Minneapolis, MN",
         "description": "A portrait of a dark-haired woman in an orange top labeled \"AOC\" above and \"2028\" below, a political commentary piece.",
-        "photo": "PXL_20260907_002237650.jpg"
+        "photo": "PXL_20260907_002237650.jpg",
+        "position": [
+            1.3593847751617432,
+            -0.1395108848810196,
+            2.6242122650146484
+        ]
     },
     {
         "id": "art-is-human",
@@ -367,7 +377,12 @@
         "id": "become-ungovernable",
         "title": "Become Ungovernable",
         "description": "A cat depicted alongside a paint roller under the phrase \"become ungovernable,\" a piece of protest-themed crop art.",
-        "photo": "PXL_20260907_003221555.jpg"
+        "photo": "PXL_20260907_003221555.jpg",
+        "position": [
+            -2.1946900169209105,
+            -0.3547869616617987,
+            -5.607119735945888
+        ]
     },
     {
         "id": "bee",
@@ -651,7 +666,12 @@
         "artist": "Autumn Schink",
         "hometown": "Maplewood, MN",
         "description": "A botanical piece depicting a creeping bellflower plant (Campanula rapunculoides), part of an invasive-species themed series.",
-        "photo": "PXL_20260907_002136984.jpg"
+        "photo": "PXL_20260907_002136984.jpg",
+        "position": [
+            0.7293422818183899,
+            0.34925130009651184,
+            2.9168500900268555
+        ]
     },
     {
         "id": "crescent-moon",
@@ -676,7 +696,18 @@
         "artist": "Tony Perkins",
         "hometown": "Roseville, MN",
         "description": "A brick building facade with an American flag, topped by a black ribbon-style sign reading CROP ART, rendered in a seed mosaic.",
-        "photo": "PXL_20260907_002136984.jpg"
+        "photo": "PXL_20260907_002136984.jpg",
+        "position": [
+            0.7976760268211365,
+            -0.07615677267313004,
+            2.883376121520996
+        ],
+        "photoCrop": [
+            0.7283333333333334,
+            0.25856658321032966,
+            0.18499999999999994,
+            0.13627042641793352
+        ]
     },
     {
         "id": "crop-art-at-the-smithsonian",
@@ -1262,7 +1293,12 @@
         "artist": "Kim Morris & Emeline Rogers",
         "hometown": "Crystal, MN",
         "description": "A raised-fist protest symbol piece referencing general labor strikes.",
-        "photo": "PXL_20260907_003217387.jpg"
+        "photo": "PXL_20260907_003217387.jpg",
+        "position": [
+            -2.002490282058716,
+            -0.5102289319038391,
+            -5.72043514251709
+        ]
     },
     {
         "id": "georgian-bouquet-1945",
@@ -1384,7 +1420,12 @@
         "id": "hackensack",
         "title": "Hackensack",
         "description": "An arch-shaped piece depicting a woman in a vintage striped dress at sunset, labeled 'Hackensack,' a Minnesota town.",
-        "photo": "PXL_20260907_003035592.jpg"
+        "photo": "PXL_20260907_003035592.jpg",
+        "position": [
+            0.45748236775398254,
+            0.2686249613761902,
+            -3.6003880500793457
+        ]
     },
     {
         "id": "handprint",
@@ -1406,7 +1447,12 @@
         "artist": "Priya Sury",
         "hometown": "Minneapolis, MN",
         "description": "A soaring eagle silhouette set against a glowing orange sunset, an irregularly-shaped piece captioned \"Healing demands truth.\"",
-        "photo": "PXL_20260907_002734933.jpg"
+        "photo": "PXL_20260907_002734933.jpg",
+        "position": [
+            3.4121756553649902,
+            -0.5805632472038269,
+            -0.8101289868354797
+        ]
     },
     {
         "id": "heart-face",
@@ -1429,7 +1475,12 @@
         "id": "hedgehog-with-mushroom-cap",
         "title": "Hedgehog with Mushroom Cap",
         "description": "A whimsical piece depicting a hedgehog wearing a spotted mushroom cap, set against an orange background.",
-        "photo": "PXL_20260907_003148932.jpg"
+        "photo": "PXL_20260907_003148932.jpg",
+        "position": [
+            -0.9164873361587524,
+            -0.027753936126828194,
+            -4.819601058959961
+        ]
     },
     {
         "id": "hello-kitty",
@@ -1451,7 +1502,12 @@
         "hometown": "Roseville, MN",
         "description": "A large bird shown in profile with wings spread, rendered as a mosaic of tiny tan and brown seed tesserae in the style of an ancient Roman mosaic. The piece earned a Third Premium ribbon.",
         "ribbon": "Fifth Premium, Class 9 — Artistic, dried natural plant parts, amateur",
-        "photo": "PXL_20260907_003313868.jpg"
+        "photo": "PXL_20260907_003313868.jpg",
+        "position": [
+            -1.7318933010101318,
+            0.2738874554634094,
+            -2.1069509983062744
+        ]
     },
     {
         "id": "highland-friendship-club",
@@ -1900,7 +1956,12 @@
         "artist": "Julie Fischer",
         "hometown": "Saint Paul, MN",
         "description": "Two blonde women exchange the memorable \"Fargo\" line \"Like I say, he was funny looking. More than most people even,\" one of them cradling a small black cat.",
-        "photo": "PXL_20260907_002940931.jpg"
+        "photo": "PXL_20260907_002940931.jpg",
+        "position": [
+            1.489170789718628,
+            -0.28263914585113525,
+            -2.6264498233795166
+        ]
     },
     {
         "id": "lion-portrait",
@@ -1958,7 +2019,12 @@
         "artist": "Nora Kujawski",
         "hometown": "Minneapolis, MN",
         "description": "A textured seed portrait of a loon swimming, set in a rustic bark-look frame.",
-        "photo": "PXL_20260907_003312360.jpg"
+        "photo": "PXL_20260907_003312360.jpg",
+        "position": [
+            -1.9870973825454712,
+            0.13897107541561127,
+            -2.4045181274414062
+        ]
     },
     {
         "id": "loon-in-a-space-helmet",
@@ -1967,7 +2033,12 @@
         "hometown": "Mesa, AZ",
         "description": "A whimsical loon wearing a diving or space helmet, entered in the Out of State division.",
         "ribbon": "Fifth Premium, Class 22 — Out of state resident, age 17 and up",
-        "photo": "PXL_20260907_003223110.jpg"
+        "photo": "PXL_20260907_003223110.jpg",
+        "position": [
+            -2.085428476333618,
+            -0.17573007941246033,
+            -5.834314823150635
+        ]
     },
     {
         "id": "loon-in-flight",
@@ -2374,7 +2445,12 @@
         "artist": "Judy Bergsgaard",
         "hometown": "Chaska, MN",
         "description": "A portrait of a white bull terrier with a brown ear patch and a 'Woof' name tag, captioned 'My bark is worse than my bite.'",
-        "photo": "PXL_20260907_001815101.jpg"
+        "photo": "PXL_20260907_001815101.jpg",
+        "position": [
+            -1.4343618154525757,
+            0.39674219489097595,
+            3.9558215141296387
+        ]
     },
     {
         "id": "my-neighbor-minnesototoro",
@@ -2770,7 +2846,12 @@
         "artist": "Emma Winegar",
         "hometown": "Madison, WI",
         "description": "A multi-panel comic-strip style seed piece depicting a DNA double helix, a basketball, and a group gathering, telling the story of a bachelor party.",
-        "photo": "PXL_20260907_003215897.jpg"
+        "photo": "PXL_20260907_003215897.jpg",
+        "position": [
+            -1.6496849060058594,
+            0.13137175142765045,
+            -5.4966864585876465
+        ]
     },
     {
         "id": "pink-blossom",
@@ -2829,7 +2910,12 @@
         "hometown": "St. Joseph, MN",
         "description": "A whimsical satirical scene of a cow-headed figure in a trench coat presenting a wedge of cheese to a crowned woman, referencing the British royal family. The piece won a First Premium ribbon.",
         "ribbon": "First Premium, Class 4 — Artistic, dyed or painted, advanced",
-        "photo": "PXL_20260907_003416973.jpg"
+        "photo": "PXL_20260907_003416973.jpg",
+        "position": [
+            -0.6491435766220093,
+            0.2524236738681793,
+            0.3439156413078308
+        ]
     },
     {
         "id": "profile-in-courage-2026",
@@ -2863,11 +2949,17 @@
         "title": "Proud as a Loon",
         "hometown": "Roseville, MN",
         "description": "A circular blue plaque featuring a spotted loon and two starbursts beneath the punning phrase \"Proud as a Loon.\"",
-        "photo": "PXL_20260907_002525165.jpg",
+        "photo": "PXL_20260907_002550472.jpg",
         "position": [
             3.369694948196411,
             0.1804414540529251,
             1.647559404373169
+        ],
+        "photoCrop": [
+            0.635,
+            0.5572988492494484,
+            0.2366666666666667,
+            0.18325592790635015
         ]
     },
     {
@@ -2977,7 +3069,12 @@
         "artist": "Brenda Butler",
         "hometown": "Minneapolis, MN",
         "description": "A portrait of a bespectacled woman with dark hair, one hand raised, evoking Ruth Bader Ginsburg.",
-        "photo": "PXL_20260907_002237650.jpg"
+        "photo": "PXL_20260907_002237650.jpg",
+        "position": [
+            1.2588820457458496,
+            -0.136124387383461,
+            2.6857361793518066
+        ]
     },
     {
         "id": "rebel-loon",
@@ -3483,7 +3580,12 @@
         "title": "Structurist (Charles Biederman)",
         "hometown": "Minneapolis, MN",
         "description": "A Senior Citizens Crop Art tribute to Minnesota modernist artist Charles Biederman, using bold red, black, and cream geometric shapes in a Structurist style.",
-        "photo": "PXL_20260907_003315217.jpg"
+        "photo": "PXL_20260907_003315217.jpg",
+        "position": [
+            -1.6647918224334717,
+            0.45499563217163086,
+            -2.209766387939453
+        ]
     },
     {
         "id": "stupid-canadian-wolf-x-bird",
@@ -3513,7 +3615,12 @@
         "artist": "Mary Comfort",
         "hometown": "Minneapolis, MN",
         "description": "A cartoonish ram's face peers out from the center of a large orange sunflower, its petals doubling as the animal's mane.",
-        "photo": "PXL_20260907_002739375.jpg"
+        "photo": "PXL_20260907_002739375.jpg",
+        "position": [
+            3.25534725189209,
+            -0.6207202076911926,
+            -0.9739828705787659
+        ]
     },
     {
         "id": "sunflowers",
@@ -3625,6 +3732,12 @@
             3.822890520095825,
             -0.013543827459216118,
             1.4583617448806763
+        ],
+        "photoCrop": [
+            0.4216666666666667,
+            0.5045813905366627,
+            0.15666666666666668,
+            0.1631730864919556
         ]
     },
     {
@@ -3955,6 +4068,12 @@
             0.9450244903564453,
             0.3777155578136444,
             2.803128719329834
+        ],
+        "photoCrop": [
+            0.4766666666666667,
+            0.573616157898644,
+            0.17166666666666663,
+            0.1242625812515662
         ]
     },
     {
@@ -4034,10 +4153,10 @@
             3.1029036471275475
         ],
         "photoCrop": [
-            0.8929443359375,
-            0.2606166657460703,
-            0.1070556640625,
-            0.22350526881170985
+            0.8533333333333334,
+            0.19831805896714605,
+            0.1466666666666666,
+            0.34015312645630746
         ]
     },
     {
@@ -4159,6 +4278,12 @@
             -1.464464783668518,
             0.5386272072792053,
             -1.6551454067230225
+        ],
+        "photoCrop": [
+            0.43833333333333335,
+            0.665244121851819,
+            0.18666666666666665,
+            0.17321450719915288
         ]
     },
     {
@@ -4367,7 +4492,12 @@
         "artist": "Julie Baumeister",
         "hometown": "Bloomington, MN",
         "description": "A circular patch-style piece urging voter turnout with folksy Minnesota phrasing.",
-        "photo": "PXL_20260907_003217387.jpg"
+        "photo": "PXL_20260907_003217387.jpg",
+        "position": [
+            -1.9708908796310425,
+            -0.3116716146469116,
+            -5.720837593078613
+        ]
     },
     {
         "id": "ye-old-mill",
