@@ -1,0 +1,4107 @@
+[
+    {
+        "id": "11-11-am",
+        "title": "11:11 AM",
+        "artist": "Luella Gehrke",
+        "hometown": "Burnsville, MN",
+        "description": "A round orange alarm clock face showing the time 11:11 AM in pink digital-style lettering.",
+        "photo": "PXL_20260907_003312360.jpg"
+    },
+    {
+        "id": "1986-portrait",
+        "title": "1986 Portrait",
+        "description": "A high-contrast red and black portrait of a man's face with '1986' worked into the piece, apparently a tribute to a 1986 film.",
+        "photo": "PXL_20260907_003015698.jpg"
+    },
+    {
+        "id": "1986-2026-solidarity-forever",
+        "title": "1986-2026: Solidarity Forever",
+        "description": "A city skyline glows at night against a black background beneath the words \"1986-2026, Solidarity Forever.\"",
+        "photo": "PXL_20260907_002921155.jpg"
+    },
+    {
+        "id": "2026",
+        "title": "2026",
+        "artist": "Smith",
+        "hometown": "Saint Paul, MN",
+        "description": "A fan-shaped badge in green and brown tones prominently displaying the number 2026.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "30-years-of-fargo",
+        "title": "30 Years of Fargo",
+        "artist": "Lily Krigelski",
+        "hometown": "Plymouth, MN",
+        "description": "A dark, textured piece marking the film \"Fargo\"'s 30th anniversary, worked in black, orange, and gold fringed seeds.",
+        "photo": "PXL_20260907_002940931.jpg"
+    },
+    {
+        "id": "50-years-of-jolene",
+        "title": "50 Years of Jolene",
+        "artist": "Marta Shore",
+        "hometown": "Saint Paul, MN",
+        "description": "A seed-art portrait of Dolly Parton seated cross-legged, surrounded by hand-lettered lyric excerpts, marking the 50th anniversary of 'Jolene' and featuring 'I Will Always Love You.'",
+        "photo": "PXL_20260907_001503902.jpg"
+    },
+    {
+        "id": "89-3-the-current",
+        "title": "89.3 The Current",
+        "artist": "Hayley Karl",
+        "hometown": "Saint Paul, MN",
+        "description": "A birch-forest scene with '89.3' and 'the current' worked into the tree trunks, honoring the Minnesota radio station.",
+        "photo": "PXL_20260907_003036568.jpg"
+    },
+    {
+        "id": "a-mother-s-love-no-guarantees",
+        "title": "A Mother's Love (No Guarantees)",
+        "artist": "Kate Davis",
+        "hometown": "Minneapolis, MN",
+        "description": "A hypodermic syringe labeled IVF beside the words \"A Mother's Love... No Guarantees,\" referencing fertility treatment.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "a-study-in-extinction-dodos-quinoa",
+        "title": "A Study in Extinction: Dodos & Quinoa",
+        "artist": "Steve & Amy Saupe",
+        "hometown": "Saint Paul, MN",
+        "description": "A piece depicting Alice from Alice in Wonderland conversing with a dodo bird, part of a series titled 'A Study in Extinction: Dodos & Quinoa' using black, red, and white quinoa.",
+        "ribbon": "First Premium, Class 23 — Group, Organization or Team (classes 1-16)",
+        "photo": "PXL_20260907_003151398.jpg"
+    },
+    {
+        "id": "a-sunday-afternoon-after-seurat",
+        "title": "A Sunday Afternoon (after Seurat)",
+        "artist": "Maureen Sorensen",
+        "hometown": "Prior Lake, MN",
+        "description": "A pointillist recreation of Georges Seurat's famous park scene, rendered entirely in tiny colored seeds standing in for the painting's dots of paint.",
+        "ribbon": "Third Premium, Class 2 — Artistic, natural colors, advanced",
+        "photo": "PXL_20260907_003416973.jpg",
+        "position": [
+            -0.5074661374092102,
+            0.25732260942459106,
+            0.5897160172462463
+        ]
+    },
+    {
+        "id": "abolish-ice",
+        "title": "Abolish ICE",
+        "artist": "Laura Melnick",
+        "hometown": "St. Paul, MN",
+        "description": "A mother duck leads three ducklings past a sign reading 'ICE,' with the words 'Abolish ICE' at top, rendered in a warm palette of tan and green seeds.",
+        "photo": "PXL_20260907_003404215.jpg",
+        "position": [
+            -0.7851771712303162,
+            0.0023154534865170717,
+            0.1056082472205162
+        ]
+    },
+    {
+        "id": "abundancia",
+        "title": "Abundancia",
+        "description": "A piece depicting a cornucopia overflowing with autumn produce, captioned 'Abundancia.'",
+        "photo": "PXL_20260907_003132341.jpg"
+    },
+    {
+        "id": "acorn-earrings",
+        "title": "Acorn Earrings",
+        "artist": "Amy Saupe",
+        "hometown": "Saint Paul, MN",
+        "description": "A pair of dangling earrings crafted from tiny acorns.",
+        "ribbon": "Fourth Premium, Class 16 — Wearable crop art, advanced",
+        "photo": "PXL_20260907_003416973.jpg"
+    },
+    {
+        "id": "acoustic-guitar",
+        "title": "Acoustic Guitar",
+        "artist": "Nora Deiman",
+        "hometown": "St. Paul, MN",
+        "description": "A detailed acoustic guitar rendered in brown and tan seeds against a gray background.",
+        "photo": "PXL_20260907_003257347.jpg"
+    },
+    {
+        "id": "african-style-beaded-mask",
+        "title": "African-Style Beaded Mask",
+        "description": "A carved-looking ceremonial mask with a tribal pattern in blue, tan, and black seeds, accented with dried feathers along its edges.",
+        "photo": "PXL_20260907_003324500.jpg"
+    },
+    {
+        "id": "agent-down",
+        "title": "Agent Down!",
+        "artist": "Annie Russell-Pribnow",
+        "hometown": "Minneapolis, MN",
+        "description": "A blue piece depicting an ICE agent falling backward amid stars, hearts, and balloons, captioned 'Agent Down!'",
+        "ribbon": "Fifth Premium, Class 17 — Artistic, novice",
+        "photo": "PXL_20260907_003101233.jpg",
+        "position": [
+            -0.19627165142850234,
+            0.06789070713121682,
+            -4.167837280201513
+        ]
+    },
+    {
+        "id": "ai-is-making-me-sad",
+        "title": "AI Is Making Me Sad",
+        "artist": "Sara Dowling",
+        "description": "Olive-green cursive-style lettering on a tan background reading \"AI is making me sad.\"",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "ain-t-no-money-in-crop-art",
+        "title": "Ain't No Money in Crop Art",
+        "artist": "Teresa Anderson",
+        "hometown": "St. Paul, MN",
+        "description": "A text piece reading 'Ain't no money in crop art, that's what sets the crop artist free,' accompanied by a small monarch butterfly.",
+        "ribbon": "Fifth Premium, Class 4 — Artistic, dyed or painted, advanced",
+        "photo": "PXL_20260907_003415723.jpg",
+        "position": [
+            -0.42061713337898254,
+            0.42161625623703003,
+            0.5502020120620728
+        ]
+    },
+    {
+        "id": "alice-in-wonderland",
+        "title": "Alice in Wonderland",
+        "artist": "Roberta Steele",
+        "hometown": "Golden Valley, MN",
+        "description": "A brightly colored seed portrait of Alice from Alice in Wonderland, depicted in a black outlined dress against a patterned background.",
+        "photo": "PXL_20260907_003157758.jpg"
+    },
+    {
+        "id": "america-250-justice-for-all",
+        "title": "America 250 / Justice for All",
+        "artist": "Jill Osiecki",
+        "hometown": "Eagan, MN",
+        "description": "A bald eagle grasping a banner reading 'Justice for All,' beneath a ribbon reading 'America 250: Rooted in Freedom, Sown in Liberty,' made as a special-occasion piece marking the nation's 250th anniversary.",
+        "ribbon": "First Premium, Class 1 — Artistic, natural colors, amateur",
+        "photo": "PXL_20260907_001744003.jpg",
+        "position": [
+            -1.8958115577697754,
+            0.46598953008651733,
+            4.15084981918335
+        ]
+    },
+    {
+        "id": "american-girls-protect-their-neighbors",
+        "title": "American Girls Protect Their Neighbors",
+        "artist": "Alisha Anderson",
+        "hometown": "Plymouth, MN",
+        "description": "A vintage-seed-sack-style illustration of a Raggedy Ann-like girl in a banner reading \"American Girls Protect Their Neighbors,\" bordered with butterflies and flowers.",
+        "photo": "PXL_20260907_002525165.jpg",
+        "position": [
+            3.212820529937744,
+            -0.2144194394350052,
+            1.750504493713379
+        ]
+    },
+    {
+        "id": "among-us",
+        "title": "Among Us",
+        "hometown": "Shoreview, MN",
+        "description": "A red \"Among Us\" video game character rendered in seeds against a black background with yellow lettering.",
+        "photo": "PXL_20260907_003213406.jpg",
+        "position": [
+            -1.5478543043136597,
+            0.18443016707897186,
+            -5.409436225891113
+        ]
+    },
+    {
+        "id": "angry-bird",
+        "title": "Angry Bird",
+        "artist": "Elizabeth Butler",
+        "hometown": "Maple Grove, MN",
+        "description": "A close-up head portrait of a blue bird with a fierce, annoyed expression, hand-labeled 'Angry Bird.'",
+        "photo": "PXL_20260907_003415723.jpg"
+    },
+    {
+        "id": "antifa-waldo",
+        "title": "Antifa Waldo",
+        "artist": "Sharon Stiteler",
+        "hometown": "St Louis Park, MN",
+        "description": "A portrait of musician Jeremy Messersmith reimagined as Where's Waldo, wearing his red-and-white striped shirt and cap and haloed by a white starburst, with the title spelled out in seed lettering below.",
+        "photo": "PXL_20260907_002512614.jpg",
+        "position": [
+            3.578843832015991,
+            -0.4701302647590637,
+            1.5575355291366577
+        ]
+    },
+    {
+        "id": "aoc-2028",
+        "title": "AOC 2028",
+        "artist": "Maura McDaniel",
+        "hometown": "Minneapolis, MN",
+        "description": "A portrait of a dark-haired woman in an orange top labeled \"AOC\" above and \"2028\" below, a political commentary piece.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "art-is-human",
+        "title": "Art Is Human",
+        "description": "A Shepard Fairey-style propaganda poster piece depicting a swan in sunburst rays with the caption 'Art Is Human.'",
+        "photo": "PXL_20260907_003034228.jpg",
+        "position": [
+            0.11782661080360413,
+            -0.5258128046989441,
+            -3.7837791442871094
+        ]
+    },
+    {
+        "id": "at-last-my-seeds-have-stopped-being-afraid-to-grow",
+        "title": "At Last My Seeds Have Stopped Being Afraid to Grow",
+        "artist": "Dash Wasserman",
+        "hometown": "Minneapolis, MN",
+        "description": "A piece depicting a plant sprouting among cattails, captioned 'At last my seeds have stopped being afraid to grow.'",
+        "photo": "PXL_20260907_003131301.jpg"
+    },
+    {
+        "id": "at-mia-i-dig-modigliani",
+        "title": "At MIA I Dig Modigliani",
+        "artist": "Joel Alter",
+        "hometown": "Mankato, MN",
+        "description": "A portrait in the elongated, mask-like style of painter Amedeo Modigliani, titled 'At MIA I Dig Modigliani,' referencing the Minneapolis Institute of Art.",
+        "photo": "PXL_20260907_002001119.jpg",
+        "position": [
+            -0.31189361214637756,
+            -0.18276949226856232,
+            3.4154534339904785
+        ]
+    },
+    {
+        "id": "auburn-war-eagle",
+        "title": "Auburn War Eagle",
+        "description": "A piece depicting the Auburn University 'AU' logo in navy and orange.",
+        "photo": "PXL_20260907_003126159.jpg"
+    },
+    {
+        "id": "b-eye-deer-rebus",
+        "title": "B+ Eye Deer Rebus",
+        "artist": "Craig Neff",
+        "hometown": "Shoreview, MN",
+        "description": "A punning rebus-style piece combining the symbols \"B+,\" an eye, a deer, and a hay bale labeled \"4,000 LBS.\"",
+        "photo": "PXL_20260907_003211460.jpg"
+    },
+    {
+        "id": "bad-seed-squirrel",
+        "title": "Bad Seed Squirrel",
+        "description": "A cartoon squirrel clutching an acorn beneath the tagline \"1 in 5 squirrels steals nuts,\" a tongue-in-cheek \"Bad Seed Squirrel\" badge.",
+        "photo": "PXL_20260907_002755685.jpg"
+    },
+    {
+        "id": "barn-owl",
+        "title": "Barn Owl Portrait",
+        "artist": "Mary Doyle",
+        "hometown": "Minneapolis, MN",
+        "description": "A close-up portrait of a barn owl rendered in shades of tan and brown seeds, capturing the bird's heart-shaped face and speckled plumage. The piece won a First Premium ribbon at the fair.",
+        "ribbon": "First Premium, Class 18 — Senior citizen, age 60 and up, amateur",
+        "photo": "PXL_20260907_003313868.jpg"
+    },
+    {
+        "id": "beach-sunset",
+        "title": "Beach Sunset",
+        "artist": "Micah McBroom",
+        "hometown": "Oakdale, MN",
+        "description": "A tropical beach scene at sunset with a silhouetted palm tree, rendered in warm orange and black seeds.",
+        "ribbon": "Fourth Premium, Class 20 — Junior, age 13-16",
+        "photo": "PXL_20260907_003257347.jpg"
+    },
+    {
+        "id": "beaded-collar",
+        "title": "Beaded Collar",
+        "artist": "Liz Schreiber",
+        "hometown": "Minneapolis, MN",
+        "description": "A wearable ceremonial-style collar made of rows of cream, brown, and dark seeds strung in a beaded pattern.",
+        "ribbon": "First Premium, Class 2 — Artistic, natural colors, advanced",
+        "photo": "PXL_20260907_003416973.jpg"
+    },
+    {
+        "id": "beagle-portrait",
+        "title": "Beagle Portrait",
+        "artist": "Cori Yee",
+        "hometown": "Hastings, MN",
+        "description": "A close-up portrait of a beagle wearing a red collar, rendered in brown and tan seeds.",
+        "photo": "PXL_20260907_001815101.jpg"
+    },
+    {
+        "id": "bean",
+        "title": "Bean",
+        "artist": "Adam Winer",
+        "hometown": "Afton, MN",
+        "description": "A piece depicting a black cat sitting on a fence post against an orange sky, captioned 'Bean.'",
+        "photo": "PXL_20260907_003131301.jpg"
+    },
+    {
+        "id": "beauty-queen",
+        "title": "Beauty Queen",
+        "artist": "Kat Regas",
+        "hometown": "Minneapolis, MN",
+        "description": "A smiling blonde woman wearing a rhinestone tiara and pageant sash against a purple background.",
+        "photo": "PXL_20260907_002403274.jpg"
+    },
+    {
+        "id": "become-ungovernable",
+        "title": "Become Ungovernable",
+        "description": "A cat depicted alongside a paint roller under the phrase \"become ungovernable,\" a piece of protest-themed crop art.",
+        "photo": "PXL_20260907_003221555.jpg"
+    },
+    {
+        "id": "bee",
+        "title": "Bee",
+        "hometown": "Apple Valley, MN",
+        "description": "A bee with striped yellow and black body and pale blue wings, rendered in painted seed mosaic.",
+        "photo": "PXL_20260907_002513772.jpg"
+    },
+    {
+        "id": "beetlejuice",
+        "title": "Beetlejuice",
+        "artist": "Allison Vogel",
+        "hometown": "Burnsville, MN",
+        "description": "The ghost with the most grins from within an ornate purple oval frame decorated with green scrollwork, in his classic black-and-white striped suit.",
+        "photo": "PXL_20260907_002943414.jpg"
+    },
+    {
+        "id": "birch-grove",
+        "title": "Birch Grove",
+        "artist": "Alice Darling",
+        "hometown": "Minneapolis, MN",
+        "description": "An abstract composition of dark tree trunks against pale birch-bark-colored stripes, rendered entirely in natural seed tones.",
+        "photo": "PXL_20260907_003325978.jpg"
+    },
+    {
+        "id": "black-dog-portrait",
+        "title": "Black Dog Portrait",
+        "artist": "Raquel LaRocca",
+        "hometown": "Minneapolis, MN",
+        "description": "A close portrait of a black and white dog against an orange background.",
+        "photo": "PXL_20260907_003148932.jpg"
+    },
+    {
+        "id": "black-swallowtail-butterfly",
+        "title": "Black Swallowtail Butterfly",
+        "artist": "Danielle Fortier",
+        "hometown": "Minneapolis, MN",
+        "description": "A portrait of a black swallowtail butterfly.",
+        "ribbon": "Second Premium, Class 7 — Artistic, flat surface arrangements, amateur",
+        "photo": "PXL_20260907_002054835.jpg"
+    },
+    {
+        "id": "blue-star-quilt-block",
+        "title": "Blue Star Quilt Block",
+        "artist": "Libby Larson",
+        "hometown": "Grand Marais, MN",
+        "description": "A traditional eight-point star quilt block pattern rendered in shades of blue seeds with a white star center.",
+        "photo": "PXL_20260907_002621723.jpg"
+    },
+    {
+        "id": "bob",
+        "title": "Bob",
+        "artist": "Luna James",
+        "hometown": "Minneapolis, MN",
+        "description": "A Junior Crop Art piece depicting a Minion character named \"Bob\" in brown and tan seeds over a striped background.",
+        "photo": "PXL_20260907_003239293.jpg"
+    },
+    {
+        "id": "bowl-of-soup",
+        "title": "Bowl of Soup",
+        "hometown": "Minneapolis, MN",
+        "description": "A yellow scalloped-frame piece depicting a bowl of soup or stew with visible carrot pieces.",
+        "photo": "PXL_20260907_001815101.jpg"
+    },
+    {
+        "id": "bug-ballet",
+        "title": "Bug Ballet",
+        "description": "An anthropomorphic insect dressed in a flowing red ballet costume dances on pointe, titled \"Bug Ballet.\"",
+        "photo": "PXL_20260907_002622906.jpg"
+    },
+    {
+        "id": "building-2007-2026",
+        "title": "Building, 2007-2026",
+        "artist": "Kaela Reinardy",
+        "hometown": "St. Paul, MN",
+        "description": "A two-story brick storefront building at a street corner is depicted beneath blue sky, labeled with the dates \"2007-2026,\" suggesting a memorial to a closed business.",
+        "ribbon": "Second Premium, Class 13 — Seed and plant craft objects, amateur",
+        "photo": "PXL_20260907_002940063.jpg",
+        "position": [
+            2.2461650371551514,
+            -0.4090237021446228,
+            -1.901305913925171
+        ]
+    },
+    {
+        "id": "camouflaged-woodpecker-in-bark",
+        "title": "Camouflaged Woodpecker in Bark",
+        "artist": "Morgan Staley",
+        "hometown": "Minneapolis, MN",
+        "description": "A large wood-toned piece rendering a woodpecker so its plumage blends into textured tree bark.",
+        "photo": "PXL_20260907_003011108.jpg"
+    },
+    {
+        "id": "candlelight",
+        "title": "Candlelight",
+        "artist": "Leo Spanjers",
+        "hometown": "Saint Paul, MN",
+        "description": "A black-background piece featuring a glowing gold candle on a dark textured field.",
+        "photo": "PXL_20260907_003242389.jpg"
+    },
+    {
+        "id": "cannonball",
+        "title": "Cannonball!",
+        "artist": "Sivan Tratt",
+        "hometown": "Minneapolis, MN",
+        "description": "A lanky swimmer, arms and legs flung wide, leaps into a lake mid-cannonball against a cloudy sky, captioned \"Cannonball!\" below.",
+        "ribbon": "Third Premium, Class 23 — Group, Organization or Team (classes 1-16)",
+        "photo": "PXL_20260907_002512614.jpg"
+    },
+    {
+        "id": "car-with-canoe",
+        "title": "Car with Canoe",
+        "hometown": "Minnetonka, MN",
+        "description": "A colorful patchwork car carrying a red canoe strapped to its roof, driving through a birch forest.",
+        "photo": "PXL_20260907_002621723.jpg"
+    },
+    {
+        "id": "cat",
+        "title": "Cat",
+        "artist": "Marit Nelson",
+        "hometown": "Minneapolis, MN",
+        "description": "A seated Siamese-type cat rendered in cream and brown seeds against a rust-orange background.",
+        "ribbon": "First Premium, Class 20 — Junior, age 13-16",
+        "photo": "PXL_20260907_001635061.jpg"
+    },
+    {
+        "id": "cat-in-trans-pride-colors",
+        "title": "Cat in Trans Pride Colors",
+        "artist": "Raleigh Johnson",
+        "hometown": "Minneapolis, MN",
+        "description": "A minimalist tan cat face set against a patchwork of pink, white, and blue panels evoking the transgender pride flag.",
+        "photo": "PXL_20260907_002723793.jpg"
+    },
+    {
+        "id": "cat-napping-on-books",
+        "title": "Cat Napping on Books",
+        "artist": "Toni Merhar",
+        "hometown": "Shoreview, MN",
+        "description": "An orange tabby cat curled up asleep atop a stack of books, rendered in warm seed tones with a handwritten caption below.",
+        "photo": "PXL_20260907_002621723.jpg"
+    },
+    {
+        "id": "chickadee-portrait",
+        "title": "Chickadee Portrait",
+        "artist": "Kylie Petricka",
+        "hometown": "Faribault, MN",
+        "description": "A close-up portrait of a black-capped chickadee, rendered in a silver frame.",
+        "photo": "PXL_20260907_003016868.jpg"
+    },
+    {
+        "id": "christmas-stocking",
+        "title": "Christmas Stocking",
+        "artist": "Peter Stapp",
+        "hometown": "Saint Paul, MN",
+        "description": "A piece depicting a patterned Christmas stocking in warm browns and tans.",
+        "photo": "PXL_20260907_003148932.jpg"
+    },
+    {
+        "id": "city-buildings",
+        "title": "City Buildings",
+        "artist": "Ingrid Halvorsen",
+        "description": "A piece depicting a row of urban building facades.",
+        "photo": "PXL_20260907_002121846.jpg"
+    },
+    {
+        "id": "city-skyline",
+        "title": "City Skyline",
+        "description": "A colorful nighttime skyline piece featuring a pink castle-like building silhouetted against a dark sky.",
+        "photo": "PXL_20260907_001822673.jpg"
+    },
+    {
+        "id": "coffee",
+        "title": "Coffee",
+        "artist": "Aaron Lewis",
+        "hometown": "New Hope, MN",
+        "description": "A steaming white coffee mug set against a warm orange gradient background with a crescent moon and stars.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "coiled-snake",
+        "title": "Coiled Snake",
+        "artist": "Ezra Borchers",
+        "hometown": "Saint Paul, MN",
+        "description": "A brown coiled snake or cobra rendered in dark seeds against a light background.",
+        "photo": "PXL_20260907_003235647.jpg"
+    },
+    {
+        "id": "constellation-fish",
+        "title": "Constellation Fish",
+        "artist": "Clara Mabbott",
+        "hometown": "St. Paul, MN",
+        "description": "A blue-background piece connecting white seed dots into a constellation shape resembling a fish, with small text labels.",
+        "photo": "PXL_20260907_003312360.jpg"
+    },
+    {
+        "id": "copy-moon-joy",
+        "title": "Copy, Moon Joy",
+        "artist": "Katherine Kaye",
+        "hometown": "Minneapolis, MN",
+        "description": "A textured full moon rendered in pale beads and seeds against a dark stippled sky, with a playful title in blue lettering above.",
+        "photo": "PXL_20260907_002621723.jpg",
+        "position": [
+            3.388969659805298,
+            -0.30148687958717346,
+            1.6628516912460327
+        ]
+    },
+    {
+        "id": "corn",
+        "title": "Corn",
+        "artist": "Sarah Armstrong",
+        "hometown": "St Paul, MN",
+        "description": "A single ear of corn with golden kernels lying against dark furrowed soil.",
+        "photo": "PXL_20260907_002206786.jpg"
+    },
+    {
+        "id": "corn-in-the-usa",
+        "title": "Corn in the USA",
+        "artist": "Timothy Nelson",
+        "hometown": "Farmington, MN",
+        "description": "An American-flag-striped field crossed by a runner's silhouette, spelling \"CORN IN THE USA\" in kernel lettering.",
+        "photo": "PXL_20260907_002056264.jpg"
+    },
+    {
+        "id": "courage",
+        "title": "Courage",
+        "artist": "Jenny Starr",
+        "hometown": "St. Paul, MN",
+        "description": "Four figures stand atop a Minnesota-shaped silhouette holding a banner that reads \"Courage,\" set against a densely stippled dark crowd background.",
+        "photo": "PXL_20260907_002647184.jpg",
+        "position": [
+            4.0053887367248535,
+            -0.5886402726173401,
+            -0.26621562242507935
+        ]
+    },
+    {
+        "id": "cow",
+        "title": "Cow",
+        "artist": "David Smeltzer",
+        "hometown": "Minneapolis, MN",
+        "description": "A close-up portrait of a black-and-white calf's face against a tan background.",
+        "photo": "PXL_20260907_002510207.jpg"
+    },
+    {
+        "id": "crap-art-vs-crop-art-know-the-difference",
+        "title": "Crap Art vs Crop Art (Know the Difference)",
+        "artist": "Joel Alter",
+        "hometown": "Maplewood, MN",
+        "description": "A tongue-in-cheek diptych depicting a medieval-style joust between animal figures at a card table, contrasting sloppy 'crap art' with careful crop art, captioned 'Know the Difference!!'",
+        "photo": "PXL_20260907_003325978.jpg",
+        "position": [
+            -1.367214560508728,
+            0.2564581036567688,
+            -1.2900056838989258
+        ]
+    },
+    {
+        "id": "creeping-bellflower",
+        "title": "Creeping Bellflower",
+        "artist": "Autumn Schink",
+        "hometown": "Maplewood, MN",
+        "description": "A botanical piece depicting a creeping bellflower plant (Campanula rapunculoides), part of an invasive-species themed series.",
+        "photo": "PXL_20260907_002136984.jpg"
+    },
+    {
+        "id": "crescent-moon",
+        "title": "Crescent Moon",
+        "artist": "Amber Leick",
+        "hometown": "St. Paul, MN",
+        "description": "A textured piece depicting a cratered crescent moon in cream and tan seeds.",
+        "ribbon": "Third Premium, Class 1 — Artistic, natural colors, amateur",
+        "photo": "PXL_20260907_002001119.jpg"
+    },
+    {
+        "id": "critical-habitat",
+        "title": "Critical Habitat",
+        "artist": "Olivia Brennan",
+        "hometown": "White Bear Lake, MN",
+        "description": "A seed piece featuring a loon with legislative-style lettering referencing critical habitat protections.",
+        "photo": "PXL_20260907_003221555.jpg"
+    },
+    {
+        "id": "crop-art",
+        "title": "Crop Art",
+        "artist": "Tony Perkins",
+        "hometown": "Roseville, MN",
+        "description": "A brick building facade with an American flag, topped by a black ribbon-style sign reading CROP ART, rendered in a seed mosaic.",
+        "photo": "PXL_20260907_002136984.jpg"
+    },
+    {
+        "id": "crop-art-at-the-smithsonian",
+        "title": "Crop Art at the Smithsonian",
+        "artist": "Annie Wells",
+        "hometown": "Minneapolis, MN",
+        "description": "An irregularly-shaped piece depicting the Smithsonian's Renwick Gallery building, with a blue ribbon medallion and \"State Fairs\" banners worked into the facade, commemorating Minnesota crop art's exhibition there.",
+        "ribbon": "Second Premium, Class 5 — Artistic, irregular forms, amateur",
+        "photo": "PXL_20260907_002737037.jpg"
+    },
+    {
+        "id": "crop-art-not-slop-art",
+        "title": "Crop Art Not Slop \"Art\"",
+        "artist": "Mary Webber",
+        "hometown": "Minneapolis, MN",
+        "description": "Bright multicolored bubble lettering spelling out \"Crop Art not Slop 'Art.'\"",
+        "photo": "PXL_20260907_002436523.jpg"
+    },
+    {
+        "id": "crop-it-like-it-s-hot",
+        "title": "Crop It Like It's Hot",
+        "description": "An oval piece with a floral design captioned 'Crop It Like It's Hot.'",
+        "photo": "PXL_20260907_003126159.jpg"
+    },
+    {
+        "id": "crop-o-saurus",
+        "title": "Crop-o-Saurus",
+        "artist": "Katie Lingras",
+        "hometown": "Minneapolis, MN",
+        "description": "A green piece depicting a dinosaur, punningly titled 'Crop-o-Saurus.'",
+        "photo": "PXL_20260907_003128900.jpg"
+    },
+    {
+        "id": "crow-in-flight",
+        "title": "Crow in Flight",
+        "artist": "Betty Myers",
+        "hometown": "Apple Valley, MN",
+        "description": "A black crow with wings outstretched, rendered in dark seeds against a golden circular background.",
+        "photo": "PXL_20260907_003322849.jpg"
+    },
+    {
+        "id": "crow-in-the-field",
+        "title": "Crow in the Field",
+        "hometown": "Minneapolis, MN",
+        "description": "A crow standing in a golden wheat field beneath an orange sunset.",
+        "photo": "PXL_20260907_001908451.jpg"
+    },
+    {
+        "id": "csc-aviation-1949-2014",
+        "title": "CSC Aviation 1949-2014",
+        "artist": "David Markelon",
+        "hometown": "Brooklyn Park, MN",
+        "description": "A commemorative seed-art patch depicting a school aviation program's winged logo with the years 1949-2014.",
+        "photo": "PXL_20260907_002525165.jpg",
+        "position": [
+            3.096587896347046,
+            -0.541361391544342,
+            1.8204268217086792
+        ]
+    },
+    {
+        "id": "cupcake",
+        "title": "Cupcake",
+        "hometown": "Minneapolis, MN",
+        "description": "A frosted cupcake illustration set against an orange-striped background.",
+        "photo": "PXL_20260907_001815101.jpg"
+    },
+    {
+        "id": "cutter",
+        "title": "Cutter",
+        "artist": "Hans Bredeson",
+        "hometown": "St. Paul, MN",
+        "description": "A seed portrait of a fish (walleye) on a light blue background, with a small nameplate reading \"CUTTER.\"",
+        "photo": "PXL_20260907_003235647.jpg"
+    },
+    {
+        "id": "d-e-t-a-i-n-e-e",
+        "title": "D.E.T.A.I.N.E.E.",
+        "artist": "Joel Aller",
+        "hometown": "Maplewood, MN",
+        "description": "A protest piece spelling out the acronym \"Don't Ever Traumatize An Immigrant Nor Engender Evil\" in vertical letters beside a scene of a masked officer confronting a family.",
+        "photo": "PXL_20260907_002622906.jpg"
+    },
+    {
+        "id": "dahlia",
+        "title": "Dahlia",
+        "hometown": "Saint Paul, MN",
+        "description": "A close-up portrait of a dahlia flower in warm gold and rust tones.",
+        "photo": "PXL_20260907_002054835.jpg"
+    },
+    {
+        "id": "daisy",
+        "title": "Daisy",
+        "artist": "Autumn Schink",
+        "hometown": "Maplewood, MN",
+        "description": "A close-up portrait of a white daisy with a yellow center.",
+        "photo": "PXL_20260907_002054835.jpg"
+    },
+    {
+        "id": "dala-horse",
+        "title": "Swedish Dala Horse",
+        "artist": "Amy Carroll",
+        "hometown": "Circle Pines, MN",
+        "description": "A beige and brown seed rendering of a traditional Scandinavian dala horse figure.",
+        "photo": "PXL_20260907_003157758.jpg"
+    },
+    {
+        "id": "dante-for-3-big-ragu",
+        "title": "Dante for 3 (Big Ragu)",
+        "artist": "Jenny Kamerud",
+        "hometown": "Saint Louis Park, MN",
+        "description": "A piece pairing a jar of 'Big Ragu' pasta sauce with a basketball hoop, punning on a player's three-point shot.",
+        "photo": "PXL_20260907_003034228.jpg"
+    },
+    {
+        "id": "darwin-mn-twine-ball-gazebo",
+        "title": "Darwin, MN (Twine Ball Gazebo)",
+        "artist": "Maureen Sorensen",
+        "hometown": "Prior Lake, MN",
+        "description": "A depiction of the giant twine ball housed under its open gazebo roof in Darwin, Minnesota, rendered in dried natural plant fibers.",
+        "ribbon": "Third Premium, Class 2 — Artistic, natural colors, advanced",
+        "photo": "PXL_20260907_003344476.jpg"
+    },
+    {
+        "id": "david-hockney",
+        "title": "David Hockney",
+        "hometown": "Minneapolis, MN",
+        "description": "A tribute portrait of painter David Hockney, shown wearing glasses beside a smaller inset image, in a Hockney-inspired collage style.",
+        "photo": "PXL_20260907_002206786.jpg"
+    },
+    {
+        "id": "dean-mary-60-years",
+        "title": "Dean & Mary, 60 Years",
+        "artist": "Amy Carroll",
+        "hometown": "Circle Pines, MN",
+        "description": "A ribbon-and-banner design celebrates a couple's 60th anniversary, reading \"Dean & Mary, Since 1966, Minnesota Get-Together.\"",
+        "photo": "PXL_20260907_002921155.jpg"
+    },
+    {
+        "id": "dean-s-mart-60-years",
+        "title": "Dean's Mart, 60 Years",
+        "description": "A vintage-style green and gold badge with a starburst ribbon reads \"Dean's Mart, 60 Years, Overserved Minnesota.\"",
+        "photo": "PXL_20260907_002849234.jpg"
+    },
+    {
+        "id": "declaration-at-250",
+        "title": "Declaration at 250",
+        "artist": "Sam Rockwell",
+        "hometown": "Minneapolis, MN",
+        "description": "A piece styled after aged parchment lists grievances from the Declaration of Independence — quartering troops and mock trials — framed by a flag and the years 1776 and 2026.",
+        "photo": "PXL_20260907_002920193.jpg"
+    },
+    {
+        "id": "declaration-then-now",
+        "title": "Declaration: Then & Now",
+        "artist": "Elizabeth Koele",
+        "hometown": "Saint Paul, MN",
+        "description": "The opening lines of the Declaration of Independence, \"In Congress, July 4, 1776,\" are rendered in cursive-style seedwork, captioned \"250 Years, Remember Our Declaration.\"",
+        "ribbon": "Third Premium, Class 11 — Special occasion, amateur",
+        "photo": "PXL_20260907_002921155.jpg"
+    },
+    {
+        "id": "did-you-pass-your-medicare-test",
+        "title": "Did You Pass Your Medicare Test?",
+        "description": "A scalloped plaque asking \"Did you pass your Medicare test?\" with a small smiley face, in cream and dark brown seeds.",
+        "photo": "PXL_20260907_002647184.jpg"
+    },
+    {
+        "id": "dinner",
+        "title": "Dinner!",
+        "artist": "Sabrina Mountain",
+        "hometown": "Shakopee, MN",
+        "description": "An action-comic style piece showing a blue-haired character smashing open a treasure chest, with the exclamation \"DINNER!\" and an orange starburst background.",
+        "photo": "PXL_20260907_003244153.jpg",
+        "position": [
+            -2.3619112968444824,
+            0.37790143489837646,
+            -3.515777111053467
+        ]
+    },
+    {
+        "id": "dolores-si-se-puede",
+        "title": "Dolores (Si Se Puede)",
+        "artist": "Juventino Meza",
+        "hometown": "Minneapolis, MN",
+        "description": "A portrait of labor leader Dolores Huerta against a teal background, with her name above and the rallying cry \"Si Se Puede\" below.",
+        "photo": "PXL_20260907_002647184.jpg",
+        "position": [
+            4.186026573181152,
+            -0.6161457300186157,
+            -0.14261464774608612
+        ]
+    },
+    {
+        "id": "don-t-obey",
+        "title": "Don't Obey",
+        "artist": "Casey Bissener",
+        "hometown": "Saint Paul, MN",
+        "description": "A stylized frog face piece captioned 'Don't Obey,' displayed with a 'Frogs Against Fascism' badge.",
+        "photo": "PXL_20260907_001751916.jpg",
+        "position": [
+            -1.099039077758789,
+            0.15431487560272217,
+            3.781216859817505
+        ]
+    },
+    {
+        "id": "dove-in-purple",
+        "title": "Dove in Purple",
+        "artist": "Nancy Rzeszutek",
+        "hometown": "Minneapolis, MN",
+        "description": "A stylized purple-toned scene of silhouetted dancing figures alongside a white dove in flight.",
+        "ribbon": "Second Premium, Class 6 — Artistic, irregular forms, advanced",
+        "photo": "PXL_20260907_003415723.jpg"
+    },
+    {
+        "id": "dove-over-sunset-landscape",
+        "title": "Dove Over Sunset Landscape",
+        "artist": "Phill Sinykin",
+        "hometown": "Minnetonka, MN",
+        "description": "A large piece depicting a white dove in flight over a golden sunset landscape with trees and a winding path.",
+        "photo": "PXL_20260907_003016868.jpg"
+    },
+    {
+        "id": "dragonflies",
+        "title": "Dragonflies",
+        "artist": "Mari Holm",
+        "hometown": "Mahtomedi, MN",
+        "description": "A textured piece depicting orange dragonflies against a speckled brown seed background.",
+        "photo": "PXL_20260907_003312360.jpg"
+    },
+    {
+        "id": "e-pluribus-unum-eagle",
+        "title": "E Pluribus Unum Eagle",
+        "description": "A tan piece depicting an eagle with a banner reading 'E Pluribus Unum.'",
+        "photo": "PXL_20260907_003018009.jpg"
+    },
+    {
+        "id": "eagle-and-flag-with-wheat",
+        "title": "Eagle and Flag with Wheat",
+        "artist": "Jane Friedmann",
+        "hometown": "Shoreview, MN",
+        "description": "An American flag rendered in wheat and dark seeds beside a bald eagle, framed in dark wood.",
+        "photo": "PXL_20260907_003325978.jpg"
+    },
+    {
+        "id": "earthworm",
+        "title": "Earthworm",
+        "artist": "Natalie Cornish",
+        "hometown": "Saint Paul, MN",
+        "description": "A small oval piece depicting a coiled earthworm on green ground.",
+        "photo": "PXL_20260907_001908451.jpg"
+    },
+    {
+        "id": "empathy-compassion-inclusion-justice-kindness",
+        "title": "Empathy, Compassion, Inclusion, Justice, Kindness",
+        "artist": "Ellis O'Connell",
+        "hometown": "Eden Prairie, MN",
+        "description": "A black-background piece spelling out five values in colorful lettering: empathy, compassion, inclusion, justice, and kindness.",
+        "photo": "PXL_20260907_003240489.jpg"
+    },
+    {
+        "id": "erik-koskinen",
+        "title": "Erik Koskinen",
+        "artist": "Gina Smith",
+        "hometown": "Montrose, MN",
+        "description": "A swirling brown and cream piece depicting two intertwined animals around the name 'Erik Koskinen,' a Minnesota musician.",
+        "photo": "PXL_20260907_003051146.jpg"
+    },
+    {
+        "id": "everyday-objects-in-seeds",
+        "title": "Everyday Objects in Seeds",
+        "artist": "Sarah Jensen Bivens",
+        "hometown": "Minneapolis, MN",
+        "description": "A four-panel piece depicting a shoe, a smartphone, a bag of groceries, and a baseball mitt, each rendered in seeds within its own quadrant.",
+        "ribbon": "First Premium, Class 17 — Artistic, novice",
+        "photo": "PXL_20260907_003106962.jpg"
+    },
+    {
+        "id": "everyone-thinks-they-have-the-best-dog",
+        "title": "Everyone Thinks They Have the Best Dog / None of Them Are Wrong",
+        "hometown": "Saint Paul, MN",
+        "description": "A large sunflower rendered in seeds fills a scene captioned \"Everyone thinks they have the best dog, none of them are wrong.\"",
+        "photo": "PXL_20260907_002439604.jpg",
+        "position": [
+            2.682736873626709,
+            0.34574827551841736,
+            1.979750633239746
+        ]
+    },
+    {
+        "id": "evil-empire",
+        "title": "Evil Empire",
+        "artist": "Kim Deutsch",
+        "hometown": "Maple Grove, MN",
+        "description": "A hockey player in red and gold gear stands beneath wing-like shapes, referencing Rage Against the Machine's 1996 album \"Evil Empire\" on its 30th anniversary.",
+        "ribbon": "Fifth Premium, Class 11 — Special occasion, amateur",
+        "photo": "PXL_20260907_003007199.jpg"
+    },
+    {
+        "id": "excellent-friend-would-recommend",
+        "title": "Excellent Friend, Would Recommend",
+        "artist": "Kathleen Drobinski",
+        "hometown": "Oakdale, MN",
+        "description": "A simply rendered smiling cartoon face in brown seed tones, captioned with an online-review-style compliment.",
+        "ribbon": "Fourth Premium, Class 4 — Artistic, dyed or painted, advanced",
+        "photo": "PXL_20260907_003415723.jpg",
+        "position": [
+            -0.504040002822876,
+            0.4142296612262726,
+            0.4140404164791107
+        ]
+    },
+    {
+        "id": "fairchild-mirthful-mascot",
+        "title": "Fairchild, Mirthful Mascot",
+        "artist": "Mark Everhart",
+        "hometown": "Minneapolis, MN",
+        "description": "A trading-card-style piece parodying a collectible card game, depicting the State Fair gopher mascot Fairchild with mock game text.",
+        "photo": "PXL_20260907_002436523.jpg"
+    },
+    {
+        "id": "fairgoers-say-ice-out",
+        "title": "Fairgoers Say Ice Out!",
+        "artist": "Hayley Hansen",
+        "hometown": "St Louis Park, MN",
+        "description": "Bold red and cream lettering spelling \"FAIRGOERS SAY ICE OUT!\", a protest piece referencing removal of ICE from the fairgrounds.",
+        "photo": "PXL_20260907_002206786.jpg"
+    },
+    {
+        "id": "farewell-sweet-seeds",
+        "title": "Farewell Sweet Seeds",
+        "artist": "Danielle Farber",
+        "hometown": "Minneapolis, MN",
+        "description": "A tombstone reading \"Here Lies Quinoa, I Knew Thee Well\" beneath the heading \"Farewell Sweet Seeds.\"",
+        "photo": "PXL_20260907_002647184.jpg"
+    },
+    {
+        "id": "fargo",
+        "title": "Fargo",
+        "description": "A small piece rendering the title card and imagery from the film Fargo in a woodcut style.",
+        "photo": "PXL_20260907_003015698.jpg",
+        "position": [
+            1.489032506942749,
+            0.0814417228102684,
+            -2.6300716400146484
+        ]
+    },
+    {
+        "id": "fargo-a-homegrown-classic-1996-2026",
+        "title": "Fargo: A Homegrown Classic, 1996-2026",
+        "artist": "Joe Karlsson",
+        "hometown": "Saint Paul, MN",
+        "description": "In an ornate gold frame, a body wrapped in plastic lies beside a wood chipper in a snowy field, referencing the film's most infamous scene, captioned \"Crop Art by Minnesota Farmers.\"",
+        "photo": "PXL_20260907_002941789.jpg"
+    },
+    {
+        "id": "farm-animals-sticker-sheet",
+        "title": "Farm Animals Sticker Sheet",
+        "artist": "Natalie Gansmoe",
+        "hometown": "Rosemount, MN",
+        "description": "A grid of small farm animals — a horse, sheep, cat, cow, chickens, a pig, a goat, and a duckling — rendered like a sheet of stickers.",
+        "ribbon": "Second Premium, Class 1 — Artistic, natural colors, amateur",
+        "photo": "PXL_20260907_002830135.jpg"
+    },
+    {
+        "id": "farm-landscape",
+        "title": "Farm Landscape",
+        "artist": "Katherine Kern",
+        "hometown": "Minneapolis, MN",
+        "description": "A pastoral landscape piece depicting a farm scene with trees and buildings.",
+        "photo": "PXL_20260907_002001119.jpg"
+    },
+    {
+        "id": "farmers-say-ice-out",
+        "title": "Farmers Say Ice Out!",
+        "description": "A text-based piece reading 'Farmers say Ice Out!' referencing immigration enforcement protests.",
+        "photo": "PXL_20260907_002056264.jpg"
+    },
+    {
+        "id": "farming-done-right-helps-birds-take-flight",
+        "title": "Farming Done Right Helps Birds Take Flight",
+        "artist": "Taylor Owens",
+        "hometown": "Forest Lake, MN",
+        "description": "A purple-toned piece depicting birds and small animals among plants, captioned 'Farming Done Right Helps Birds Take Flight.'",
+        "ribbon": "Second Premium, Class 17 — Artistic, novice",
+        "photo": "PXL_20260907_003052067.jpg"
+    },
+    {
+        "id": "fauci-lied",
+        "title": "Fauci Lied.",
+        "artist": "Charlie Lyons",
+        "hometown": "Minneapolis, MN",
+        "description": "Bold black block lettering on a tan background reading \"FAUCI LIED.\"",
+        "photo": "PXL_20260907_002032589.jpg",
+        "position": [
+            1.5665760040283203,
+            -0.3709676265716553,
+            2.5266873836517334
+        ]
+    },
+    {
+        "id": "feed-2-birds-with-2-scone",
+        "title": "Feed 2 Birds With 2 Scone",
+        "artist": "Lorelei Soli",
+        "hometown": "Minneapolis, MN",
+        "description": "A punning piece on 'feed two birds with one scone,' depicting birds and a scone in silhouette.",
+        "photo": "PXL_20260907_003011108.jpg"
+    },
+    {
+        "id": "field-seeds-plows-fence",
+        "title": "Field Seeds Plows Fence",
+        "artist": "Katie Lingras",
+        "hometown": "Minneapolis, MN",
+        "description": "A Wordle-style grid piece spelling out farm-related words: 'Field,' 'Seeds,' 'Plows,' 'Fence.'",
+        "photo": "PXL_20260907_003128900.jpg"
+    },
+    {
+        "id": "finch-farm",
+        "title": "Finch Farm",
+        "artist": "Beth Finch",
+        "hometown": "Afton, MN",
+        "description": "A silhouette of a horse and rider rendered in seeds against a tan background, labeled 'Finch Farm.'",
+        "photo": "PXL_20260907_003325978.jpg"
+    },
+    {
+        "id": "fire-silhouette",
+        "title": "Fire Silhouette",
+        "artist": "Tara Robinson",
+        "hometown": "Minneapolis, MN",
+        "description": "A circular piece depicting a hand and a dog silhouetted against orange flames.",
+        "photo": "PXL_20260907_001815101.jpg"
+    },
+    {
+        "id": "floral-ukulele",
+        "title": "Floral Ukulele",
+        "artist": "Lori Anderson",
+        "hometown": "Roseville, MN",
+        "description": "A small stringed instrument decorated with a vine of orange flowers winding up its neck and body.",
+        "ribbon": "Second Premium, Class 27 — Crops arrangements, amateur",
+        "photo": "PXL_20260907_002932337.jpg"
+    },
+    {
+        "id": "follow-me-to-the-fair",
+        "title": "Follow Me to the Fair",
+        "artist": "Aleena Khan",
+        "hometown": "Chanhassen, MN",
+        "description": "A mother duck leading ducklings through a floral border, with the caption \"Follow me to the fair.\"",
+        "photo": "PXL_20260907_003312360.jpg"
+    },
+    {
+        "id": "forest-road",
+        "title": "Forest Road",
+        "artist": "Jack Riely",
+        "hometown": "Minneapolis, MN",
+        "description": "A wooded road curving past a yellow road sign in muted autumn browns and creams.",
+        "photo": "PXL_20260907_002206786.jpg"
+    },
+    {
+        "id": "forever-mn",
+        "title": "Forever MN",
+        "artist": "Jenny Lau",
+        "hometown": "Minneapolis, MN",
+        "description": "A piece featuring two dark birds beneath a glowing red heart, captioned 'Forever MN.'",
+        "photo": "PXL_20260907_001908451.jpg"
+    },
+    {
+        "id": "forever-usa",
+        "title": "Forever USA",
+        "description": "A red heart piece with a black dancing figure in a Keith Haring-inspired style, captioned 'Forever USA.'",
+        "photo": "PXL_20260907_003052067.jpg",
+        "position": [
+            -0.20273946225643158,
+            0.25039610266685486,
+            -4.171394348144531
+        ]
+    },
+    {
+        "id": "forever-young-rod-stewart-portrait",
+        "title": "Forever Young (Rod Stewart Portrait)",
+        "artist": "Reggie Grove",
+        "hometown": "Maple Grove, MN",
+        "description": "A portrait of musician Rod Stewart with his signature spiky blond hair, captioned 'Forever Young.'",
+        "photo": "PXL_20260907_003353991.jpg"
+    },
+    {
+        "id": "forever-usa-minneapolis",
+        "title": "Forever-USA Minneapolis",
+        "artist": "Jeanne Morales",
+        "hometown": "Minneapolis, MN",
+        "description": "A postage-stamp-style scene of marchers carrying a giant dove beneath a flowering tree and monarch butterfly, framed like a commemorative stamp reading \"Forever-USA Minneapolis.\"",
+        "photo": "PXL_20260907_002621723.jpg",
+        "position": [
+            3.819709539413452,
+            -0.24431785941123962,
+            1.454325556755066
+        ]
+    },
+    {
+        "id": "four-chickens",
+        "title": "Four Chickens",
+        "artist": "Robin Thompson",
+        "hometown": "St. Paul, MN",
+        "description": "A four-panel grid portraying four different chicken breeds in profile.",
+        "photo": "PXL_20260907_003011108.jpg"
+    },
+    {
+        "id": "fox-portrait",
+        "title": "Fox Portrait",
+        "artist": "Rachel Ceder",
+        "hometown": "Stillwater, MN",
+        "description": "A close-up portrait of a curled-up fox with a bushy tail, rendered in warm browns and creams.",
+        "photo": "PXL_20260907_002621723.jpg"
+    },
+    {
+        "id": "fox-silhouette",
+        "title": "Fox Silhouette",
+        "artist": "Sarah O'Brien",
+        "hometown": "Saint Paul, MN",
+        "description": "A circular piece depicting a dark silhouette of a fox against a cream backdrop resembling a full moon.",
+        "photo": "PXL_20260907_001815101.jpg"
+    },
+    {
+        "id": "friendship-quilt",
+        "title": "Friendship Quilt",
+        "description": "A nine-patch quilt-style piece depicting a swan, a star, flowers, and a small house in each square, titled 'Friendship Quilt.'",
+        "photo": "PXL_20260907_003155314.jpg"
+    },
+    {
+        "id": "friendship-seal",
+        "title": "Friendship Seal",
+        "description": "A large maroon and gold seal-shaped piece captioned 'Friendship.'",
+        "photo": "PXL_20260907_003152462.jpg"
+    },
+    {
+        "id": "garden-flowers",
+        "title": "Garden Flowers",
+        "hometown": "Lakeville, MN",
+        "description": "A piece depicting an arrangement of sunflowers and other garden flowers in warm autumnal tones.",
+        "photo": "PXL_20260907_002130386.jpg"
+    },
+    {
+        "id": "garden-gnome",
+        "title": "Garden Gnome",
+        "artist": "Marguerite Sauer",
+        "hometown": "Richfield, MN",
+        "description": "A bearded garden gnome in an orange conical hat and green jacket, standing beneath a stone archway covered in moss with mushrooms at his feet.",
+        "photo": "PXL_20260907_002056264.jpg",
+        "position": [
+            0.7672706842422485,
+            0.19184282422065735,
+            2.904524087905884
+        ]
+    },
+    {
+        "id": "general-strikes",
+        "title": "General Strikes",
+        "artist": "Kim Morris & Emeline Rogers",
+        "hometown": "Crystal, MN",
+        "description": "A raised-fist protest symbol piece referencing general labor strikes.",
+        "photo": "PXL_20260907_003217387.jpg"
+    },
+    {
+        "id": "georgian-bouquet-1945",
+        "title": "Georgian Bouquet, 1945",
+        "artist": "Charlotte Ferlic",
+        "hometown": "Roseville, MN",
+        "description": "An ornately gold-framed still life depicts a bouquet of pale pink and white flowers in a blue vase resting on a burgundy tablecloth.",
+        "ribbon": "Fifth Premium, Class 9 — Artistic, dried natural plant parts, amateur",
+        "photo": "PXL_20260907_002929854.jpg",
+        "position": [
+            2.2177786827087402,
+            -0.5761712193489075,
+            -1.8943222761154175
+        ]
+    },
+    {
+        "id": "gimme-kiss",
+        "title": "Gimme Kiss",
+        "artist": "Bronson Lemer",
+        "hometown": "Saint Paul, MN",
+        "description": "A small piece depicting two ducks facing each other as if kissing, captioned 'Gimme Kiss.'",
+        "photo": "PXL_20260907_001908451.jpg",
+        "position": [
+            -1.0588181018829346,
+            0.3072502613067627,
+            3.765857219696045
+        ]
+    },
+    {
+        "id": "girl-and-dog-at-night",
+        "title": "Girl and Dog at Night",
+        "artist": "Diane Klein",
+        "hometown": "Rochester, MN",
+        "description": "A small figure and her dog stand atop a large pale mound beneath a dark night sky and crescent moon, rendered in natural-colored seeds in a folk-art style.",
+        "ribbon": "Second Premium, Class 3 — Artistic, dyed or painted, amateur",
+        "photo": "PXL_20260907_001709191.jpg"
+    },
+    {
+        "id": "girl-in-bear-hood",
+        "title": "Girl in Bear Hood",
+        "description": "A portrait of a young girl wearing an orange hood with bear ears.",
+        "photo": "PXL_20260907_002203693.jpg"
+    },
+    {
+        "id": "girl-with-mouse-ears",
+        "title": "Girl with Mouse Ears",
+        "description": "A piece depicting a young girl wearing a brown mouse-ears headband.",
+        "photo": "PXL_20260907_002054835.jpg"
+    },
+    {
+        "id": "glen-hansard-1970-2026",
+        "title": "Glen Hansard, 1970-2026",
+        "artist": "Megan Bell",
+        "hometown": "Richfield, MN",
+        "description": "A memorial-style bust portrait of musician Glen Hansard, bearded and hooded in blue, captioned with his name and the years \"1970-2026.\"",
+        "ribbon": "Fifth Premium, Class 1 — Artistic, natural colors, amateur",
+        "photo": "PXL_20260907_002753603.jpg"
+    },
+    {
+        "id": "glowing-lightbulb",
+        "title": "Glowing Lightbulb",
+        "artist": "Shawn Thorson",
+        "hometown": "Minneapolis, MN",
+        "description": "A piece depicting a glowing lightbulb against a dark background with warm-toned hills below.",
+        "photo": "PXL_20260907_003126159.jpg"
+    },
+    {
+        "id": "goodbye-quinoa",
+        "title": "Goodbye, Quinoa",
+        "artist": "Scott Cohen",
+        "hometown": "Hastings, MN",
+        "description": "Bold cream lettering on a dark brown background reading \"Goodbye, Quinoa.\"",
+        "photo": "PXL_20260907_002136984.jpg",
+        "position": [
+            1.0413016080856323,
+            0.36157405376434326,
+            2.7478737831115723
+        ]
+    },
+    {
+        "id": "goose-portrait",
+        "title": "Goose Portrait",
+        "artist": "Karla Reinardy",
+        "hometown": "St. Paul, MN",
+        "description": "A single goose shown in profile, outlined in dark seeds against a light background.",
+        "photo": "PXL_20260907_001744003.jpg"
+    },
+    {
+        "id": "gray-cat-with-sunburst",
+        "title": "Gray Cat with Sunburst",
+        "hometown": "Apple Valley, MN",
+        "description": "A gray cat's face rendered in seeds against a radiating orange sunburst background.",
+        "photo": "PXL_20260907_003315217.jpg"
+    },
+    {
+        "id": "gray-duck",
+        "title": "Gray Duck",
+        "hometown": "Rosemount, MN",
+        "description": "A minimalist gray duck illustration on a cracked, weathered-looking background, referencing the Minnesota game 'Duck Duck Gray Duck.'",
+        "photo": "PXL_20260907_002001119.jpg"
+    },
+    {
+        "id": "guardian-of-the-golden-gate",
+        "title": "Guardian of the Golden Gate",
+        "artist": "Molly Nee",
+        "hometown": "Minneapolis, MN",
+        "description": "A winged demon or gargoyle figure looms over a glowing golden gate at night.",
+        "photo": "PXL_20260907_002511269.jpg"
+    },
+    {
+        "id": "guinea-fowl-portrait",
+        "title": "Guinea Fowl Portrait",
+        "artist": "Shannon Royer",
+        "hometown": "Shoreview, MN",
+        "description": "A detailed portrait of a spotted guinea fowl with an orange beak and speckled plumage.",
+        "photo": "PXL_20260907_001855295.jpg"
+    },
+    {
+        "id": "hackensack",
+        "title": "Hackensack",
+        "description": "An arch-shaped piece depicting a woman in a vintage striped dress at sunset, labeled 'Hackensack,' a Minnesota town.",
+        "photo": "PXL_20260907_003035592.jpg"
+    },
+    {
+        "id": "handprint",
+        "title": "Handprint",
+        "artist": "Katie Ortman",
+        "hometown": "Minneapolis, MN",
+        "description": "A stylized handprint rendered in alternating light and dark seed stripes resembling wood grain.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "happy-retirement-dave-dvm-2006-2026",
+        "title": "Happy Retirement Dave (DVM 2006-2026)",
+        "description": "A wood-toned plaque-style piece reading 'Happy Retirement Dave,' honoring a veterinarian's career from 2006 to 2026.",
+        "photo": "PXL_20260907_003015698.jpg"
+    },
+    {
+        "id": "healing-demands-truth",
+        "title": "Healing Demands Truth",
+        "artist": "Priya Sury",
+        "hometown": "Minneapolis, MN",
+        "description": "A soaring eagle silhouette set against a glowing orange sunset, an irregularly-shaped piece captioned \"Healing demands truth.\"",
+        "photo": "PXL_20260907_002734933.jpg"
+    },
+    {
+        "id": "heart-face",
+        "title": "Heart Face",
+        "artist": "Nathan Weber",
+        "hometown": "Saint Paul, MN",
+        "description": "A heart-shaped piece depicting a stylized man's face wearing sunglasses.",
+        "photo": "PXL_20260907_002324419.jpg"
+    },
+    {
+        "id": "heartstopper",
+        "title": "Heartstopper",
+        "artist": "Christina Myers",
+        "hometown": "Minneapolis, MN",
+        "description": "Two young men share a kiss in a colorful comic-book-style scene, with speech bubbles and the bold, rainbow-lettered title \"Heartstopper\" below, referencing the TV series.",
+        "ribbon": "Fourth Premium, Class 5 — Artistic, irregular forms, amateur",
+        "photo": "PXL_20260907_002739375.jpg"
+    },
+    {
+        "id": "hedgehog-with-mushroom-cap",
+        "title": "Hedgehog with Mushroom Cap",
+        "description": "A whimsical piece depicting a hedgehog wearing a spotted mushroom cap, set against an orange background.",
+        "photo": "PXL_20260907_003148932.jpg"
+    },
+    {
+        "id": "hello-kitty",
+        "title": "Hello Kitty",
+        "artist": "Leah Hubbell",
+        "hometown": "Roseville, MN",
+        "description": "A red-and-white seed rendering of the Hello Kitty character.",
+        "photo": "PXL_20260907_003237778.jpg"
+    },
+    {
+        "id": "heron-in-flight-mosaic",
+        "title": "Heron in Flight (Mosaic)",
+        "artist": "Charlotte Ferlic",
+        "hometown": "Roseville, MN",
+        "description": "A large bird shown in profile with wings spread, rendered as a mosaic of tiny tan and brown seed tesserae in the style of an ancient Roman mosaic. The piece earned a Third Premium ribbon.",
+        "ribbon": "Fifth Premium, Class 9 — Artistic, dried natural plant parts, amateur",
+        "photo": "PXL_20260907_003313868.jpg"
+    },
+    {
+        "id": "highland-friendship-club",
+        "title": "Highland Friendship Club",
+        "artist": "Emily Noel",
+        "hometown": "Falcon Heights, MN",
+        "description": "An oval seed piece spelling out \"HIGHLAND FRIENDSHIP CLUB\" in bean lettering.",
+        "photo": "PXL_20260907_003213406.jpg",
+        "position": [
+            -1.5118865966796875,
+            0.11477870494127274,
+            -5.309475421905518
+        ]
+    },
+    {
+        "id": "history-has-its-eyes-on-you",
+        "title": "History Has Its Eyes on You",
+        "artist": "Kathleen Smith",
+        "hometown": "Saint Anthony, MN",
+        "description": "A blue piece with a gold star, captioned 'History Has Its Eyes on You,' echoing a lyric from the musical Hamilton.",
+        "photo": "PXL_20260907_003052067.jpg",
+        "position": [
+            -0.20066404342651367,
+            -0.1620692014694214,
+            -4.125658988952637
+        ]
+    },
+    {
+        "id": "history-repeats-itself",
+        "title": "History Repeats Itself",
+        "description": "A blue piece with a mountain-like motif captioned 'History Repeats Itself.'",
+        "photo": "PXL_20260907_003035592.jpg"
+    },
+    {
+        "id": "holy-crop-batman-60-years-of-star-trek-and-batman-tv",
+        "title": "Holy Crop, Batman! (60 Years of Star Trek and Batman TV)",
+        "artist": "Tawnya Heins",
+        "hometown": "Elk River, MN",
+        "description": "A comic-book style piece showing Spock delivering a Vulcan nerve pinch to Batman, with speech bubbles reading 'Holy Crop, Batm—', 'No Robin! I'm a Vulcan, not a superhero!' and 'Bean me up,' celebrating 60 years of Star Trek and the Batman TV series.",
+        "photo": "PXL_20260907_003013816.jpg"
+    },
+    {
+        "id": "homer-simpson-painted",
+        "title": "Homer Simpson (Painted)",
+        "hometown": "Stillwater, MN",
+        "description": "A brightly colored, dyed-seed portrait of Homer Simpson against a green background, distinct in style from the natural-toned version elsewhere in the hall.",
+        "photo": "PXL_20260907_002034069.jpg",
+        "position": [
+            0.3608127236366272,
+            0.3862431049346924,
+            3.0987110137939453
+        ]
+    },
+    {
+        "id": "homer-simpson-portrait",
+        "title": "Homer Simpson Portrait",
+        "description": "A natural-seed-toned portrait of the cartoon character Homer Simpson's head and shoulders.",
+        "photo": "PXL_20260907_002203693.jpg"
+    },
+    {
+        "id": "hot-dog",
+        "title": "Hot Dog",
+        "artist": "Anna Koenning",
+        "hometown": "Minneapolis, MN",
+        "description": "A hot dog in a bun rendered in golden and reddish-brown seed tones.",
+        "photo": "PXL_20260907_002324419.jpg"
+    },
+    {
+        "id": "how-big-is-this-show-so-big",
+        "title": "How Big Is This ****Show? (So Big!)",
+        "artist": "Laura Melnick",
+        "hometown": "St. Paul, MN",
+        "description": "A checkerboard-patterned piece featuring a Campbell's-Kids-style toddler in polka-dot overalls throwing up his arms, bordered by the exclamation 'How Big Is This ****Show? (So Big!)'",
+        "photo": "PXL_20260907_003344476.jpg"
+    },
+    {
+        "id": "how-do-hotdogs-wear-pants",
+        "title": "How Do Hotdogs Wear Pants?",
+        "artist": "Wynn Kos",
+        "hometown": "Golden Valley, MN",
+        "description": "Two cartoon hotdog characters in sunglasses posing the question \"How do hotdogs wear pants?\"",
+        "photo": "PXL_20260907_003239293.jpg"
+    },
+    {
+        "id": "i-can-t-keep-doing-this",
+        "title": "I Can't Keep Doing This. I Have to Keep Doing This.",
+        "artist": "Aurora Jacobsen",
+        "hometown": "Winona, MN",
+        "description": "A coiled length of rope with a small weight attached, paired with text reading \"I can't keep doing this. I have to keep doing this.\"",
+        "ribbon": "Fourth Premium, Class 13 — Seed and plant craft objects, amateur",
+        "photo": "PXL_20260907_002052817.jpg"
+    },
+    {
+        "id": "i-got-that-dog-in-me",
+        "title": "I Got That Dog in Me",
+        "artist": "Cydia Carroll",
+        "hometown": "Circle Pines, MN",
+        "description": "A dark green piece with a snake-like squiggle captioned 'I Got That Dog In Me.'",
+        "photo": "PXL_20260907_003128900.jpg"
+    },
+    {
+        "id": "i-love-pugs",
+        "title": "I Love Pugs",
+        "artist": "Ivy Ryder",
+        "hometown": "Minneapolis, MN",
+        "description": "A black pug portrait with wide eyes beside the phrase \"I ❤ PUGS.\"",
+        "photo": "PXL_20260907_003240489.jpg",
+        "position": [
+            -2.4628851413726807,
+            0.3678875267505646,
+            -3.7740039825439453
+        ]
+    },
+    {
+        "id": "ice-out",
+        "title": "Ice Out",
+        "description": "A Picasso 'Guernica'-inspired seed art piece incorporating a protest sign reading 'ICE OUT,' blending cubist imagery with political commentary.",
+        "photo": "PXL_20260907_001822673.jpg"
+    },
+    {
+        "id": "if-you-re-croppy-and-you-know-it-glue-some-seeds",
+        "title": "If You're Croppy and You Know It, Glue Some Seeds",
+        "description": "A large white bean piece spelling out a pun on \"If You're Happy and You Know It,\" reading \"If you're CROPPY and you know it, glue some SEEDS.\"",
+        "photo": "PXL_20260907_003242389.jpg",
+        "position": [
+            -2.424588203430176,
+            0.16487663984298706,
+            -3.6427161693573
+        ]
+    },
+    {
+        "id": "ilcm-30-years",
+        "title": "ILCM: 30 Years",
+        "description": "A geometric piece spelling out the initials 'I L C M' alongside '30 Years,' marking an organization's anniversary.",
+        "photo": "PXL_20260907_003015698.jpg",
+        "position": [
+            1.0465437173843384,
+            0.12989649176597595,
+            -3.051191806793213
+        ]
+    },
+    {
+        "id": "interlocking-circles",
+        "title": "Interlocking Circles",
+        "artist": "Lisa Carlson",
+        "hometown": "Minneapolis, MN",
+        "description": "A grid of overlapping circular arcs in warm brown, tan, black, and cream seeds forms a quilt-like geometric abstract pattern.",
+        "ribbon": "Fourth Premium, Class 9 — Artistic, dried natural plant parts, amateur",
+        "photo": "PXL_20260907_002853929.jpg"
+    },
+    {
+        "id": "it-was-a-crow-away-vote",
+        "title": "It Was a Crow Away Vote!",
+        "artist": "Lindsey Fast",
+        "hometown": "Saint Paul, MN",
+        "description": "A stylized portrait of a woman with voluminous dark hair and a leopard-print collar, captioned with the pun \"It was a crow away vote!\"",
+        "photo": "PXL_20260907_002647184.jpg"
+    },
+    {
+        "id": "jackpot",
+        "title": "Jackpot",
+        "artist": "Wendy Brozic",
+        "hometown": "Hopkins, MN",
+        "description": "A squirrel gleefully clutches a Nut Goodie candy bar wrapper beneath a \"Jackpot\" speech bubble, playing on the beloved Minnesota candy brand.",
+        "ribbon": "Second Premium, Class 9 — Artistic, dried natural plant parts, amateur",
+        "photo": "PXL_20260907_002829007.jpg"
+    },
+    {
+        "id": "jane-goodall-portrait",
+        "title": "Jane Goodall Portrait",
+        "artist": "Linda Paulsen",
+        "hometown": "Hackensack, MN",
+        "description": "A portrait of primatologist Jane Goodall, her white hair pulled back, rendered in warm brown and cream seeds.",
+        "ribbon": "Third Premium, Class 12 — Special occasion, advanced",
+        "photo": "PXL_20260907_003356085.jpg",
+        "position": [
+            3.99252986907959,
+            -0.194763645529747,
+            -0.3878244459629059
+        ]
+    },
+    {
+        "id": "japanese-characters",
+        "title": "Japanese Characters (八六四七)",
+        "artist": "Amy Stefans",
+        "hometown": "Lino Lakes, MN",
+        "description": "A minimalist piece featuring four Japanese kanji characters rendered in dark seeds on a cream background.",
+        "photo": "PXL_20260907_003342573.jpg",
+        "position": [
+            -1.3022053241729736,
+            0.5659369230270386,
+            -1.3141411542892456
+        ]
+    },
+    {
+        "id": "jesus-i-trust-in-you",
+        "title": "Jesus, I Trust in You",
+        "artist": "Barbara Herzog",
+        "hometown": "Wyoming, MN",
+        "description": "A devotional portrait of Jesus Christ in flowing robes, rendered in cream, tan and dark seeds against a black background, with the title phrase worked into the bottom of the piece.",
+        "ribbon": "Fourth Premium, Class 18 — Senior citizen, age 60 and up, amateur",
+        "photo": "PXL_20260907_003325978.jpg",
+        "position": [
+            -1.684472918510437,
+            0.032650940120220184,
+            -1.7384397983551025
+        ]
+    },
+    {
+        "id": "jfk-profile-in-courage-award-26-be-good",
+        "title": "JFK Profile in Courage Award '26 (Be Good)",
+        "artist": "Kate Martin",
+        "hometown": "St. Anthony, MN",
+        "description": "A bundled-up figure in a winter hat and coat holds a sign reading \"Be Good\" beneath a starburst, captioned \"People of the Twin Cities.\"",
+        "photo": "PXL_20260907_002918129.jpg",
+        "position": [
+            1.9988456964492798,
+            -0.06560315191745758,
+            -2.179600477218628
+        ]
+    },
+    {
+        "id": "jubilee-year-of-st-francis-1226-2026",
+        "title": "Jubilee Year of St. Francis, 1226-2026",
+        "artist": "Suzanne Mears",
+        "hometown": "Minneapolis, MN",
+        "description": "St. Francis of Assisi stands beneath a tree feeding birds, commemorating the 800th anniversary of his death, in a piece filled with blues and greens.",
+        "ribbon": "Fifth Premium, Class 12 — Special occasion, advanced",
+        "photo": "PXL_20260907_003356085.jpg",
+        "position": [
+            -0.7399094104766846,
+            0.4952479302883148,
+            -0.14052586257457733
+        ]
+    },
+    {
+        "id": "kayla-mcbride-10-piece-mcbuckets",
+        "title": "Kayla McBride: 10-Piece McBuckets",
+        "artist": "Luke Heiken",
+        "hometown": "Minneapolis, MN",
+        "description": "A blue piece depicting basketball player Kayla McBride with a bucket of chicken nuggets, captioned '10 piece McBuckets, 43 pts, 10 3s, 3PT Record.'",
+        "photo": "PXL_20260907_003126159.jpg"
+    },
+    {
+        "id": "keep-cool-fool",
+        "title": "Keep Cool Fool",
+        "hometown": "Saint Paul, MN",
+        "description": "A piece depicting a penguin lying on ice, captioned 'Keep Cool Fool.'",
+        "photo": "PXL_20260907_001908451.jpg"
+    },
+    {
+        "id": "keep-honking-i-m-listening-to-ice-getting-chased-out-of-the-",
+        "title": "Keep Honking! I'm Listening to ICE Getting Chased Out of the Neighborhood",
+        "artist": "Sarah O'Brien",
+        "hometown": "Minneapolis, MN",
+        "description": "An orange sign with bold text reading \"Keep honking! I'm listening to ICE getting chased out of the neighborhood.\"",
+        "photo": "PXL_20260907_002622906.jpg"
+    },
+    {
+        "id": "ketchup",
+        "title": "Ketchup",
+        "description": "A single ketchup bottle rendered in red and white seeds against a black background.",
+        "photo": "PXL_20260907_002653180.jpg"
+    },
+    {
+        "id": "kilroy-s-climb",
+        "title": "Kilroy's Climb",
+        "artist": "Kelly Bent",
+        "hometown": "Minneapolis, MN",
+        "description": "A stylized portrait of a person wearing a striped helmet and goggles in red, white, and blue tones.",
+        "photo": "PXL_20260907_002437562.jpg"
+    },
+    {
+        "id": "kingfisher-portrait",
+        "title": "Kingfisher Portrait",
+        "artist": "Shannon Royer",
+        "hometown": "Shoreview, MN",
+        "description": "A detailed portrait of a belted kingfisher with a blue-gray back and orange chest, perched and facing left.",
+        "photo": "PXL_20260907_001908451.jpg"
+    },
+    {
+        "id": "kiss",
+        "title": "Kiss",
+        "artist": "Kelsey Carlson",
+        "hometown": "Minneapolis, MN",
+        "description": "Two anthropomorphic foxes in vintage attire embracing, with the word \"KISS\" worked into the orange-toned background.",
+        "ribbon": "Second Premium, Class 23 — Group, Organization or Team (classes 1-16)",
+        "photo": "PXL_20260907_003211460.jpg"
+    },
+    {
+        "id": "l-toile-du-nord",
+        "title": "L'Étoile du Nord",
+        "artist": "Bethany Nagan",
+        "hometown": "Inver Grove Heights, MN",
+        "description": "A large gold-framed historical scene depicting a 19th-century crowd with a loon-topped flag, evoking Minnesota's state motto 'L'Étoile du Nord' (Star of the North).",
+        "ribbon": "Third Premium, Class 17 — Artistic, novice",
+        "photo": "PXL_20260907_003053056.jpg"
+    },
+    {
+        "id": "labyrinth",
+        "title": "Labyrinth",
+        "artist": "Kari Brown",
+        "hometown": "Minneapolis, MN",
+        "description": "A movie-poster style piece depicting characters from the film Labyrinth, including David Bowie's Goblin King.",
+        "photo": "PXL_20260907_003015698.jpg"
+    },
+    {
+        "id": "labyrinth-40th-anniversary",
+        "title": "Labyrinth, 40th Anniversary",
+        "artist": "Kori Brown",
+        "hometown": "Minneapolis, MN",
+        "description": "David Bowie's Goblin King and a cast of puppet creatures from the film \"Labyrinth\" surround a glowing crystal orb, marking the movie's 40th anniversary (1986-2026).",
+        "ribbon": "First Premium, Class 11 — Special occasion, amateur",
+        "photo": "PXL_20260907_002943414.jpg"
+    },
+    {
+        "id": "lady-liberty-s-torch",
+        "title": "Lady Liberty's Torch",
+        "artist": "Nicholas Rindo",
+        "hometown": "Minnetonka, MN",
+        "description": "A golden, headless figure modeled on the Statue of Liberty raises a torch aloft, rendered in warm tan and gold seeds.",
+        "photo": "PXL_20260907_002808725.jpg"
+    },
+    {
+        "id": "land-back-to-dakota-people",
+        "title": "Return MN Owe... to Dakota People",
+        "description": "A piece with a light green background and figures with dogs, bearing text about returning land to Dakota people.",
+        "photo": "PXL_20260907_003151398.jpg"
+    },
+    {
+        "id": "largest-bore-214-pounds",
+        "title": "Largest Bore, 215 Pounds?",
+        "description": "A humorous piece depicting an enormous sleeping pig, playing on state-fair 'largest boar' competitions with a pun on the word 'bore.'",
+        "photo": "PXL_20260907_001751916.jpg",
+        "artist": "Jill Schafer",
+        "hometown": "Minneapolis, MN"
+    },
+    {
+        "id": "last-words",
+        "title": "Last Words",
+        "artist": "Jill Carey",
+        "hometown": "Saint Anthony, MN",
+        "description": "Two black sculptural face masks mounted side by side, each captioned with a famous set of reported dying words, 'I'm not mad at you' and 'Are you okay?', rendered in wild rice and black lentils.",
+        "ribbon": "First Premium, Class 6 — Artistic, irregular forms, advanced",
+        "photo": "PXL_20260907_001635061.jpg"
+    },
+    {
+        "id": "laura-palmer",
+        "title": "Laura Palmer",
+        "artist": "Tyler DeHague",
+        "hometown": "Minneapolis, MN",
+        "description": "A smiling sepia-toned portrait of a dark-haired young woman, titled after the Twin Peaks character Laura Palmer.",
+        "photo": "PXL_20260907_002206786.jpg"
+    },
+    {
+        "id": "leave-minnesota-aloon",
+        "title": "Leave Minnesota Aloon",
+        "artist": "Gayle Deutsch",
+        "hometown": "Bloomington, MN",
+        "description": "A bold circular badge with a common loon and the pun \"Leave Minnesota Aloon\" in black lettering on a golden-yellow ground.",
+        "photo": "PXL_20260907_002525165.jpg",
+        "ribbon": "Third Premium, Class 3 — Artistic, dyed or painted, amateur",
+        "position": [
+            3.2332247881632257,
+            -0.02243390722930856,
+            1.7373814973844341
+        ]
+    },
+    {
+        "id": "let-it-be-beatles-portraits",
+        "title": "Let It Be (Beatles Portraits)",
+        "artist": "Chris Holtmeier",
+        "hometown": "Edina, MN",
+        "description": "Four individual seed-art portraits of the Beatles arranged in a grid beneath the title 'Let It Be,' echoing the band's famous 1970 album cover.",
+        "ribbon": "First Premium, Class 3 — Artistic, dyed or painted, amateur",
+        "photo": "PXL_20260907_001659927.jpg",
+        "position": [
+            -2.5415306091308594,
+            0.3242088854312897,
+            4.466472625732422
+        ]
+    },
+    {
+        "id": "let-the-wild-rumpus-start",
+        "title": "Let the Wild Rumpus Start",
+        "artist": "Melissa Schwartz",
+        "hometown": "Garvin, MN",
+        "description": "A piece depicting a scene from 'Where the Wild Things Are,' captioned 'Let the Wild Rumpus Start!'",
+        "photo": "PXL_20260907_003126159.jpg"
+    },
+    {
+        "id": "liberty-cat",
+        "title": "Liberty Cat",
+        "artist": "Mary Doyle",
+        "hometown": "Minneapolis, MN",
+        "description": "A ginger cat reimagined as the Statue of Liberty, wearing a spiked crown and raising a torch against a glowing halo backdrop.",
+        "ribbon": "First Premium, Class 18 — Senior citizen, age 60 and up, amateur",
+        "photo": "PXL_20260907_002621723.jpg"
+    },
+    {
+        "id": "licensed-to-ill",
+        "title": "Licensed to Ill",
+        "artist": "Kaela Reinardy",
+        "hometown": "St. Paul, MN",
+        "description": "A cartoon spaceship soars across a tan background beneath bold lettering reading \"Licensed to Ill.\"",
+        "ribbon": "Second Premium, Class 13 — Seed and plant craft objects, amateur",
+        "photo": "PXL_20260907_003008217.jpg"
+    },
+    {
+        "id": "lighthouse",
+        "title": "Lighthouse",
+        "artist": "Tom Rainey",
+        "hometown": "Minneapolis, MN",
+        "description": "A coastal scene with a blue-and-white striped lighthouse and small cottage buildings under a bright sky.",
+        "ribbon": "Second Premium, Class 18 — Senior citizen, age 60 and up, amateur",
+        "photo": "PXL_20260907_003313868.jpg"
+    },
+    {
+        "id": "like-i-say-he-was-funny-looking",
+        "title": "Like I Say, He Was Funny Looking",
+        "artist": "Julie Fischer",
+        "hometown": "Saint Paul, MN",
+        "description": "Two blonde women exchange the memorable \"Fargo\" line \"Like I say, he was funny looking. More than most people even,\" one of them cradling a small black cat.",
+        "photo": "PXL_20260907_002940931.jpg"
+    },
+    {
+        "id": "lion-portrait",
+        "title": "Lion Portrait",
+        "description": "A full-body portrait of a walking male lion rendered in warm golden-brown seeds against a cream background.",
+        "photo": "PXL_20260907_002722630.jpg"
+    },
+    {
+        "id": "live-laugh-lotr",
+        "title": "Live Laugh LOTR",
+        "artist": "Andrew Clarke",
+        "hometown": "Burnsville, MN",
+        "description": "An oval piece punning on 'live laugh love,' reading 'Live Laugh LOTR' in reference to Lord of the Rings.",
+        "photo": "PXL_20260907_003126159.jpg"
+    },
+    {
+        "id": "lobster",
+        "title": "Lobster",
+        "description": "A red lobster rendered in seeds against a blue-and-white checked border.",
+        "photo": "PXL_20260907_002719479.jpg"
+    },
+    {
+        "id": "long-live-the-quinoa",
+        "title": "Long Live the Quinoa",
+        "description": "A tan piece with dark brown lettering reading \"LONG LIVE THE QUINOA,\" paired with the neighboring \"Goodbye, Quinoa.\"",
+        "photo": "PXL_20260907_002056264.jpg",
+        "position": [
+            1.0274990797042847,
+            0.49394112825393677,
+            2.7395691871643066
+        ]
+    },
+    {
+        "id": "longest-carrot",
+        "title": "Longest Carrot",
+        "description": "Bold orange bubble lettering on a dark background spelling \"LONGEST CARROT.\"",
+        "photo": "PXL_20260907_002130386.jpg",
+        "position": [
+            1.1659291982650757,
+            0.4866178035736084,
+            2.6907851696014404
+        ]
+    },
+    {
+        "id": "loon-and-snowflake",
+        "title": "Loon and Snowflake",
+        "artist": "Sabrina Hagberg",
+        "hometown": "Corcoran, MN",
+        "description": "A dark blue nighttime scene of a black loon swimming beneath a white snowflake.",
+        "photo": "PXL_20260907_003211460.jpg"
+    },
+    {
+        "id": "loon-in-a-bark-frame",
+        "title": "Loon in a Bark Frame",
+        "artist": "Nora Kujawski",
+        "hometown": "Minneapolis, MN",
+        "description": "A textured seed portrait of a loon swimming, set in a rustic bark-look frame.",
+        "photo": "PXL_20260907_003312360.jpg"
+    },
+    {
+        "id": "loon-in-a-space-helmet",
+        "title": "Loon in a Space Helmet",
+        "artist": "Ashley McDonough",
+        "hometown": "Mesa, AZ",
+        "description": "A whimsical loon wearing a diving or space helmet, entered in the Out of State division.",
+        "ribbon": "Fifth Premium, Class 22 — Out of state resident, age 17 and up",
+        "photo": "PXL_20260907_003223110.jpg"
+    },
+    {
+        "id": "loon-in-flight",
+        "title": "Loon in Flight",
+        "artist": "Claire Dahlman",
+        "hometown": "Edina, MN",
+        "description": "A gray loon shown mid-flight against a golden tan background, rendered in natural-colored seeds.",
+        "photo": "PXL_20260907_003353991.jpg"
+    },
+    {
+        "id": "loon-in-flight-badge",
+        "title": "Loon in Flight Badge",
+        "artist": "Ike Whiting",
+        "hometown": "St. Anthony, MN",
+        "description": "A stylized circular badge of a loon in flight rendered in black and blue beadwork with a small white starburst above its head.",
+        "ribbon": "First Premium, Class 7 — Artistic, flat surface arrangements, amateur",
+        "photo": "PXL_20260907_002621723.jpg"
+    },
+    {
+        "id": "loon-portrait-no-1",
+        "title": "Loon Portrait (No. 1)",
+        "hometown": "Saint Paul, MN",
+        "description": "A minimalist piece depicting a black loon within a square frame marked with the numeral '1.'",
+        "photo": "PXL_20260907_001908451.jpg"
+    },
+    {
+        "id": "loony-moon",
+        "title": "Loony Moon",
+        "artist": "Katherine Kovel",
+        "hometown": "Minneapolis, MN",
+        "description": "A textured circular piece depicting a glowing full moon at night in beaded relief.",
+        "photo": "PXL_20260907_002525165.jpg"
+    },
+    {
+        "id": "lord-of-the-rings-25-years",
+        "title": "Lord of the Rings, 25 Years",
+        "hometown": "Saint Paul, MN",
+        "description": "Three glowing archways — one golden, one dark with a ring, and one showing hooded figures — commemorate 25 years of \"The Lord of the Rings,\" with a small gold ring motif at the base.",
+        "photo": "PXL_20260907_002943414.jpg"
+    },
+    {
+        "id": "lynx-5",
+        "title": "Lynx #5",
+        "artist": "Morgan Hamernik",
+        "hometown": "Saint Paul, MN",
+        "description": "A dynamic portrait of a Minnesota Lynx basketball player dribbling mid-drive, rendered against radiating blue rays.",
+        "photo": "PXL_20260907_003034228.jpg"
+    },
+    {
+        "id": "maga-koolaid",
+        "title": "MAGA Koolaid",
+        "artist": "Cheryl Madsen",
+        "hometown": "Fridley, MN",
+        "description": "A satirical take on the Kool-Aid Man character wearing a golden crown and bursting through a wall, rendered in bold red, blue and yellow seeds against a pop-art radiating background.",
+        "photo": "PXL_20260907_003325978.jpg"
+    },
+    {
+        "id": "magic-miles",
+        "title": "Magic Miles",
+        "description": "A basketball player in a Minnesota Lynx jersey numbered 5 drives across a cracked blue background, titled \"Magic Miles.\"",
+        "photo": "PXL_20260907_002719479.jpg"
+    },
+    {
+        "id": "man-i-need",
+        "title": "Man I Need",
+        "description": "A green, plant-covered humanoid swamp-thing figure stands inside a blue circle above the bold caption \"Man I Need.\"",
+        "photo": "PXL_20260907_002647184.jpg"
+    },
+    {
+        "id": "marie-antoinette",
+        "title": "Marie Antoinette",
+        "description": "A portrait of a woman in an elaborate historical gown seated at a table, styled after 18th-century portraiture.",
+        "photo": "PXL_20260907_002001119.jpg"
+    },
+    {
+        "id": "marsh-at-dusk",
+        "title": "Marsh at Dusk",
+        "artist": "Sonja Nelson",
+        "hometown": "Minneapolis, MN",
+        "description": "A textured landscape piece depicting a bird flying low over a marsh at dusk, rendered in muted lavender and gold seed tones.",
+        "photo": "PXL_20260907_001855295.jpg"
+    },
+    {
+        "id": "may-26-2026",
+        "title": "May 26, 2026",
+        "description": "A blue and orange graphic piece marking the date May 26, 2026, with a bird/plane motif.",
+        "photo": "PXL_20260907_003015698.jpg"
+    },
+    {
+        "id": "mcbride-21",
+        "title": "McBride 21",
+        "artist": "Colin Gapen",
+        "hometown": "Roseville, MN",
+        "description": "A sports jersey design in white and blue seeds reading \"McBRIDE 21.\"",
+        "photo": "PXL_20260907_003240489.jpg"
+    },
+    {
+        "id": "metalcrop-rising-25-years",
+        "title": "Metalcrop Rising, 25 Years",
+        "artist": "Amelia Fermor",
+        "hometown": "Minneapolis, MN",
+        "description": "A leaping figure wielding a scythe amid ears of corn evokes a heavy-metal album cover, captioned \"25 Years, Raven\" and \"Metalcrop Rising.\"",
+        "photo": "PXL_20260907_002921155.jpg"
+    },
+    {
+        "id": "milano-cortina-2026",
+        "title": "Milano Cortina 2026",
+        "description": "A piece depicting a figure skater with the Olympic rings, commemorating the Milano Cortina 2026 Winter Olympics.",
+        "photo": "PXL_20260907_003015698.jpg"
+    },
+    {
+        "id": "millions-of-cats",
+        "title": "Millions of Cats",
+        "artist": "Blair Bohler",
+        "hometown": "Plymouth, MN",
+        "description": "A piece referencing the classic children's book 'Millions of Cats.'",
+        "photo": "PXL_20260907_003150050.jpg"
+    },
+    {
+        "id": "minhybrid-seed-corn-emblem",
+        "title": "Minhybrid Seed Corn Emblem",
+        "artist": "Linda Paulson",
+        "description": "A detailed recreation of the Minnesota Crop Improvement Association's 'Minhybrid Seed Corn' seal, rendered entirely in seeds to mirror the printed cloth seed-sack logo displayed beside it.",
+        "photo": "PXL_20260907_001503902.jpg"
+    },
+    {
+        "id": "minneapolis-martyrs",
+        "title": "Minneapolis Martyrs",
+        "artist": "Athena Hollins",
+        "hometown": "Saint Paul, MN",
+        "description": "Three figures are portrayed as religious icons with golden halos, raising fists and peace signs in a triptych evoking devotional portraiture.",
+        "ribbon": "First Premium, Class 9 — Artistic, dried natural plant parts, amateur",
+        "photo": "PXL_20260907_002853929.jpg",
+        "position": [
+            2.58005428314209,
+            -0.427846223115921,
+            -1.6099259853363037
+        ]
+    },
+    {
+        "id": "minneapolis-the-ol-slippery",
+        "title": "Minneapolis: The Ol' Slippery",
+        "hometown": "Minneapolis, MN",
+        "description": "A piece with a stylized skyline and waterfall motif and gold cursive lettering reading 'Minneapolis: The Ol' Slippery.'",
+        "photo": "PXL_20260907_001959694.jpg"
+    },
+    {
+        "id": "minnebar-20",
+        "title": "MinneBar 20",
+        "artist": "Alisa Dean",
+        "hometown": "Minnetonka, MN",
+        "description": "A bingo-card style piece in pink and teal spelling out 'MinneBar 20,' referencing the Minnesota tech unconference MinneBar.",
+        "ribbon": "Fifth Premium, Class 23 — Group, Organization or Team (classes 1-16)",
+        "photo": "PXL_20260907_003156389.jpg"
+    },
+    {
+        "id": "minnehaha-falls",
+        "title": "Minnehaha Falls",
+        "artist": "Lisa Engler",
+        "hometown": "Minneapolis, MN",
+        "description": "A decorative geometric-patterned piece titled 'Minnehaha Falls,' referencing the Minneapolis waterfall landmark.",
+        "photo": "PXL_20260907_001959694.jpg",
+        "position": [
+            -0.36390790343284607,
+            0.2126462608575821,
+            3.4193930625915527
+        ]
+    },
+    {
+        "id": "minnesota",
+        "title": "Minnesota",
+        "artist": "Jean Glenn",
+        "hometown": "Minneapolis, MN",
+        "description": "A retro travel-poster scene of a pine tree and canoe silhouetted against a glowing orange sunset over water, captioned \"Minnesota, United States.\"",
+        "photo": "PXL_20260907_002621723.jpg"
+    },
+    {
+        "id": "minnesota-the-state-that-grows-on-you",
+        "title": "Minnesota (The State that Grows on You)",
+        "artist": "Jill Osiecki",
+        "hometown": "Eagan, MN",
+        "description": "A whitetail buck stands among white birch trees at sunset beside a lake with a loon, framed by a monarch butterfly and wildflowers, with the tagline 'The State that Grows on You' worked into the piece.",
+        "ribbon": "First Premium, Class 1 — Artistic, natural colors, amateur",
+        "photo": "PXL_20260907_001631445.jpg"
+    },
+    {
+        "id": "minnesota-fights-back",
+        "title": "Minnesota Fights Back",
+        "artist": "Charlie St. Dennis",
+        "hometown": "Saint Paul, MN",
+        "description": "A purple silhouetted figure wearing a beaded headband is set inside the outline of Minnesota, beside the bold caption \"Minnesota Fights Back.\"",
+        "photo": "PXL_20260907_002719479.jpg",
+        "position": [
+            4.1286139488220215,
+            -0.3333561420440674,
+            -0.2375521957874298
+        ]
+    },
+    {
+        "id": "minnesota-welcomes-you",
+        "title": "Minnesota Welcomes You",
+        "artist": "Megan Bell",
+        "hometown": "Richfield, MN",
+        "description": "A bearded man in a cap sits on a bench in a colorful sunset landscape beneath the arched words MINNESOTA WELCOMES YOU.",
+        "ribbon": "Fifth Premium, Class 1 — Artistic, natural colors, amateur",
+        "photo": "PXL_20260907_002437562.jpg",
+        "position": [
+            2.4563770294189453,
+            -0.34580907225608826,
+            2.1126394271850586
+        ]
+    },
+    {
+        "id": "minnesota-wrestlers",
+        "title": "Minnesota Wrestlers",
+        "artist": "Amy Segelbaum",
+        "hometown": "Golden Valley, MN",
+        "description": "A blue piece depicting the outline of Minnesota with two wrestlers grappling inside it.",
+        "photo": "PXL_20260907_003034228.jpg"
+    },
+    {
+        "id": "miss-piggy",
+        "title": "Miss Piggy",
+        "artist": "Amy Siegel",
+        "hometown": "Richfield, MN",
+        "description": "A portrait of the Muppet character Miss Piggy against a deep blue floral background, wearing a purple scarf.",
+        "photo": "PXL_20260907_002437562.jpg",
+        "position": [
+            2.4537668228149414,
+            -0.10818629711866379,
+            2.105240821838379
+        ]
+    },
+    {
+        "id": "mn-state-fair-crop-art-champion",
+        "title": "MN State Fair Crop Art Champion Belt",
+        "description": "A wrestling-style championship belt rendered entirely in seeds and grains, styled after a professional wrestling title belt and labeled as the Minnesota State Fair crop art champion.",
+        "photo": "PXL_20260907_002755685.jpg"
+    },
+    {
+        "id": "mni-sota-makoce",
+        "title": "Mni Sota Makoce",
+        "artist": "Zoli Ellis",
+        "hometown": "Saint Paul, MN",
+        "description": "A figure holding an umbrella stands against a dark background beneath the Dakota-language phrase \"Mni Sota Makoce,\" meaning the land where the waters reflect the clouds.",
+        "photo": "PXL_20260907_002622906.jpg"
+    },
+    {
+        "id": "monarch-butterfly",
+        "title": "Monarch Butterfly",
+        "artist": "Lily Black",
+        "hometown": "Plymouth, MN",
+        "description": "A large monarch butterfly with vivid orange, black, and white wings depicted against a golden background.",
+        "photo": "PXL_20260907_002034069.jpg"
+    },
+    {
+        "id": "monarch-butterfly-eden-prairie",
+        "title": "Monarch Butterfly (Eden Prairie)",
+        "artist": "Abby Walker",
+        "hometown": "Eden Prairie, MN",
+        "description": "A large detailed portrait of a monarch butterfly with orange and black wings against a pale sky.",
+        "photo": "PXL_20260907_002054835.jpg"
+    },
+    {
+        "id": "monarch-butterfly-protest-piece",
+        "title": "Monarch Butterfly Protest Piece",
+        "description": "A piece depicting a monarch butterfly on purple flowers alongside handwritten protest-style text referencing not letting fascists take the monarch butterfly.",
+        "photo": "PXL_20260907_003056906.jpg"
+    },
+    {
+        "id": "monarch-on-m",
+        "title": "Monarch on M",
+        "artist": "Isabella Walker",
+        "hometown": "Eden Prairie, MN",
+        "description": "A large block letter 'M' worked in black seeds with a monarch butterfly perched on its crossbar.",
+        "ribbon": "First Premium, Class 19 — Junior, through age 12",
+        "photo": "PXL_20260907_001659927.jpg"
+    },
+    {
+        "id": "moth-face",
+        "title": "Moth Face",
+        "artist": "Makenna Dawson",
+        "hometown": "Minneapolis, MN",
+        "description": "A surreal piece blending a moth's wings with a human face.",
+        "photo": "PXL_20260907_002141390.jpg"
+    },
+    {
+        "id": "moth-portrait",
+        "title": "Moth Portrait",
+        "artist": "Meredith Rariden",
+        "hometown": "Saint Paul, MN",
+        "description": "A detailed piece depicting a moth with patterned wings, framed with a checkered border.",
+        "photo": "PXL_20260907_003131301.jpg"
+    },
+    {
+        "id": "moth-study",
+        "title": "Moth Study",
+        "artist": "Meredith Rariden",
+        "hometown": "Saint Paul, MN",
+        "description": "A detailed tan moth rendered in seeds against a dark background, entered in the Novice class.",
+        "photo": "PXL_20260907_003157758.jpg"
+    },
+    {
+        "id": "mountain-view",
+        "title": "Mountain View",
+        "artist": "Anna Love",
+        "hometown": "Golden Valley, MN",
+        "description": "A dyed-rye landscape of a jagged blue-green mountain range rising above a sunburst sky, with a golden desert plain in the foreground.",
+        "ribbon": "Fourth Premium, Class 3 — Artistic, dyed or painted, amateur",
+        "photo": "PXL_20260907_002525165.jpg"
+    },
+    {
+        "id": "msf-1986-tightrope-walker",
+        "title": "MSF 1986: Tightrope Walker",
+        "artist": "Lori Anderson",
+        "hometown": "Roseville, MN",
+        "description": "A blue-sky scene of a tightrope walker crossing near a communications tower above green treetops, labeled 'MSF 1986.'",
+        "ribbon": "Second Premium, Class 27 — Crops arrangements, amateur",
+        "photo": "PXL_20260907_003016868.jpg"
+    },
+    {
+        "id": "msp",
+        "title": "MSP",
+        "description": "A night skyline scene with a radiating starburst pattern over dark city lights, lettered MSP at the bottom.",
+        "photo": "PXL_20260907_002130386.jpg"
+    },
+    {
+        "id": "mushroom-and-hedgehog",
+        "title": "Mushroom and Hedgehog",
+        "hometown": "Burnsville, MN",
+        "description": "A whimsical seed composition pairing a mushroom with a small hedgehog, entered in the Novice class.",
+        "photo": "PXL_20260907_003157758.jpg"
+    },
+    {
+        "id": "my-bark-is-worse-than-my-bite",
+        "title": "My Bark Is Worse Than My Bite",
+        "artist": "Judy Bergsgaard",
+        "hometown": "Chaska, MN",
+        "description": "A portrait of a white bull terrier with a brown ear patch and a 'Woof' name tag, captioned 'My bark is worse than my bite.'",
+        "photo": "PXL_20260907_001815101.jpg"
+    },
+    {
+        "id": "my-neighbor-minnesototoro",
+        "title": "My Neighbor MinnesoTOTORO",
+        "artist": "Michelle Stoffel",
+        "hometown": "Roseville, MN",
+        "description": "A mashup piece merging Studio Ghibli's Totoro with the Minnesota state flag colors on his belly.",
+        "photo": "PXL_20260907_003034228.jpg"
+    },
+    {
+        "id": "national-park-service",
+        "title": "National Park Service",
+        "artist": "Annmarie Geniusz",
+        "hometown": "Minneapolis, MN",
+        "description": "An arrowhead-shaped badge in the style of the National Park Service emblem, with a green pine-covered mountain against an orange ground.",
+        "photo": "PXL_20260907_002739375.jpg"
+    },
+    {
+        "id": "nature-sht-40-years",
+        "title": "Nature & SHT: 40 Years",
+        "description": "A forest and lake scene with hikers on a bridge, celebrating the 40th anniversary of the Superior Hiking Trail.",
+        "photo": "PXL_20260907_003016868.jpg"
+    },
+    {
+        "id": "ne-se-whistle-badge",
+        "title": "NE SE Whistle Badge",
+        "artist": "Ike Whiting",
+        "hometown": "St. Anthony, MN",
+        "description": "A round patch-style piece depicting an orange whistle on a woven tan background, bordered with the lettering NE SE.",
+        "ribbon": "First Premium, Class 7 — Artistic, flat surface arrangements, amateur",
+        "photo": "PXL_20260907_002206786.jpg",
+        "position": [
+            0.6643988490104675,
+            -0.0962115004658699,
+            2.9771642684936523
+        ]
+    },
+    {
+        "id": "ninja-turtle",
+        "title": "Ninja Turtle",
+        "artist": "Lilia Khelif DeHaan",
+        "hometown": "Minnetonka, MN",
+        "description": "A portrait of a Teenage Mutant Ninja Turtle character wielding a weapon, rendered in green and orange seeds.",
+        "photo": "PXL_20260907_003051146.jpg"
+    },
+    {
+        "id": "no-admittance-except-on-crop-art-business",
+        "title": "No Admittance Except on Crop Art Business",
+        "hometown": "Saint Paul, MN",
+        "description": "A crowd of silhouetted figures marches beneath an arched sign reading \"No Admittance Except on Crop Art Business,\" a play on the Winnie-the-Pooh quotation.",
+        "photo": "PXL_20260907_002918129.jpg"
+    },
+    {
+        "id": "no-ai-was-used-in-the-making-of-this-seed-art",
+        "title": "No AI Was Used in the Making of This Seed Art",
+        "description": "Bold radiating text declaring \"No AI was used in the making of this seed art,\" a wry commentary piece in orange and dark brown seeds.",
+        "photo": "PXL_20260907_002647184.jpg",
+        "position": [
+            3.8964524269104004,
+            -0.36120256781578064,
+            -0.4481161832809448
+        ]
+    },
+    {
+        "id": "no-ice-extra-sprinkles",
+        "title": "No Ice. Extra Sprinkles.",
+        "artist": "Diane Klein",
+        "hometown": "Rochester, MN",
+        "description": "A vintage advertisement-style illustration of a soft-serve ice cream cone piled high with sprinkles, framed by an ornate banner reading \"No Ice. Extra Sprinkles.\"",
+        "ribbon": "Second Premium, Class 3 — Artistic, dyed or painted, amateur",
+        "photo": "PXL_20260907_002453791.jpg",
+        "position": [
+            2.9022374153137207,
+            0.0615837499499321,
+            1.846336841583252
+        ]
+    },
+    {
+        "id": "no-jacket-required-phil-collins",
+        "title": "No Jacket Required (Phil Collins)",
+        "artist": "James Bittancourt",
+        "hometown": "Minneapolis, MN",
+        "description": "A stylized orange and red portrait of a man's face captioned 'No Jacket Required' and 'Phil Collins,' referencing the singer's album.",
+        "photo": "PXL_20260907_003051146.jpg",
+        "position": [
+            0.0863775834441185,
+            -0.3074831962585449,
+            -3.859147310256958
+        ]
+    },
+    {
+        "id": "no-kings",
+        "title": "No Kings",
+        "description": "A blue badge-shaped piece with a raised fist, captioned 'No Kings.'",
+        "photo": "PXL_20260907_003152462.jpg"
+    },
+    {
+        "id": "no-kings-the-midterms-are-coming",
+        "title": "No Kings - The Midterms Are Coming",
+        "artist": "Jennifer O'Brien",
+        "hometown": "Edina, MN",
+        "description": "A blue-background political piece with a crossed-out crown and the message \"NO KINGS - THE MIDTERMS ARE COMING.\"",
+        "photo": "PXL_20260907_003217387.jpg",
+        "position": [
+            -1.685780644416809,
+            -0.2650965452194214,
+            -5.404901504516602
+        ]
+    },
+    {
+        "id": "no-kings-rally-3-28-26",
+        "title": "No Kings Rally 3.28.26",
+        "artist": "Christina Myers",
+        "hometown": "Minneapolis, MN",
+        "description": "A black crown outline on a gold ground commemorates the \"No Kings Rally\" protest held March 28, 2026, with a small photo of the rally tucked alongside.",
+        "ribbon": "Fourth Premium, Class 5 — Artistic, irregular forms, amateur",
+        "photo": "PXL_20260907_002932337.jpg",
+        "position": [
+            2.001309633255005,
+            -0.4979276955127716,
+            -2.1226394176483154
+        ]
+    },
+    {
+        "id": "nope-no-sir-i-don-t-approve-of-ice",
+        "title": "Nope. No sir, I don't approve of ice.",
+        "artist": "Sharon Stiteler",
+        "hometown": "St Louis Park, MN",
+        "description": "A circular piece depicting a rabbit's face in cream and tan tones, encircled by the text 'Nope. No sir. I don't approve of ICE,' part of a 'Disapproving Rabbits' series.",
+        "photo": "PXL_20260907_001751916.jpg"
+    },
+    {
+        "id": "north-star-roller-derby",
+        "title": "North Star Roller Derby",
+        "description": "A circular patch-style piece featuring a skull design and text celebrating twenty years of the North Star Roller Derby league.",
+        "photo": "PXL_20260907_003221555.jpg",
+        "position": [
+            -1.921436071395874,
+            0.20043757557868958,
+            -5.7104058265686035
+        ]
+    },
+    {
+        "id": "not-all-seeds-stay-buried",
+        "title": "Not All Seeds Stay Buried",
+        "description": "A Halloween-themed shadowbox depicting a graveyard at dusk with a ghost hovering over tombstones labeled with seed varieties (mustard seed, chia, quinoa), captioned 'Not All Seeds Stay Buried.'",
+        "photo": "PXL_20260907_001741874.jpg"
+    },
+    {
+        "id": "not-ready-to-make-nice",
+        "title": "Not Ready to Make Nice",
+        "description": "A flying loon silhouette accompanies the defiant phrase \"Not ready to make nice,\" worked in bold lettering on a tan ground.",
+        "photo": "PXL_20260907_002647184.jpg"
+    },
+    {
+        "id": "nothing-burns-like-the-cold",
+        "title": "Nothing Burns Like the Cold",
+        "artist": "Danielle Durda",
+        "hometown": "Richfield, MN",
+        "description": "A figure bundled in an \"ICE\" life jacket flails while falling into icy water, captioned \"Nothing Burns Like the Cold\" and tagged \"Most Iconic Wipeout 2026.\"",
+        "photo": "PXL_20260907_002929854.jpg",
+        "position": [
+            1.9686328172683716,
+            -0.6603824496269226,
+            -2.1282787322998047
+        ]
+    },
+    {
+        "id": "nut-goodbye",
+        "title": "Nut Goodbye",
+        "artist": "Jill Moe",
+        "hometown": "Saint Paul, MN",
+        "description": "A round seed-art parody of the Pearson's Nut Goodie candy wrapper, reading 'Pearson's Nut Goodbye, Saint Paul' in a maroon-and-gold starburst design.",
+        "ribbon": "Second Premium, Class 2 — Artistic, natural colors, advanced",
+        "photo": "PXL_20260907_003353991.jpg",
+        "position": [
+            -0.9956273436546326,
+            0.23455369472503662,
+            -0.458079069852829
+        ]
+    },
+    {
+        "id": "octopus",
+        "title": "Octopus",
+        "hometown": "Minneapolis, MN",
+        "description": "A small blue octopus with curling tentacles set against a bright blue background.",
+        "photo": "PXL_20260907_002737037.jpg"
+    },
+    {
+        "id": "oh-worm",
+        "title": "Oh Worm?",
+        "artist": "Sarah Crane",
+        "hometown": "Saint Paul, MN",
+        "description": "A piece depicting a large coiled earthworm against an orange background, humorously captioned 'Oh Worm?'",
+        "photo": "PXL_20260907_001908451.jpg"
+    },
+    {
+        "id": "oh-goldy",
+        "title": "Oh, Goldy!",
+        "artist": "Kristina Quire",
+        "hometown": "Minneapolis, MN",
+        "description": "A crop art portrait of Goldy Gopher, the University of Minnesota mascot, rendered in golden and maroon seeds with the exclamation \"OH, GOLDY!\" worked into the design.",
+        "photo": "PXL_20260907_003156389.jpg"
+    },
+    {
+        "id": "onion-character",
+        "title": "Onion Character",
+        "description": "A small whimsical portrait of an anthropomorphic onion figure set against a black background.",
+        "photo": "PXL_20260907_002206786.jpg"
+    },
+    {
+        "id": "onion-head",
+        "title": "Onion Head",
+        "artist": "Abbey Herndon",
+        "hometown": "Minneapolis, MN",
+        "description": "A whimsical character portrait with an onion for a head.",
+        "photo": "PXL_20260907_002136984.jpg"
+    },
+    {
+        "id": "only-you-can-protect-the-boundary-waters-canoe-area",
+        "title": "Only You Can Protect the Boundary Waters Canoe Area",
+        "artist": "Amanda Fritchels",
+        "hometown": "Big Lake, MN",
+        "description": "A circular badge showing a loon on dark water beneath a starry green sky, wrapped with the message \"Only you can protect the Boundary Waters Canoe Area.\"",
+        "photo": "PXL_20260907_002525165.jpg"
+    },
+    {
+        "id": "only-you-can-rake-the-forest",
+        "title": "Only You Can Rake the Forest",
+        "artist": "Stephanie Snyder",
+        "hometown": "St. Paul, MN",
+        "description": "A parody of the Smokey Bear fire-prevention poster showing a ranger bear with rakes in a forest, captioned 'Only You Can Rake the Forest.'",
+        "photo": "PXL_20260907_001842141.jpg",
+        "position": [
+            -1.2115397453308105,
+            0.16175656020641327,
+            3.845587968826294
+        ]
+    },
+    {
+        "id": "ope",
+        "title": "OPE",
+        "artist": "Todd Miller",
+        "hometown": "Saint Paul, MN",
+        "description": "A stenciled portrait in the style of Shepard Fairey's \"Obey\" poster is captioned with the quintessentially Minnesotan exclamation \"Ope.\"",
+        "photo": "PXL_20260907_003008217.jpg",
+        "position": [
+            0.8345552086830139,
+            -0.037798922508955,
+            -3.246671676635742
+        ]
+    },
+    {
+        "id": "orange-cat-portrait",
+        "title": "Orange Cat Portrait",
+        "artist": "MC Hyland",
+        "hometown": "Saint Paul, MN",
+        "description": "A close-up portrait of an orange tabby cat's face with a white muzzle.",
+        "photo": "PXL_20260907_001815101.jpg",
+        "position": [
+            -1.545433759689331,
+            0.7844116687774658,
+            3.976858377456665
+        ]
+    },
+    {
+        "id": "orange-flower",
+        "title": "Orange Flower",
+        "artist": "Charlie Jensen",
+        "hometown": "Waconia, MN",
+        "description": "An oval piece depicting a single orange and yellow flower on a cream seed background.",
+        "photo": "PXL_20260907_003312360.jpg"
+    },
+    {
+        "id": "owl-in-flight",
+        "title": "Owl in Flight",
+        "description": "A great horned owl swoops with wings fully spread, rendered in finely detailed brown and cream seeds, an irregularly-shaped cutout piece.",
+        "photo": "PXL_20260907_002724952.jpg"
+    },
+    {
+        "id": "owl-portrait",
+        "title": "Owl Portrait",
+        "description": "A finely detailed brown and tan owl portrait made of small seeds.",
+        "photo": "PXL_20260907_003223110.jpg"
+    },
+    {
+        "id": "paddle-on",
+        "title": "Paddle On",
+        "description": "A sunset canoe scene on a lake, captioned 'Paddle On.'",
+        "photo": "PXL_20260907_003035592.jpg"
+    },
+    {
+        "id": "pantone-mn-2026-crop-art",
+        "title": "Pantone MN-2026 Crop Art",
+        "artist": "Sydney Schoeberle",
+        "hometown": "St Paul, MN",
+        "description": "A swirling abstract design in gold, purple, and cream seeds styled as a paint color swatch card labeled 'Pantone MN-2026 Crop Art.'",
+        "photo": "PXL_20260907_001959694.jpg",
+        "position": [
+            -0.49330347776412964,
+            0.17388777434825897,
+            3.504964828491211
+        ]
+    },
+    {
+        "id": "pass-the-beans",
+        "title": "Pass the Beans",
+        "artist": "Julie Blaha",
+        "hometown": "Ramsey, MN",
+        "description": "Two hands pass a lit torch labeled \"CSA\" between them, radiating beams outward, captioned \"Pass the Beans,\" a nod to community-supported agriculture.",
+        "photo": "PXL_20260907_002945312.jpg"
+    },
+    {
+        "id": "paul-s-bunions",
+        "title": "Paul's Bunions",
+        "artist": "Krissy Sorensen",
+        "hometown": "Minneapolis, MN",
+        "description": "A piece depicting a pair of clasped hands, titled 'Paul's Bunions,' framed with a red-and-white checked border.",
+        "photo": "PXL_20260907_002001119.jpg",
+        "position": [
+            -0.37173992395401,
+            0.007193968165665865,
+            3.4500224590301514
+        ]
+    },
+    {
+        "id": "peggy-amy-ben-steve-keith-zack",
+        "title": "Peggy & Amy & Ben & Steve & Keith & Zack",
+        "artist": "Julie Blaha",
+        "hometown": "Ramsey, MN",
+        "description": "A tan, marbled-background piece with colorful cutout lettering spelling a list of six names.",
+        "photo": "PXL_20260907_003217387.jpg",
+        "position": [
+            -1.7896199226379395,
+            -0.3526572287082672,
+            -5.517160892486572
+        ]
+    },
+    {
+        "id": "pemaquid-light",
+        "title": "Pemaquid Light",
+        "artist": "Tom Rainey",
+        "hometown": "Minneapolis, MN",
+        "description": "A coastal scene of the Pemaquid Point lighthouse in Maine, rendered in soft blues, tans and whites with two small figures standing before it.",
+        "ribbon": "Second Premium, Class 18 — Senior citizen, age 60 and up, amateur",
+        "photo": "PXL_20260907_003322849.jpg"
+    },
+    {
+        "id": "penny-in-god-we-trust",
+        "title": "Penny (In God We Trust)",
+        "hometown": "Minneapolis, MN",
+        "description": "A large sculptural relief of a Lincoln penny, with \"In God We Trust\" and Lincoln's portrait rendered in rich brown seeds.",
+        "photo": "PXL_20260907_002621723.jpg"
+    },
+    {
+        "id": "peter-s-bachelor-party",
+        "title": "Peter's Bachelor Party",
+        "artist": "Emma Winegar",
+        "hometown": "Madison, WI",
+        "description": "A multi-panel comic-strip style seed piece depicting a DNA double helix, a basketball, and a group gathering, telling the story of a bachelor party.",
+        "photo": "PXL_20260907_003215897.jpg"
+    },
+    {
+        "id": "pink-blossom",
+        "title": "Pink Blossom",
+        "artist": "Danielle Gale",
+        "hometown": "Shoreview, MN",
+        "description": "A small piece depicting a pink and white flower blossom.",
+        "photo": "PXL_20260907_002054835.jpg"
+    },
+    {
+        "id": "pink-castle-by-the-pond",
+        "title": "Pink Castle by the Pond",
+        "artist": "Stephanie Schempp",
+        "hometown": "West St Paul, MN",
+        "description": "A whimsical pink turreted castle with a clock tower stands beside a pond with swans, rendered in bright dyed seeds against a deep blue sky.",
+        "ribbon": "Minneapolis Institute of Art Award",
+        "photo": "PXL_20260907_001709191.jpg"
+    },
+    {
+        "id": "plantifa",
+        "title": "Plantifa",
+        "description": "A small piece in a purple frame spells out \"Plantifa,\" a plant-themed pun displayed against a dark starry background.",
+        "photo": "PXL_20260907_002658465.jpg",
+        "position": [
+            2.610830466299108,
+            -0.693462085707752,
+            -1.5373515127211166
+        ]
+    },
+    {
+        "id": "portrait-of-a-man-in-glasses",
+        "title": "Portrait of a Man in Glasses",
+        "artist": "Joyce Harris",
+        "hometown": "Pine City, MN",
+        "description": "A portrait of a smiling older man with glasses and a flat cap, rendered in seeds against a blue checked background.",
+        "photo": "PXL_20260907_003325978.jpg"
+    },
+    {
+        "id": "portrait-of-an-older-man",
+        "title": "Portrait of an Older Man",
+        "artist": "Liz Schreiber",
+        "hometown": "Minneapolis, MN",
+        "description": "A somber portrait of an older man with swept-back white hair and a dark suit, set inside an unusual twisted gray branch frame. The piece won a First Premium ribbon.",
+        "ribbon": "First Premium, Class 2 — Artistic, natural colors, advanced",
+        "photo": "PXL_20260907_003353991.jpg"
+    },
+    {
+        "id": "princess-kate-of-the-milky-way",
+        "title": "Princess Kate of the Milky Way",
+        "artist": "Stephen Saupe",
+        "hometown": "St. Joseph, MN",
+        "description": "A whimsical satirical scene of a cow-headed figure in a trench coat presenting a wedge of cheese to a crowned woman, referencing the British royal family. The piece won a First Premium ribbon.",
+        "ribbon": "First Premium, Class 4 — Artistic, dyed or painted, advanced",
+        "photo": "PXL_20260907_003416973.jpg"
+    },
+    {
+        "id": "profile-in-courage-2026",
+        "title": "Profile in Courage, 2026",
+        "artist": "Maureen Sorensen",
+        "hometown": "Prior Lake, MN",
+        "description": "A scene showing a rainbow pride flag, a figure wading through water, and the phrases 'Peace' and 'F*ck ICE,' commenting on contemporary immigration politics.",
+        "ribbon": "Third Premium, Class 2 — Artistic, natural colors, advanced",
+        "photo": "PXL_20260907_003356085.jpg"
+    },
+    {
+        "id": "profile-of-a-woman",
+        "title": "Profile of a Woman",
+        "hometown": "Golden Valley, MN",
+        "description": "A woman's profile emerges from an abstract inlay of light and dark wood-toned seeds arranged in angular facets.",
+        "photo": "PXL_20260907_002855076.jpg"
+    },
+    {
+        "id": "protest-like-a-minnesotan",
+        "title": "Protest Like a Minnesotan",
+        "description": "A cut-out protest-sign-shaped piece reading \"Protest like a Minnesotan.\"",
+        "photo": "PXL_20260907_002658465.jpg",
+        "position": [
+            2.907200574874878,
+            -0.4101601541042328,
+            -1.3150264024734497
+        ]
+    },
+    {
+        "id": "proud-as-a-loon",
+        "title": "Proud as a Loon",
+        "hometown": "Roseville, MN",
+        "description": "A circular blue plaque featuring a spotted loon and two starbursts beneath the punning phrase \"Proud as a Loon.\"",
+        "photo": "PXL_20260907_002525165.jpg",
+        "position": [
+            3.369694948196411,
+            0.1804414540529251,
+            1.647559404373169
+        ]
+    },
+    {
+        "id": "puppy-portrait",
+        "title": "Puppy Portrait",
+        "artist": "Raquel LaRocca",
+        "hometown": "Minneapolis, MN",
+        "description": "A black-and-white seed portrait of a puppy with a white bib marking, made for the Novice class.",
+        "photo": "PXL_20260907_003157758.jpg"
+    },
+    {
+        "id": "purple-rain",
+        "title": "Purple Rain",
+        "artist": "Marta Shore",
+        "hometown": "Saint Paul, MN",
+        "description": "A small nighttime scene of a figure walking through falling rain beneath the title 'Purple Rain,' worked in purple, gold, and black seeds as a tribute to Prince.",
+        "photo": "PXL_20260907_001503902.jpg"
+    },
+    {
+        "id": "quality-learing-center-1-800-fraud",
+        "title": "Quality Learing Center: 1-800-FRAUD",
+        "artist": "Julie Lyons",
+        "hometown": "Minneapolis, MN",
+        "description": "A tongue-in-cheek roadside sign for a scam \"learning center,\" complete with a little house logo and a parody phone number, rendered entirely in tan and green seeds.",
+        "photo": "PXL_20260907_002621723.jpg",
+        "position": [
+            3.7319176197052,
+            -0.526386559009552,
+            1.4946990013122559
+        ]
+    },
+    {
+        "id": "quality-learning-center",
+        "title": "Quality Learning Center",
+        "description": "A satirical sign-style piece advertising \"Quality Learning Center, 1-800-FRAUD.\"",
+        "photo": "PXL_20260907_002512614.jpg"
+    },
+    {
+        "id": "queen",
+        "title": "Queen",
+        "description": "A tribute piece to the rock band Queen, featuring a gold crown above the band's name in a purple-and-gold color scheme with a portrait figure.",
+        "photo": "PXL_20260907_002203693.jpg"
+    },
+    {
+        "id": "quinoa-s-last-fair",
+        "title": "Quinoa's Last Fair",
+        "description": "A cartoon-style seed portrait of a dog with the inscription \"Quinoa's last fair. Thanks for the memories 1988,\" a nostalgic tribute piece.",
+        "photo": "PXL_20260907_003157758.jpg"
+    },
+    {
+        "id": "quinoa-s-last-fair-thanks-for-the-memories-mn",
+        "title": "Quinoa's Last Fair: Thanks for the Memories, MN!",
+        "artist": "Caroline Hilk",
+        "hometown": "Minneapolis, MN",
+        "description": "A whimsical piece depicting an anthropomorphic egg-shaped character at the fairgrounds, captioned 'Quinoa's Last Fair: Thanks for the Memories, MN!'",
+        "photo": "PXL_20260907_003128900.jpg"
+    },
+    {
+        "id": "raccoon-with-wine",
+        "title": "Raccoon with Wine",
+        "artist": "Tami Richardson",
+        "hometown": "Saint Paul, MN",
+        "description": "A whimsical portrait of a raccoon in a striped tail sitting with a wine bottle and glass.",
+        "photo": "PXL_20260907_001815101.jpg"
+    },
+    {
+        "id": "raccoons-at-night",
+        "title": "Raccoons at Night",
+        "hometown": "Minneapolis, MN",
+        "description": "A nighttime scene of raccoons with candy canes along a snowy riverbank under a full moon.",
+        "photo": "PXL_20260907_001823825.jpg"
+    },
+    {
+        "id": "race-against-the-machine-evil-empire",
+        "title": "Race Against the Machine: Evil Empire",
+        "artist": "Kim Deutsch",
+        "hometown": "Maple Grove, MN",
+        "description": "A portrait of a caped, winged figure in a jersey reading 'e' with a banner 'Evil Empire,' marking 1996-2026, a punning tribute to the band Rage Against the Machine.",
+        "ribbon": "Fifth Premium, Class 11 — Special occasion, amateur",
+        "photo": "PXL_20260907_003015698.jpg",
+        "position": [
+            1.1760882139205933,
+            -0.04370048642158508,
+            -2.926966905593872
+        ]
+    },
+    {
+        "id": "rat-dj",
+        "title": "Rat DJ",
+        "hometown": "Stillwater, MN",
+        "description": "A black-and-white piece depicting a rat wearing a chain necklace standing atop stacked speakers, styled like street art.",
+        "photo": "PXL_20260907_001823825.jpg"
+    },
+    {
+        "id": "rbg-portrait",
+        "title": "RBG Portrait",
+        "artist": "Brenda Butler",
+        "hometown": "Minneapolis, MN",
+        "description": "A portrait of a bespectacled woman with dark hair, one hand raised, evoking Ruth Bader Ginsburg.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "rebel-loon",
+        "title": "Rebel Loon",
+        "artist": "Mina Leverwood",
+        "hometown": "Stanchfield, MN",
+        "description": "A round copper-framed mirror is ringed with the words \"Minnesotana, Facts of Others, Rebel Loon,\" surrounding a black-and-white loon silhouette in flight.",
+        "photo": "PXL_20260907_002918129.jpg"
+    },
+    {
+        "id": "resist",
+        "title": "Resist",
+        "artist": "Ann Treacy",
+        "hometown": "St Paul, MN",
+        "description": "Three silhouetted figures with raised fists rendered in orange and cream seeds against a black background, with the word RESIST spelled above them in white beans.",
+        "photo": "PXL_20260907_002056264.jpg",
+        "position": [
+            0.7915045619010925,
+            -0.2642654776573181,
+            2.889591693878174
+        ]
+    },
+    {
+        "id": "resist-loudly",
+        "title": "Resist Loudly",
+        "description": "A circular badge-style piece depicting a bee or wasp with the caption 'Resist Loudly.'",
+        "photo": "PXL_20260907_003052067.jpg",
+        "position": [
+            -0.10108938813209534,
+            -0.02544541284441948,
+            -4.056738376617432
+        ]
+    },
+    {
+        "id": "respect-honor-kaepernick-and-jason-collins",
+        "title": "Respect / Honor (Kaepernick and Jason Collins)",
+        "artist": "Teresa Anderson",
+        "hometown": "St. Paul, MN",
+        "description": "A two-panel tribute depicting Colin Kaepernick taking a knee in 2016 captioned 'Respect,' paired with basketball player Jason Collins captioned 'Honor' for coming out as gay.",
+        "ribbon": "Fifth Premium, Class 4 — Artistic, dyed or painted, advanced",
+        "photo": "PXL_20260907_003356085.jpg",
+        "position": [
+            -0.8552263379096985,
+            0.0401727594435215,
+            -0.12718632817268372
+        ]
+    },
+    {
+        "id": "return-to-dakota-people",
+        "title": "Return to Dakota People",
+        "description": "A seed artwork featuring four dog or wolf portraits arranged above the bold word \"BLACK,\" with a banner reading \"RETURN ... TO DAKOTA PEOPLE\" referencing land-back advocacy for Dakota homelands.",
+        "photo": "PXL_20260907_003213406.jpg"
+    },
+    {
+        "id": "rice-is-life-sin-ma-z-no-hay-pa-s",
+        "title": "Rice Is Life / Sin Maíz No Hay País",
+        "artist": "Vera Delgado",
+        "hometown": "St Paul, MN",
+        "description": "A piece juxtaposing the phrases \"Rice Is Life\" and \"Sin maíz no hay país\" (without corn there is no country), reflecting on agricultural heritage and identity.",
+        "photo": "PXL_20260907_003257347.jpg"
+    },
+    {
+        "id": "rip",
+        "title": "RIP",
+        "artist": "Abby Madick",
+        "hometown": "Saint Paul, MN",
+        "description": "A small tombstone-red circular motif captioned simply \"RIP\" on a striped brown background.",
+        "photo": "PXL_20260907_002722630.jpg"
+    },
+    {
+        "id": "rip-1984-2025",
+        "title": "RIP 1984-2025",
+        "artist": "Toni Merhar",
+        "hometown": "Shoreview, MN",
+        "description": "A portrait of a smiling man wearing sunglasses, a green cap with headset, and an orange safety vest against a mountain backdrop, inscribed RIP 1984-2025 as a memorial tribute.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "riverside-plaza",
+        "title": "Riverside Plaza",
+        "artist": "Ike Whiting",
+        "hometown": "St. Anthony, MN",
+        "description": "A colorful grid of tiny windows in blue, red, and yellow forms an abstracted high-rise apartment building, titled \"Riverside Plaza.\"",
+        "ribbon": "First Premium, Class 7 — Artistic, flat surface arrangements, amateur",
+        "photo": "PXL_20260907_002722630.jpg"
+    },
+    {
+        "id": "road-work-ahead-signs-of-summer",
+        "title": "Road Work Ahead: Signs of Summer",
+        "artist": "Awna Landry",
+        "hometown": "Golden Valley, MN",
+        "description": "A black-background piece featuring a 'Road Work Ahead' sign, an orange butterfly, and a sun, evoking summer roadside scenery.",
+        "photo": "PXL_20260907_003016868.jpg",
+        "position": [
+            0.943138599395752,
+            0.12069612741470337,
+            -3.145481586456299
+        ]
+    },
+    {
+        "id": "roller-skate",
+        "title": "Roller Skate",
+        "artist": "Ann Meier",
+        "hometown": "Minneapolis, MN",
+        "description": "A minimalist piece depicting a single white roller skate with orange wheels on a black background.",
+        "photo": "PXL_20260907_001959694.jpg"
+    },
+    {
+        "id": "rooster-in-the-garden",
+        "title": "Rooster in the Garden",
+        "hometown": "Mendota Heights, MN",
+        "description": "A rooster with black, gold, and burgundy plumage standing amid small white flowers.",
+        "photo": "PXL_20260907_001908451.jpg"
+    },
+    {
+        "id": "rudolph-valentino",
+        "title": "Rudolph Valentino",
+        "artist": "Lea Stans",
+        "hometown": "Waconia, MN",
+        "description": "A sepia-toned seed portrait of silent-film star Rudolph Valentino in an ornate oval frame, marking the centennial of his 1926 death with a banner reading '1926-2026.'",
+        "ribbon": "First Premium, Class 12 — Special occasion, advanced",
+        "photo": "PXL_20260907_001659927.jpg",
+        "position": [
+            -2.553765058517456,
+            0.6328279972076416,
+            4.455784797668457
+        ]
+    },
+    {
+        "id": "ruff-life",
+        "title": "Ruff Life",
+        "artist": "Kyza Potratz",
+        "hometown": "Saint Paul, MN",
+        "description": "A pink-framed portrait of a scruffy dog with the title 'ruff life' scrawled in orange above it.",
+        "photo": "PXL_20260907_001815101.jpg"
+    },
+    {
+        "id": "saint-portrait",
+        "title": "Saint Portrait",
+        "hometown": "New Hope, MN",
+        "description": "A religious icon-style portrait of a bearded man with a golden halo.",
+        "photo": "PXL_20260907_002017157.jpg"
+    },
+    {
+        "id": "save-freedom-of-speech",
+        "title": "Save Freedom of Speech",
+        "description": "A political piece depicting a man with tape over his mouth, captioned 'Save Freedom of Speech.'",
+        "photo": "PXL_20260907_002034069.jpg",
+        "position": [
+            0.2841258645057678,
+            0.032373715192079544,
+            3.0983781814575195
+        ]
+    },
+    {
+        "id": "save-the-b-w-c-a",
+        "title": "Save the B.W.C.A.",
+        "artist": "Cori Yee",
+        "hometown": "Hastings, MN",
+        "description": "A geometric, triangular canoe-and-tent motif in blue and orange seeds reading \"Save the B.W.C.A.\" with \"Est. 1964\" noting the Boundary Waters Canoe Area's founding year.",
+        "photo": "PXL_20260907_002737037.jpg"
+    },
+    {
+        "id": "save-the-boundary-waters",
+        "title": "Save the Boundary Waters",
+        "artist": "Lucy Larsen",
+        "hometown": "Apple Valley, MN",
+        "description": "A blue badge-shaped piece depicting water and shoreline with the words SAVE THE BOUNDARY WATERS.",
+        "photo": "PXL_20260907_002525165.jpg",
+        "position": [
+            3.4468111991882324,
+            -0.20750924944877625,
+            1.6366231441497803
+        ]
+    },
+    {
+        "id": "save-the-boundary-waters-howling-wolf",
+        "title": "Save the Boundary Waters (Howling Wolf)",
+        "hometown": "Chanhassen, MN",
+        "description": "A wolf silhouetted against a full moon howls beside a lake shoreline, with \"Save the Boundary Waters\" lettered across the top.",
+        "photo": "PXL_20260907_002621723.jpg"
+    },
+    {
+        "id": "scissor-tailed-flycatcher",
+        "title": "Scissor-Tailed Flycatcher",
+        "artist": "Sophia Daley",
+        "hometown": "Minneapolis, MN",
+        "description": "A seed rendition of a Wingspan board game bird card depicting a scissor-tailed flycatcher, made collaboratively by a group of Wingspan-playing friends.",
+        "ribbon": "Fourth Premium, Class 23 — Group, Organization or Team (classes 1-16)",
+        "photo": "PXL_20260907_003208798.jpg"
+    },
+    {
+        "id": "scissor-tailed-flycatcher-when-activated-all-alarms-sound",
+        "title": "Scissor-Tailed Flycatcher: When Activated, All Alarms Sound",
+        "artist": "Sophia Daley",
+        "hometown": "Minneapolis, MN",
+        "description": "A piece depicting a scissor-tailed flycatcher bird with text about alarms activating.",
+        "ribbon": "Fourth Premium, Class 23 — Group, Organization or Team (classes 1-16)",
+        "photo": "PXL_20260907_003151398.jpg"
+    },
+    {
+        "id": "seed-art",
+        "title": "Seed Art",
+        "hometown": "Cottage Grove, MN",
+        "description": "A meta piece depicting a crowd of silhouetted visitors viewing framed art on a wall, titled \"Seed Art, Minnesota State Fair, Est. 1965.\"",
+        "photo": "PXL_20260907_002514917.jpg"
+    },
+    {
+        "id": "seed-art-at-the-minnesota-state-fair-est-1965",
+        "title": "Seed Art at the Minnesota State Fair, Est. 1965",
+        "description": "A scene of fairgoers, shown in silhouette, admiring a wall of framed seed-art pieces depicting a barn, flowers, and a state capitol dome, captioned \"Seed Art at the Minnesota State Fair, Est. 1965.\"",
+        "photo": "PXL_20260907_002555998.jpg",
+        "position": [
+            3.071622133255005,
+            0.3302125334739685,
+            1.8081300258636475
+        ]
+    },
+    {
+        "id": "seed-christ",
+        "title": "Seed Christ",
+        "artist": "Kat Thek",
+        "hometown": "Brooklyn, NY",
+        "description": "A religious-themed seed piece depicting a Christ figure, entered in the Out of State adult division.",
+        "photo": "PXL_20260907_003226068.jpg",
+        "position": [
+            -2.185074806213379,
+            0.10689058899879456,
+            -5.863282203674316
+        ]
+    },
+    {
+        "id": "seed-guitar",
+        "title": "Seed Guitar",
+        "artist": "Leo Gapen",
+        "hometown": "Roseville, MN",
+        "description": "A life-sized electric guitar sculpture entirely covered in maroon and cream beans.",
+        "ribbon": "Second Premium, Class 20 — Junior, age 13-16",
+        "photo": "PXL_20260907_003257347.jpg"
+    },
+    {
+        "id": "seeded-rivalry-hockey",
+        "title": "Seeded Rivalry (Hockey)",
+        "hometown": "Saint Paul, MN",
+        "description": "Two hockey players in blue and black jerseys face off nose-to-nose, rendered in a bold graphic-novel style titled \"Seeded Rivalry.\"",
+        "photo": "PXL_20260907_002647184.jpg",
+        "position": [
+            4.512901782989502,
+            -0.4125213027000427,
+            0.14195196330547333
+        ]
+    },
+    {
+        "id": "senator-of-the-universe",
+        "title": "Senator of the Universe",
+        "description": "A gold-framed portrait of a man in a dark jacket, paired with a folded paper-airplane-style tag reading 'Senator of the Universe.'",
+        "photo": "PXL_20260907_003055365.jpg",
+        "position": [
+            -0.014228417538106441,
+            0.14125493168830872,
+            -3.982710838317871
+        ]
+    },
+    {
+        "id": "sheet-music-singer",
+        "title": "Sheet Music Singer",
+        "hometown": "Saint Paul, MN",
+        "description": "A piece depicting a woman with an afro hairstyle superimposed over a page of sheet music.",
+        "photo": "PXL_20260907_001959694.jpg"
+    },
+    {
+        "id": "siamese-cat",
+        "title": "Siamese Cat",
+        "artist": "Alma Bredeson",
+        "hometown": "St. Paul, MN",
+        "description": "A tan and brown Siamese cat portrait on a light blue background.",
+        "photo": "PXL_20260907_003235647.jpg"
+    },
+    {
+        "id": "signs-of-summer",
+        "title": "Signs of Summer",
+        "artist": "Anna Landry",
+        "hometown": "Golden Valley, MN",
+        "description": "An orange \"Road Work Ahead\" sign stands amid wildflowers and a butterfly under a bright sun, titled \"Signs of Summer.\"",
+        "photo": "PXL_20260907_003010148.jpg"
+    },
+    {
+        "id": "silence-of-the-lambs",
+        "title": "Silence of the Lambs",
+        "artist": "Molly Kocer",
+        "hometown": "Minneapolis, MN",
+        "description": "A close-up portrait of a woman's face half in shadow, with a moth resting over her lips, referencing The Silence of the Lambs.",
+        "photo": "PXL_20260907_002206786.jpg",
+        "position": [
+            1.044227957725525,
+            0.06202668324112892,
+            2.771214246749878
+        ]
+    },
+    {
+        "id": "silhouette-profile",
+        "title": "Silhouette Profile",
+        "artist": "Theodore Pennington",
+        "hometown": "Saint Paul, MN",
+        "description": "A cream-and-black seed piece depicting a stylized profile silhouette against a night sky.",
+        "ribbon": "Fifth Premium, Class 20 — Junior, age 13-16",
+        "photo": "PXL_20260907_003257347.jpg"
+    },
+    {
+        "id": "skeleton-scene",
+        "title": "Skeleton Scene",
+        "artist": "Timothy Nelson",
+        "hometown": "Farmington, MN",
+        "description": "A piece depicting a skeleton in a spooky vignette.",
+        "photo": "PXL_20260907_002141390.jpg"
+    },
+    {
+        "id": "sleeping-cat",
+        "title": "Sleeping Cat",
+        "description": "A small piece depicting an orange cat curled up asleep.",
+        "photo": "PXL_20260907_002525165.jpg"
+    },
+    {
+        "id": "sloths-rule",
+        "title": "Sloths Rule",
+        "artist": "Audrey Brandel",
+        "hometown": "Lakeville, MN",
+        "description": "A sloth wearing a top hat and waving, set against a bright orange background with the text \"SLOTHS RULE.\"",
+        "photo": "PXL_20260907_003240489.jpg"
+    },
+    {
+        "id": "small-rodent-portrait",
+        "title": "Small Rodent Portrait",
+        "description": "A small framed portrait of a brown and white rodent, possibly a guinea pig or hamster.",
+        "photo": "PXL_20260907_001823825.jpg"
+    },
+    {
+        "id": "smartphone",
+        "title": "Smartphone",
+        "artist": "Molly Gehrke",
+        "hometown": "Burnsville, MN",
+        "description": "A tan seed-art rendering of a smartphone displaying a music app icon.",
+        "photo": "PXL_20260907_002621723.jpg"
+    },
+    {
+        "id": "smeagol-in-the-forbidden-pool",
+        "title": "Smeagol in the Forbidden Pool",
+        "artist": "Rachel Topka",
+        "hometown": "Golden Valley, MN",
+        "description": "A scene from The Lord of the Rings depicting Sméagol crouched beside a fenced pool with a fish, bordered by leafy vines.",
+        "photo": "PXL_20260907_002206786.jpg"
+    },
+    {
+        "id": "smiling-sun",
+        "title": "Smiling Sun",
+        "artist": "Sarah Davis",
+        "hometown": "Shakopee, MN",
+        "description": "A circular piece depicting a smiling sun face surrounded by clouds.",
+        "photo": "PXL_20260907_003126159.jpg"
+    },
+    {
+        "id": "snoopy",
+        "title": "Snoopy",
+        "hometown": "Plymouth, MN",
+        "description": "A piece depicting the cartoon character Snoopy leaning against a brick wall.",
+        "photo": "PXL_20260907_001959694.jpg"
+    },
+    {
+        "id": "snoopy-on-his-doghouse",
+        "title": "Snoopy on His Doghouse",
+        "description": "A piece depicting Snoopy from Peanuts lounging atop his red doghouse.",
+        "photo": "PXL_20260907_003132341.jpg"
+    },
+    {
+        "id": "soccer-player",
+        "title": "Soccer Player",
+        "artist": "Fawn Carey",
+        "hometown": "Saint Anthony, MN",
+        "description": "A Junior Crop Art piece showing a boy playing soccer in a green yard with a goal net, made from colorful seeds.",
+        "photo": "PXL_20260907_003236658.jpg"
+    },
+    {
+        "id": "soldier-s-fist",
+        "title": "Soldier's Fist",
+        "description": "A piece depicting a soldier in a helmet raising a clenched fist, rendered in gray and green seed tones.",
+        "photo": "PXL_20260907_002001119.jpg"
+    },
+    {
+        "id": "sparrow-on-a-branch",
+        "title": "Sparrow on a Branch",
+        "artist": "Adriana Temali",
+        "hometown": "Stillwater, MN",
+        "description": "A small piece depicting a sparrow perched on a flowering branch against a dark green background.",
+        "photo": "PXL_20260907_003016868.jpg"
+    },
+    {
+        "id": "spatula-city",
+        "title": "Spatula City",
+        "description": "A novelty roadside-sign piece advertising \"Spatula City, Next Exit,\" in a kitschy vintage-highway-sign style.",
+        "photo": "PXL_20260907_002753603.jpg"
+    },
+    {
+        "id": "spiral-tunnel",
+        "title": "Spiral Tunnel",
+        "artist": "Ann Peters",
+        "hometown": "Minneapolis, MN",
+        "description": "An abstract optical composition of concentric brown and tan rings receding into a dark center, suggesting a tunnel.",
+        "ribbon": "Third Premium, Class 4 — Artistic, dyed or painted, advanced",
+        "photo": "PXL_20260907_003415723.jpg"
+    },
+    {
+        "id": "squirrels-squirrels-squirrels",
+        "title": "Squirrels, Squirrels, Squirrels",
+        "artist": "Kristen Bywater",
+        "hometown": "St. Paul, MN",
+        "description": "A neon-sign-style piece spelling out \"Squirrels Squirrels Squirrels\" in glowing pink seed lettering against a dark background.",
+        "photo": "PXL_20260907_002755685.jpg"
+    },
+    {
+        "id": "stardew-valley",
+        "title": "Stardew Valley",
+        "hometown": "Minneapolis, MN",
+        "description": "A pixel-art blue fish, rendered bead by bead in the style of the farming video game \"Stardew Valley.\"",
+        "photo": "PXL_20260907_002940931.jpg"
+    },
+    {
+        "id": "state-fair-toy-story",
+        "title": "State Fair (Toy Story)",
+        "description": "A piece depicting Toy Story characters including Woody grouped beneath a 'State Fair' banner.",
+        "photo": "PXL_20260907_002001119.jpg",
+        "position": [
+            0.10583695024251938,
+            0.5398398637771606,
+            3.211353063583374
+        ]
+    },
+    {
+        "id": "statue-of-liberty",
+        "title": "Statue of Liberty",
+        "artist": "Eric Dahlberg",
+        "hometown": "Woodbury, MN",
+        "description": "The Statue of Liberty's torch-bearing arm and head rendered in glittering teal and turquoise seed beads against a deep midnight-blue starry background.",
+        "photo": "PXL_20260907_002525165.jpg"
+    },
+    {
+        "id": "steven-tyler-portrait",
+        "title": "Steven Tyler Portrait",
+        "artist": "Nicole Turek",
+        "hometown": "Minneapolis, MN",
+        "description": "A portrait of Aerosmith frontman Steven Tyler in a top hat and sunglasses, holding a microphone stand, with the Aerosmith winged logo in the background.",
+        "ribbon": "Fourth Premium, Class 10 — Artistic, dried natural plant parts, advanced",
+        "photo": "PXL_20260907_003353991.jpg"
+    },
+    {
+        "id": "stillwater-public-library",
+        "title": "Stillwater Public Library",
+        "description": "A small framed piece depicting the Stillwater Public Library building.",
+        "photo": "PXL_20260907_003036568.jpg"
+    },
+    {
+        "id": "stone-tunnel",
+        "title": "Stone Tunnel",
+        "artist": "Stella Klander",
+        "hometown": "Duluth, MN",
+        "description": "A landscape depicting a dark stone tunnel opening onto a road, framed by green hillside.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "stormy-road-reawakening-from-stroke-and-aphasia",
+        "title": "Stormy Road: Reawakening from Stroke and Aphasia",
+        "artist": "Rochelle M. Anderson",
+        "hometown": "Minnetonka, MN",
+        "description": "A dark two-lane road stretching toward a stormy horizon, rendered in seeds, illustrating the artist's personal recovery journey named in the title.",
+        "photo": "PXL_20260907_003325978.jpg"
+    },
+    {
+        "id": "structurist-charles-biederman",
+        "title": "Structurist (Charles Biederman)",
+        "hometown": "Minneapolis, MN",
+        "description": "A Senior Citizens Crop Art tribute to Minnesota modernist artist Charles Biederman, using bold red, black, and cream geometric shapes in a Structurist style.",
+        "photo": "PXL_20260907_003315217.jpg"
+    },
+    {
+        "id": "stupid-canadian-wolf-x-bird",
+        "title": "Stupid Canadian Wolf x Bird",
+        "artist": "Christina Myers",
+        "hometown": "Minneapolis, MN",
+        "description": "An oval piece depicting a loon on water, captioned 'Stupid Canadian Wolf x Bird.'",
+        "ribbon": "Fourth Premium, Class 5 — Artistic, irregular forms, amateur",
+        "photo": "PXL_20260907_001842141.jpg",
+        "position": [
+            -1.1927247047424316,
+            0.3271399438381195,
+            3.8315961360931396
+        ]
+    },
+    {
+        "id": "sunburst-face",
+        "title": "Sunburst Face",
+        "artist": "Sara Dowling",
+        "hometown": "Stillwater, MN",
+        "description": "A stylized smiling face rising like a sun behind a triangular mountain peak, rendered in orange and green seeds.",
+        "photo": "PXL_20260907_003215897.jpg"
+    },
+    {
+        "id": "sunflower-ram",
+        "title": "Sunflower Ram",
+        "artist": "Mary Comfort",
+        "hometown": "Minneapolis, MN",
+        "description": "A cartoonish ram's face peers out from the center of a large orange sunflower, its petals doubling as the animal's mane.",
+        "photo": "PXL_20260907_002739375.jpg"
+    },
+    {
+        "id": "sunflowers",
+        "title": "Sunflowers",
+        "artist": "Ashley Quirk",
+        "hometown": "Blaine, MN",
+        "description": "A piece depicting a cluster of sunflowers in gold and rust tones.",
+        "photo": "PXL_20260907_002054835.jpg"
+    },
+    {
+        "id": "sunflowers-2",
+        "title": "Sunflowers",
+        "artist": "Kim Faura",
+        "hometown": "Savage, MN",
+        "description": "A cluster of bright yellow sunflowers with dark centers set against a cream background.",
+        "photo": "PXL_20260907_002206786.jpg"
+    },
+    {
+        "id": "support-dairy-farms-not-data-centers",
+        "title": "Support Dairy Farms, Not Data Centers",
+        "artist": "Elycia Arendt",
+        "hometown": "Chaska, MN",
+        "description": "A black-and-white dairy cow stands in a pasture beneath the slogan \"Support Dairy Farms, Not Data Centers.\"",
+        "photo": "PXL_20260907_002855076.jpg"
+    },
+    {
+        "id": "support-women-farmers-support-dei",
+        "title": "Support Women Farmers, Support Democracy",
+        "artist": "Aurora Jacobsen",
+        "hometown": "Winona, MN",
+        "description": "A green farm tractor with orange wheels carries a sign reading \"Support Women Farmers, Support Democracy,\" rendered as an irregularly-shaped cutout piece.",
+        "ribbon": "Fourth Premium, Class 13 — Seed and plant craft objects, amateur",
+        "photo": "PXL_20260907_002805622.jpg"
+    },
+    {
+        "id": "swan-and-crow",
+        "title": "Swan and Crow",
+        "artist": "Sabrina Zaccardi",
+        "hometown": "Shoreview, MN",
+        "description": "A piece depicting a pale swan or goose and a dark-plumed bird facing each other head to head, set against a warm sunset-toned background.",
+        "photo": "PXL_20260907_001908451.jpg"
+    },
+    {
+        "id": "tabby-cat-portrait",
+        "title": "Tabby Cat Portrait",
+        "artist": "Grace Milleo",
+        "hometown": "Minneapolis, MN",
+        "description": "A close portrait of a gray tabby cat's face and shoulders in brown and cream seeds.",
+        "photo": "PXL_20260907_001815101.jpg"
+    },
+    {
+        "id": "tandem-bicycle",
+        "title": "Tandem Bicycle Ride",
+        "hometown": "Minneapolis, MN",
+        "description": "A couple riding a tandem bicycle together, rendered in warm brown seed tones against a golden background.",
+        "photo": "PXL_20260907_002054835.jpg"
+    },
+    {
+        "id": "tell-your-dog-i-said-hi",
+        "title": "Tell Your Dog I Said Hi",
+        "hometown": "Minneapolis, MN",
+        "description": "A simple text-based seed art sign reading 'tell your dog i said hi' in a wood-tone frame.",
+        "photo": "PXL_20260907_001815101.jpg",
+        "position": [
+            -1.5647161309349877,
+            0.4585488468243599,
+            4.0106533242144815
+        ]
+    },
+    {
+        "id": "that-s-fine-dude-i-m-not-mad-at-you",
+        "title": "That's Fine Dude, I'm Not Mad at You",
+        "description": "A rainbow arcing over clouds accompanies the sarcastic caption \"That's fine dude, I'm not mad at you.\"",
+        "photo": "PXL_20260907_002622906.jpg"
+    },
+    {
+        "id": "that-s-my-neighbor-i-don-t-know-you",
+        "title": "That's My Neighbor, I Don't Know You",
+        "artist": "Carlina Palmer",
+        "hometown": "Saint Paul, MN",
+        "description": "A small round piece depicting a face with a speech bubble reading 'That's my neighbor, I don't know you.'",
+        "photo": "PXL_20260907_002017157.jpg",
+        "position": [
+            0.22280992567539215,
+            0.33379629254341125,
+            3.1685078144073486
+        ]
+    },
+    {
+        "id": "the-abominable-seedman",
+        "title": "The Abominable SeedMan",
+        "description": "A shaggy white, fanged monster face with a starfish caught in its fur, built from fluffy natural fiber with dark seeds for the teeth and eyes.",
+        "photo": "PXL_20260907_002829007.jpg"
+    },
+    {
+        "id": "the-baby-sitters-club-40th-anniversary",
+        "title": "The Baby-Sitters Club: 40th Anniversary",
+        "description": "An illustrated piece in yellow tones depicting characters from The Baby-Sitters Club book series, marking the franchise's 40th anniversary.",
+        "photo": "PXL_20260907_003015698.jpg"
+    },
+    {
+        "id": "the-center-of-north-america-st-paul",
+        "title": "The Center of North America - St. Paul",
+        "artist": "Joe Karlsson",
+        "hometown": "Saint Paul, MN",
+        "description": "A circular globe emblem marking St. Paul as \"The Center of North America,\" with a red star pinpointing the city on a stylized world map.",
+        "photo": "PXL_20260907_002621723.jpg",
+        "position": [
+            3.822890520095825,
+            -0.013543827459216118,
+            1.4583617448806763
+        ]
+    },
+    {
+        "id": "the-children-are-always-ours-every-single-one-of-them",
+        "title": "The Children Are Always Ours, Every Single One of Them",
+        "artist": "Athena Hollins",
+        "hometown": "Saint Paul, MN",
+        "description": "A cloaked figure is haloed in orange light, framed by the words \"The Children Are Always Ours, Every Single One of Them.\"",
+        "ribbon": "First Premium, Class 9 — Artistic, dried natural plant parts, amateur",
+        "photo": "PXL_20260907_003006257.jpg"
+    },
+    {
+        "id": "the-cream-puff-at-40",
+        "title": "The Cream Puff at 40",
+        "artist": "Amelia McNamara",
+        "hometown": "Minneapolis, MN",
+        "description": "A cream-yellow 1986 Volvo 244 wagon is portrayed against a warm brown background, marking the beloved car's 40th anniversary in 2026.",
+        "photo": "PXL_20260907_002910098.jpg"
+    },
+    {
+        "id": "the-current-21st-birthday",
+        "title": "The Current: 21st Birthday",
+        "artist": "Shannah Sexton",
+        "hometown": "Rochester, MN",
+        "description": "A teal piece depicting an octopus holding a cocktail and a beer, celebrating the 21st birthday of Minnesota radio station The Current on January 24, 2026.",
+        "photo": "PXL_20260907_003034228.jpg",
+        "position": [
+            0.2596919536590576,
+            -0.2501722574234009,
+            -3.7102463245391846
+        ]
+    },
+    {
+        "id": "the-great-minnesota-original-snack",
+        "title": "The Great Minnesota Original Snack",
+        "artist": "Dana Prottas",
+        "hometown": "Minneapolis, MN",
+        "description": "A gumball machine filled with rainbow-colored gumballs, punning on the fair's \"Great Minnesota Get-Together\" slogan.",
+        "photo": "PXL_20260907_002349347.jpg"
+    },
+    {
+        "id": "the-great-minnesota-stand-together",
+        "title": "The Great Minnesota Stand Together",
+        "description": "Two figures push a covered cart beside a bicycle in a piece titled \"The Great Minnesota Stand Together,\" playing on the State Fair's own slogan.",
+        "photo": "PXL_20260907_002940063.jpg"
+    },
+    {
+        "id": "the-iconic-wigs-of-moira-rose",
+        "title": "The Iconic Wigs of Moira Rose",
+        "artist": "Bobbie Lamps",
+        "hometown": "Minneapolis, MN",
+        "description": "A grid of six colorful wig portraits paying homage to the eccentric wig collection of the Schitt's Creek character Moira Rose.",
+        "photo": "PXL_20260907_002512614.jpg"
+    },
+    {
+        "id": "the-lion-king-30-years",
+        "title": "The Lion King, 30 Years",
+        "artist": "Charlie St. Dennis",
+        "hometown": "Saint Paul, MN",
+        "description": "A roaring lion's face on a gold ticket-stub shape commemorates the 30th anniversary of \"The Lion King\" at the Orpheum.",
+        "photo": "PXL_20260907_002918129.jpg"
+    },
+    {
+        "id": "the-lyft",
+        "title": "The Lyft",
+        "hometown": "Ramsey, MN",
+        "description": "A punny piece styled after a movie poster, depicting a mountain landscape with the title 'The Lyft' and a joke reading 'What is a car's favorite meal? Brake-fast.'",
+        "photo": "PXL_20260907_002001119.jpg"
+    },
+    {
+        "id": "the-north-remembers",
+        "title": "The North Remembers",
+        "description": "A dark, moody piece captioned 'The North Remembers,' referencing the Game of Thrones House Stark motto.",
+        "photo": "PXL_20260907_003035592.jpg"
+    },
+    {
+        "id": "the-sharpening",
+        "title": "The Sharpening",
+        "artist": "A.J. Siegel",
+        "hometown": "Minneapolis, MN",
+        "description": "A row of pencil-topped figures stand at a giant pencil sharpener beside a lake, referencing the \"Lake of the Isles Pencil Sharpening\" tradition.",
+        "photo": "PXL_20260907_003007199.jpg"
+    },
+    {
+        "id": "the-sisters-will-save-us",
+        "title": "The Sisters Will Save Us",
+        "artist": "Julie Martin",
+        "hometown": "St. Anthony, MN",
+        "description": "A portrait of a woman with braided hair and large hoop earrings, rendered in warm orange and rust seeds, framed by the words \"The Sisters Will Save Us.\"",
+        "photo": "PXL_20260907_002753603.jpg"
+    },
+    {
+        "id": "the-spectacle",
+        "title": "The Spectacle",
+        "artist": "Maureen Sorensen",
+        "hometown": "Prior Lake, MN",
+        "description": "A portrait of a young woman with curly hair and glasses wearing a basketball jersey, rendered in seeds against a black background.",
+        "ribbon": "Third Premium, Class 2 — Artistic, natural colors, advanced",
+        "photo": "PXL_20260907_003353991.jpg"
+    },
+    {
+        "id": "the-spectacle-portrait-by-amanda-welliver",
+        "title": "The Spectacle (portrait by Amanda Welliver)",
+        "artist": "Amanda Welliver",
+        "hometown": "St Paul, MN",
+        "description": "A portrait of a curly-haired figure in glasses set against an orange sunburst background, captioned 'the Spectacle.'",
+        "photo": "PXL_20260907_003035592.jpg"
+    },
+    {
+        "id": "the-spectacle-portrait-by-laura-wiesner",
+        "title": "The Spectacle (portrait by Laura Wiesner)",
+        "artist": "Laura Wiesner",
+        "hometown": "Minneapolis, MN",
+        "description": "A portrait of a curly-haired figure wearing sunglasses captioned 'the Spectacle.'",
+        "photo": "PXL_20260907_003034228.jpg"
+    },
+    {
+        "id": "the-spectacle-portrait-by-paula-kashtan",
+        "title": "The Spectacle (portrait by Paula Kashtan)",
+        "artist": "Paula Kashtan",
+        "hometown": "Minneapolis, MN",
+        "description": "A portrait of a dark curly-haired figure in glasses against a black background, with 'The Spectacle' spelled out in colorful letters beneath.",
+        "photo": "PXL_20260907_003034228.jpg"
+    },
+    {
+        "id": "the-spectacle-portrait-by-stacy-mellenbruch",
+        "title": "The Spectacle (portrait by Stacy Mellenbruch)",
+        "artist": "Stacy Mellenbruch",
+        "hometown": "Eagan, MN",
+        "description": "A portrait of a curly-haired figure in glasses captioned 'The Spectacle,' part of a series of portraits referencing player Olivia Miles.",
+        "photo": "PXL_20260907_003034228.jpg"
+    },
+    {
+        "id": "the-statue-of-liberty-sailing-away-to-see",
+        "title": "The Statue of Liberty Sailing Away to See",
+        "description": "A piece depicting the Statue of Liberty, referencing lyrics from Paul Simon's 'American Tune.'",
+        "photo": "PXL_20260907_002034069.jpg"
+    },
+    {
+        "id": "the-two-headed-calf",
+        "title": "The Two-Headed Calf",
+        "hometown": "Brooklyn, NY",
+        "description": "A crop art piece referencing Laura Gilpin's poem \"The Two-Headed Calf,\" depicting a two-headed calf beneath a starry night sky with the poem's closing line about the sky holding twice as many stars as usual.",
+        "photo": "PXL_20260907_003224240.jpg"
+    },
+    {
+        "id": "theatre-in-the-round-75-years",
+        "title": "Theatre in the Round, 75 Years",
+        "artist": "Cheryl Madsen",
+        "hometown": "Fridley, MN",
+        "description": "A blue rug-style piece with cream lettering reading \"75 Years, Theatre in the Round,\" commemorating the Minneapolis theater's anniversary.",
+        "photo": "PXL_20260907_002945312.jpg"
+    },
+    {
+        "id": "they-can-t-take-away-our-whimsy",
+        "title": "They Can't Take Away Our Whimsy",
+        "artist": "Stephanie MacDougall",
+        "hometown": "Eden Prairie, MN",
+        "description": "A pastel, storybook-style sampler bordered with unicorns, geese, frogs, and flowers surrounding the phrase \"They can't take away our whimsy.\"",
+        "photo": "PXL_20260907_002525165.jpg",
+        "ribbon": "Fifth Premium, Class 3 — Artistic, dyed or painted, amateur",
+        "position": [
+            3.2421674728393555,
+            0.20090341567993164,
+            1.7283040285110474
+        ]
+    },
+    {
+        "id": "this-bur-oak-is-dedicated-to-the-people-of-minneapolis",
+        "title": "This Bur Oak Is Dedicated to the People of Minneapolis",
+        "artist": "Kristen Hansen",
+        "hometown": "Minneapolis, MN",
+        "description": "A towering yellow pencil stands like a monument among a grove of trees, inscribed \"This Bur Oak Dedicated to the People of Minneapolis, 'You Chose Love Over Fear' — LotiPencil.\"",
+        "photo": "PXL_20260907_002929854.jpg"
+    },
+    {
+        "id": "this-land-expels-fascists",
+        "title": "This Land Expels Fascists",
+        "artist": "Aaron Silver",
+        "hometown": "Minneapolis, MN",
+        "description": "A guitar-shaped piece reading 'This Land Expels Fascists,' echoing Woody Guthrie's famous 'This machine kills fascists' slogan.",
+        "photo": "PXL_20260907_003035592.jpg",
+        "position": [
+            0.4050113260746002,
+            0.015231474302709103,
+            -3.5900113582611084
+        ]
+    },
+    {
+        "id": "tightrope-walker-at-kubet-s-sculpture-park",
+        "title": "Tightrope Walker at Kubet's Sculpture Park",
+        "artist": "Beth McInerny",
+        "hometown": "Inver Grove Heights, MN",
+        "description": "A figure in a striped outfit poses in a hanging or tightrope-walking stance over a rural field, referencing Kubet's Sculpture Park in Vining, MN.",
+        "photo": "PXL_20260907_002511269.jpg"
+    },
+    {
+        "id": "tilt-a-whirl-100-years-faribault",
+        "title": "Tilt-A-Whirl, 100 Years (Faribault)",
+        "artist": "Robin Schwartzman",
+        "hometown": "Minneapolis, MN",
+        "description": "A bright red, yellow, and blue carnival marquee celebrates 100 years of the Tilt-A-Whirl ride, invented in Faribault, Minnesota, in 1926.",
+        "photo": "PXL_20260907_003007199.jpg",
+        "position": [
+            1.066009759902954,
+            -0.18569867312908173,
+            -2.962656259536743
+        ]
+    },
+    {
+        "id": "tilt-a-whirl-100-years-neon",
+        "title": "Tilt-A-Whirl, 100 Years (neon)",
+        "artist": "Kaela Reinardy",
+        "hometown": "St. Paul, MN",
+        "description": "A second take on the Tilt-A-Whirl centennial renders the ride's car in glowing neon pink and blue against a black night sky, captioned \"Est. 1926, Faribault, MN.\"",
+        "photo": "PXL_20260907_003007199.jpg",
+        "position": [
+            1.2540898323059082,
+            -0.34463122487068176,
+            -2.821537971496582
+        ]
+    },
+    {
+        "id": "tom-emmer-eats-worms",
+        "title": "Tom Emmer Eats Worms",
+        "artist": "Mitch Vars",
+        "hometown": "Minneapolis, MN",
+        "description": "A satirical caricature portrait of a scowling, frog-like politician in a suit, captioned 'Tom Emmer Eats Worms.'",
+        "photo": "PXL_20260907_001751916.jpg",
+        "position": [
+            -0.9119939208030701,
+            0.016587458550930023,
+            3.6920864582061768
+        ]
+    },
+    {
+        "id": "trout",
+        "title": "Trout",
+        "artist": "Angie Banaszewski",
+        "hometown": "Minneapolis, MN",
+        "description": "A naturalistic depiction of a brook trout in orange, brown, and olive seeds against a cream background.",
+        "photo": "PXL_20260907_001815101.jpg"
+    },
+    {
+        "id": "trump-baby",
+        "title": "Trump Baby",
+        "artist": "Julie Davis",
+        "hometown": "Saint Paul, MN",
+        "description": "A political satire piece depicting a caricatured orange-skinned baby with blonde hair, a gold crown, and a diaper fastened with a safety pin.",
+        "photo": "PXL_20260907_003217387.jpg",
+        "position": [
+            -1.648943305015564,
+            -0.425983190536499,
+            -5.358602523803711
+        ]
+    },
+    {
+        "id": "tunnel-rip",
+        "title": "Tunnel (RIP)",
+        "description": "A piece depicting a tunnel or underpass inscribed with 'RIP' and dates, evoking a memorial mural.",
+        "photo": "PXL_20260907_002144315.jpg"
+    },
+    {
+        "id": "twin-cities-2026-guernica-1937",
+        "title": "Twin Cities 2026 (Guernica 1937)",
+        "artist": "Jennifer Nelson",
+        "hometown": "Fridley, MN",
+        "description": "A Picasso 'Guernica'-inspired composition reimagined with Minnesota iconography, centered on a common loon with outstretched wings and a figure holding a sign reading 'ICE OUT.'",
+        "ribbon": "Minneapolis Institute of Art Award",
+        "photo": "PXL_20260907_001726177.jpg"
+    },
+    {
+        "id": "twin-kitties",
+        "title": "Twin Kitties",
+        "hometown": "West St Paul, MN",
+        "description": "A black cat and an orange cat sit side by side in front of an outline of Minnesota, under the title 'Twin Kitties.'",
+        "photo": "PXL_20260907_001751916.jpg",
+        "position": [
+            -1.5718878507614136,
+            0.621714174747467,
+            3.9993107318878174
+        ]
+    },
+    {
+        "id": "twine-ball-darwin-mn",
+        "title": "Twine Ball, Darwin MN",
+        "artist": "Diane Madlon-Kay",
+        "hometown": "Minneapolis, MN",
+        "description": "A depiction of the famous World's Largest Twine Ball housed in its gazebo in Darwin, Minnesota, rendered in tan and brown seeds against a blue sky.",
+        "photo": "PXL_20260907_003325978.jpg",
+        "position": [
+            -1.3665884733200073,
+            0.4203404486179352,
+            -1.3591219186782837
+        ]
+    },
+    {
+        "id": "two-cats-portrait",
+        "title": "Two Cats Portrait",
+        "artist": "Lynn Perrin",
+        "hometown": "Minneapolis, MN",
+        "description": "A portrait of an orange tabby cat and a black cat sitting side by side.",
+        "photo": "PXL_20260907_003148932.jpg"
+    },
+    {
+        "id": "two-pears",
+        "title": "Two Pears",
+        "artist": "Suzie Nelson",
+        "hometown": "Minneapolis, MN",
+        "description": "Two pear-shaped forms side by side, one dark with light speckles and one light with dark speckles.",
+        "photo": "PXL_20260907_002206786.jpg",
+        "position": [
+            0.9450244903564453,
+            0.3777155578136444,
+            2.803128719329834
+        ]
+    },
+    {
+        "id": "usa-forever-rabbit",
+        "title": "USA Forever Rabbit",
+        "artist": "Michelle Ciesielski",
+        "hometown": "Detroit Lakes, MN",
+        "description": "A postage-stamp-styled seed art piece with scalloped edges depicting a black rabbit silhouette, titled like a forever stamp reading 'USA Forever Rabbit.'",
+        "photo": "PXL_20260907_001751916.jpg"
+    },
+    {
+        "id": "valleyfair",
+        "title": "ValleyFair",
+        "artist": "Elizabeth Butler",
+        "hometown": "Maple Grove, MN",
+        "description": "A colorful logo-style rendering of the ValleyFair amusement park sign with its castle turrets, done in bright dyed seeds.",
+        "photo": "PXL_20260907_003356085.jpg",
+        "position": [
+            -0.8120644688606262,
+            0.4566064774990082,
+            -0.32541897892951965
+        ]
+    },
+    {
+        "id": "vase-of-flowers",
+        "title": "Vase of Flowers",
+        "artist": "Ethan Anderson",
+        "hometown": "Minneapolis, MN",
+        "description": "A vase of yellow flowers under a starry sky, rendered in seeds.",
+        "photo": "PXL_20260907_003217387.jpg"
+    },
+    {
+        "id": "viking-pig",
+        "title": "Viking Pig",
+        "artist": "Libby Sutherland",
+        "hometown": "Minneapolis, MN",
+        "description": "A small oval piece depicting a cartoon pig-like character wearing a horned helmet and a red dress.",
+        "photo": "PXL_20260907_001959694.jpg"
+    },
+    {
+        "id": "vintage-man-portrait",
+        "title": "Vintage Man Portrait",
+        "description": "An oval-framed seed art portrait in warm sepia tones depicting a man's head and shoulders in an antique photographic style.",
+        "photo": "PXL_20260907_001822673.jpg"
+    },
+    {
+        "id": "viva-la-revoluci-n-carl",
+        "title": "Viva la Revolución, Carl!",
+        "artist": "Sara Richter",
+        "hometown": "Lonsdale, MN",
+        "description": "A red piece depicting a cat wearing a beret in a revolutionary style, captioned 'Viva la Revolución, Carl!'",
+        "photo": "PXL_20260907_003128900.jpg"
+    },
+    {
+        "id": "warning-sign",
+        "title": "Warning Sign",
+        "artist": "Jack Riels",
+        "hometown": "Minneapolis, MN",
+        "description": "A nighttime roadside scene depicting a yellow warning sign along a dark road.",
+        "photo": "PXL_20260907_002034971.jpg"
+    },
+    {
+        "id": "wasp",
+        "title": "Wasp",
+        "artist": "Brian Barber",
+        "hometown": "Duluth, MN",
+        "description": "A detailed illustration of a wasp or hornet rendered in seeds.",
+        "photo": "PXL_20260907_002017157.jpg"
+    },
+    {
+        "id": "watch-the-queen-conquer",
+        "title": "Watch the Queen Conquer",
+        "hometown": "Mounds View, MN",
+        "description": "A regal-styled portrait of a young woman looking upward beneath a crown motif, captioned 'Watch the Queen Conquer.'",
+        "photo": "PXL_20260907_002001119.jpg"
+    },
+    {
+        "id": "water-crops-servers",
+        "title": "Water, Crops, Servers",
+        "artist": "David Baker",
+        "hometown": "Minnetonka, MN",
+        "description": "The stacked words \"Water,\" \"Crops,\" and \"Servers\" rendered over a golden textured background.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "waterfall",
+        "title": "Waterfall",
+        "artist": "Eric Dahlberg",
+        "hometown": "Woodbury, MN",
+        "description": "A vertical waterfall cascading through a rocky, forested ravine in dyed seed colors.",
+        "photo": "PXL_20260907_002437562.jpg"
+    },
+    {
+        "id": "we-came-we-saw-we-tried",
+        "title": "We Came, We Saw, We Tried",
+        "artist": "Sharon Lopez",
+        "hometown": "Minneapolis, MN",
+        "description": "A humorous seed piece spelling out the self-deprecating motto \"WE CAME WE SAW WE TRIED.\"",
+        "photo": "PXL_20260907_003221555.jpg"
+    },
+    {
+        "id": "we-dine-in-november",
+        "title": "We Dine in November",
+        "artist": "Roberta Steele",
+        "hometown": "Golden Valley, MN",
+        "description": "A piece depicting anthropomorphic animals (a donkey, a cow, and a fox) dressed in suits at a dinner gathering, captioned 'We Dine in November.'",
+        "photo": "PXL_20260907_003151398.jpg"
+    },
+    {
+        "id": "we-keep-us-safe",
+        "title": "We Keep Us Safe",
+        "artist": "Marissa Munley",
+        "hometown": "Minneapolis, MN",
+        "description": "An orange monarch butterfly rendered on an orange background beside the text \"WE KEEP US SAFE.\"",
+        "photo": "PXL_20260907_002052817.jpg",
+        "position": [
+            4.051535129547119,
+            -0.5734925866127014,
+            1.3602944612503052
+        ]
+    },
+    {
+        "id": "we-keep-us-safe-fish",
+        "title": "We Keep Us Safe (Fish)",
+        "description": "A small orange fish-shaped piece captioned 'We Keep Us Safe,' distinct from the house-shaped piece of the same title.",
+        "photo": "PXL_20260907_003055365.jpg",
+        "position": [
+            0.0005968822515569627,
+            0.25497427582740784,
+            -3.9907479286193848
+        ]
+    },
+    {
+        "id": "we-keep-us-safe-house",
+        "title": "We Keep Us Safe (House)",
+        "artist": "Emileigh Barnes",
+        "hometown": "Minneapolis, MN",
+        "description": "A tan-toned piece depicting a small house with a welcoming pathway, captioned 'We Keep Us Safe.'",
+        "photo": "PXL_20260907_003052067.jpg",
+        "position": [
+            -0.20442628860473633,
+            -0.4726730287075043,
+            -4.087612152099609
+        ]
+    },
+    {
+        "id": "we-must-stop-eating-cried-toad",
+        "title": "We Must Stop Eating, Cried Toad",
+        "artist": "Emily James",
+        "hometown": "Minneapolis, MN",
+        "description": "A piece depicting Frog and Toad seated at a table, captioned '\"We must stop eating!\" cried Toad as he ate another.'",
+        "photo": "PXL_20260907_003128900.jpg"
+    },
+    {
+        "id": "we-need-us-safe",
+        "title": "We Need Us Safe",
+        "description": "Bold blue block lettering reading \"We Need Us Safe\" set against a shimmering gold seed background.",
+        "photo": "PXL_20260907_002622906.jpg"
+    },
+    {
+        "id": "we-protect-us",
+        "title": "We Protect Us",
+        "artist": "Morgan Helme",
+        "hometown": "Minneapolis, MN",
+        "description": "A solitary figure in a blue robe stands with hands clasped near her face against a gray background, with \"We Protect Us\" worked into the piece.",
+        "photo": "PXL_20260907_002621723.jpg",
+        "position": [
+            3.6465234756469727,
+            -0.29013776779174805,
+            1.5521310567855835
+        ]
+    },
+    {
+        "id": "we-shocked-the-world",
+        "title": "We Shocked the World",
+        "hometown": "Plymouth, MN",
+        "description": "A seed-art rendering of the phrase 'we shocked the world' above a small silhouette of the state of Minnesota, evoking the 1980 'Miracle on Ice' hockey upset.",
+        "photo": "PXL_20260907_003325978.jpg",
+        "position": [
+            -1.464464783668518,
+            0.5386272072792053,
+            -1.6551454067230225
+        ]
+    },
+    {
+        "id": "we-take-care-of-mn",
+        "title": "We Take Care of MN",
+        "artist": "Christy Gove",
+        "description": "A piece featuring a heart shape enclosing the letters 'MN,' captioned 'We Take Care Of.'",
+        "photo": "PXL_20260907_002034069.jpg"
+    },
+    {
+        "id": "we-the-people",
+        "title": "We the People",
+        "artist": "Dana Fontaine",
+        "hometown": "Minneapolis, MN",
+        "description": "A group portrait of diverse figures standing together beneath the caption 'We the People are all immigrants.'",
+        "photo": "PXL_20260907_002001119.jpg"
+    },
+    {
+        "id": "we-the-people-are-all-immigrants",
+        "title": "We the People Are All Immigrants",
+        "description": "A group portrait of diverse figures rendered in warm brown tones, captioned with the phrase 'We the People are all immigrants.'",
+        "photo": "PXL_20260907_003431388.jpg",
+        "position": [
+            0.0672587901353836,
+            0.10285947471857071,
+            3.214670419692993
+        ]
+    },
+    {
+        "id": "welcome-to-minnesota",
+        "title": "Welcome to Minnesota",
+        "artist": "Alice Hogan",
+        "hometown": "Eagan, MN",
+        "description": "A large three-dimensional sculptural piece featuring costumed Viking-style figures, swans, and miniature versions of Minneapolis landmarks like the Foshay Tower, with 'Welcome to Minnesota' spelled out in beaded letters.",
+        "photo": "PXL_20260907_003325978.jpg"
+    },
+    {
+        "id": "welcome-to-the-united-states-of-private-equity",
+        "title": "Welcome to the United States of Private Equity",
+        "artist": "Katherine Erickson",
+        "hometown": "Duluth, MN",
+        "description": "A satirical badge styled like an official government seal, reading \"Welcome to the United States of Private Equity\" beneath an eagle clutching dollar signs.",
+        "photo": "PXL_20260907_002734933.jpg"
+    },
+    {
+        "id": "well-i-finally-made-crop-art",
+        "title": "Well, I Finally Made Crop Art",
+        "artist": "Kate Ross",
+        "hometown": "Plymouth, MN",
+        "description": "Colorful hand-lettered text reading \"Well, I finally made crop art\" surrounded by painted flowers and corn cobs.",
+        "photo": "PXL_20260907_002403274.jpg",
+        "position": [
+            2.035975694656372,
+            0.1470838487148285,
+            2.3118815422058105
+        ]
+    },
+    {
+        "id": "wet-paint-50-years",
+        "title": "Wet Paint, 50 Years",
+        "artist": "Jill Moe",
+        "hometown": "Saint Paul, MN",
+        "description": "A round black seed-art sign styled after a hand-shaped 'Wet Paint' warning placard, marking 50 years of the fair's crop art competition.",
+        "ribbon": "Second Premium, Class 2 — Artistic, natural colors, advanced",
+        "photo": "PXL_20260907_003356085.jpg",
+        "position": [
+            -0.8040513396263123,
+            0.2630758285522461,
+            -0.14838506281375885
+        ]
+    },
+    {
+        "id": "wheel-of-fortune",
+        "title": "Wheel of Fortune",
+        "description": "An orange circular piece with a floral wreath motif, captioned 'Wheel of Fortune.'",
+        "photo": "PXL_20260907_003036568.jpg"
+    },
+    {
+        "id": "white-daisy",
+        "title": "White Daisy",
+        "artist": "Danielle Gale",
+        "hometown": "Minneapolis, MN",
+        "description": "A single white daisy with a yellow center set against a black background.",
+        "photo": "PXL_20260907_002206786.jpg"
+    },
+    {
+        "id": "wienering",
+        "title": "Wienering",
+        "artist": "Betsy Schwartz",
+        "hometown": "Minneapolis, MN",
+        "description": "A hot dog in a bun spells out the cursive word \"Wienering\" against a blue-and-white checked background.",
+        "ribbon": "Third Premium, Class 7 — Artistic, flat surface arrangements, amateur",
+        "photo": "PXL_20260907_002722630.jpg"
+    },
+    {
+        "id": "will-you-go-to-the-fair-with-me",
+        "title": "Will You Go to the Fair with Me?",
+        "artist": "Elizabeth Koele",
+        "hometown": "Saint Paul, MN",
+        "description": "A notebook-paper-style piece with a handwritten proposal, \"Will you go to the FAIR with me?\" with yes/no checkboxes.",
+        "ribbon": "Third Premium, Class 11 — Special occasion, amateur",
+        "photo": "PXL_20260907_002403274.jpg"
+    },
+    {
+        "id": "winter-angel",
+        "title": "Winter Angel",
+        "artist": "Duane Klein",
+        "hometown": "Rochester, MN",
+        "description": "A nighttime winter scene in tan and cream seeds depicting a robed angelic figure standing on a snowy hill with a dog, under a full moon.",
+        "photo": "PXL_20260907_001822673.jpg"
+    },
+    {
+        "id": "winter-village-skaters",
+        "title": "Winter Village Skaters",
+        "description": "A crowd of bundled figures skates and strolls through a snowy village square in front of a church steeple, rendered in warm sepia-toned seeds with a beaded border.",
+        "photo": "PXL_20260907_001709191.jpg"
+    },
+    {
+        "id": "witness",
+        "title": "Witness",
+        "artist": "Maureen Sorensen",
+        "hometown": "Prior Lake, MN",
+        "description": "A huddled group of somber robed figures rendered in warm brown tones, with the word 'Witness' worked vertically along the right edge.",
+        "ribbon": "Third Premium, Class 2 — Artistic, natural colors, advanced",
+        "photo": "PXL_20260907_003404215.jpg"
+    },
+    {
+        "id": "wnba",
+        "title": "WNBA",
+        "description": "A nude silhouette figure in white against a bold orange ground, captioned \"WNBA.\"",
+        "photo": "PXL_20260907_002719479.jpg"
+    },
+    {
+        "id": "wolf-portrait",
+        "title": "Wolf Portrait",
+        "artist": "Marvin Swan",
+        "hometown": "Minneapolis, MN",
+        "description": "A detailed pointillist-style seed art portrait of a wolf's face, rendered in dark and light seeds against a cream background.",
+        "photo": "PXL_20260907_001744003.jpg"
+    },
+    {
+        "id": "woman-portrait",
+        "title": "Woman Portrait",
+        "artist": "Rosalyn Borchers",
+        "hometown": "Saint Paul, MN",
+        "description": "A First Premium-winning seed portrait of a woman with curly brown hair, rendered in warm earth tones.",
+        "ribbon": "Fourth Premium, Class 19 — Junior, through age 12",
+        "photo": "PXL_20260907_003255339.jpg"
+    },
+    {
+        "id": "woman-with-coffee",
+        "title": "Woman with Coffee",
+        "description": "A portrait of a woman holding a large mug of coffee.",
+        "photo": "PXL_20260907_002141390.jpg"
+    },
+    {
+        "id": "woman-with-curly-hair",
+        "title": "Woman with Curly Hair",
+        "artist": "Walter Walters",
+        "hometown": "Saint Paul, MN",
+        "description": "A small portrait of a woman with voluminous curly orange hair against a golden background.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "woman-with-pie",
+        "title": "Woman with Pie",
+        "artist": "Lisa Newman",
+        "description": "A round portrait of a smiling woman holding a pie, rendered in warm brown tones.",
+        "photo": "PXL_20260907_002237650.jpg"
+    },
+    {
+        "id": "woman-s-portrait-bust",
+        "title": "Woman's Portrait Bust",
+        "artist": "Molly Sanford",
+        "hometown": "Marine on St. Croix, MN",
+        "description": "A bust portrait of a woman with curly dark hair, rendered in warm brown seed tones.",
+        "photo": "PXL_20260907_001959694.jpg"
+    },
+    {
+        "id": "world-s-largest-nutcracker",
+        "title": "World's Largest Nutcracker",
+        "artist": "Sheri Thompson",
+        "hometown": "Luverne, MN",
+        "description": "A tall nutcracker soldier figure standing before a cornfield and cloudy blue sky, with a banner reading LUVERNE, referencing the real World's Largest Nutcracker statue there.",
+        "photo": "PXL_20260907_002437562.jpg"
+    },
+    {
+        "id": "ya-better-vote-gosh-darn-it",
+        "title": "Ya Better VOTE Gosh Darn It",
+        "artist": "Julie Baumeister",
+        "hometown": "Bloomington, MN",
+        "description": "A circular patch-style piece urging voter turnout with folksy Minnesota phrasing.",
+        "photo": "PXL_20260907_003217387.jpg"
+    },
+    {
+        "id": "ye-old-mill",
+        "title": "Ye Old Mill",
+        "artist": "Blair Bobier",
+        "hometown": "Plymouth, MN",
+        "description": "An Escher-like impossible-staircase illustration of an old mill, with figures climbing endless interlocking steps.",
+        "ribbon": "Fifth Premium, Class 7 — Artistic, flat surface arrangements, amateur",
+        "photo": "PXL_20260907_002722630.jpg"
+    },
+    {
+        "id": "you-are-golden",
+        "title": "You Are Golden",
+        "artist": "Maureen Rariden",
+        "hometown": "Minneapolis, MN",
+        "description": "A piece depicting a can of beer labeled 'Golden,' captioned 'You Are Golden.'",
+        "photo": "PXL_20260907_003126159.jpg"
+    },
+    {
+        "id": "you-betcha",
+        "title": "You Betcha",
+        "artist": "Kelli Hofmeister",
+        "hometown": "Shoreview, MN",
+        "description": "A green alien lumberjack character holding an axe, captioned 'You Betcha' in a Minnesota-accent nod.",
+        "photo": "PXL_20260907_003035592.jpg",
+        "position": [
+            0.29385384917259216,
+            0.13676950335502625,
+            -3.7347638607025146
+        ]
+    }
+]

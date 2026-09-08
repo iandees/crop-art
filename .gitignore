@@ -1,0 +1,16 @@
+node_modules
+dist
+.DS_Store
+tsconfig.tsbuildinfo
+.wrangler
+*.log
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+
+# Local dev copy of the (large) splat file — production loads it from R2 instead.
+# Deliberately NOT under public/, which Vite copies verbatim into dist/ (and
+# Cloudflare Workers rejects any static asset over 25MB).
+local-splat/

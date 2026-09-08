@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "crop-art-splat",
+  "compatibility_date": "2026-01-01",
+  "assets": {
+    "directory": "dist"
+  },
+  // Adding "routes" makes wrangler disable the default workers.dev URL unless told
+  // otherwise — keep it alive too, since that link may already be shared/bookmarked.
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "cropart.mapki.com", "custom_domain": true }
+  ]
+
+  // The splat file itself lives in the "crop-art-splat" R2 bucket, served via its
+  // public r2.dev URL and fetched directly by the browser (see VITE_SPLAT_URL in
+  // README) — no R2 binding needed here since this Worker only serves static assets.
+}

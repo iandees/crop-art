@@ -1,0 +1,499 @@
+:root {
+    color-scheme: dark;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #111;
+}
+
+#application-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#ui-root {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    /* AnnotationManager appends .pc-annotation-hotspot dots directly to <body>, after this
+       element, with no z-index of its own — without this, plain DOM order lets a hotspot
+       dot that happens to project under editor UI (the editor panel, the crop-drawing
+       overlay, etc.) intercept clicks meant for that UI instead of passing through. z-index
+       here doesn't affect pointer-events: none areas of #ui-root — clicks over open canvas
+       still reach hotspots underneath as before. */
+    z-index: 10;
+}
+
+#ui-root > * {
+    pointer-events: auto;
+}
+
+/* Suppress the built-in annotation tooltip — we drive our own modal off the click event */
+.pc-annotation {
+    display: none !important;
+}
+
+.hud {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 280px;
+    backdrop-filter: blur(4px);
+}
+
+.about-link {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.55);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+}
+
+.about-link:hover {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.modal kbd,
+.hud kbd {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-family: inherit;
+}
+
+.crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    pointer-events: none !important;
+}
+
+/* ---- Info modal ---- */
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal {
+    background: #1b1b1b;
+    color: #f2f2f2;
+    border-radius: 12px;
+    max-width: min(720px, 92vw);
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal img {
+    width: 100%;
+    max-height: 55vh;
+    object-fit: contain;
+    background: #000;
+    display: block;
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-photo-crop {
+    position: relative;
+    width: 100%;
+    /* No max-height here on purpose: this box's shape must exactly match the crop's real
+       aspect ratio (set as `aspect-ratio` in modal.ts) since the <img> inside is positioned
+       via percentages of it. A competing max-height would clip the box's height without
+       adjusting its width, silently changing its effective aspect ratio and stretching the
+       image — the modal itself already scrolls (max-height/overflow-y below) as a safety
+       net for extreme portrait crops. */
+    overflow: hidden;
+    background: #000;
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-photo-crop img {
+    position: absolute;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+    object-fit: fill;
+}
+
+.modal .modal-body {
+    padding: 20px 24px 24px;
+}
+
+.modal h2 {
+    margin: 0 0 4px;
+    font-size: 22px;
+}
+
+.modal .artist {
+    color: #b8b8b8;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.modal p {
+    line-height: 1.5;
+    font-size: 15px;
+    white-space: pre-wrap;
+}
+
+.modal .ribbon {
+    margin-top: 12px;
+    display: inline-block;
+    font-size: 13px;
+    color: #f2d675;
+    background: rgba(242, 214, 117, 0.12);
+    border: 1px solid rgba(242, 214, 117, 0.35);
+    border-radius: 999px;
+    padding: 4px 12px;
+}
+
+.modal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ---- Editor panel ---- */
+
+.editor-panel {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 300px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    background: rgba(20, 20, 20, 0.92);
+    color: #f2f2f2;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 13px;
+    backdrop-filter: blur(6px);
+}
+
+.editor-panel h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+}
+
+.editor-panel h4 {
+    margin: 14px 0 6px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #999;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}
+
+.editor-panel label {
+    display: block;
+    margin: 10px 0 4px;
+    color: #ccc;
+}
+
+.editor-panel input[type="text"],
+.editor-panel textarea,
+.editor-panel input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+    background: #111;
+    border: 1px solid #444;
+    color: #f2f2f2;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 13px;
+}
+
+.editor-panel textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+.editor-panel button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-right: 6px;
+}
+
+.editor-panel .primary {
+    background: #4c8bf5;
+    color: #fff;
+}
+
+.editor-panel .danger {
+    background: #c0392b;
+    color: #fff;
+}
+
+.editor-panel ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.editor-panel li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #333;
+}
+
+.editor-panel li button {
+    margin: 0;
+    padding: 3px 8px;
+}
+
+.editor-hint {
+    color: #999;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.editor-panel .has-photo {
+    cursor: pointer;
+    text-decoration: underline dotted;
+}
+
+.editor-panel .has-photo:hover {
+    color: #4c8bf5;
+}
+
+.editor-panel .rot-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+}
+
+.editor-panel .rot-row label {
+    margin: 0;
+    width: 12px;
+    color: #ccc;
+}
+
+.editor-panel .rot-row input[type='range'] {
+    flex: 1;
+}
+
+.editor-panel .rot-row span {
+    width: 42px;
+    text-align: right;
+    color: #999;
+    font-size: 12px;
+}
+
+.editor-panel .f-copy-rotation {
+    background: #333;
+    color: #f2f2f2;
+}
+
+/* ---- Photo candidate picker + crop drawing (edit-mode piece form) ---- */
+
+.photo-picker {
+    margin-top: 12px;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}
+
+.candidate-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 6px 0;
+}
+
+.candidate-nav button {
+    margin: 0;
+}
+
+.cand-counter {
+    color: #999;
+    font-size: 12px;
+}
+
+.crop-wrap {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+    touch-action: none;
+    cursor: crosshair;
+    user-select: none;
+}
+
+.crop-wrap .candidate-preview-img {
+    /* No object-fit/max-height here: the overlay's drag coordinates are computed against
+       this element's own bounding box, so it must exactly match the image's rendered
+       area with no letterboxing — width:100% + auto height achieves that. */
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.crop-box {
+    position: absolute;
+    border: 2px solid #4c8bf5;
+    background: rgba(76, 139, 245, 0.2);
+    pointer-events: none;
+}
+
+.photo-picker .f-save-crop {
+    background: #4c8bf5;
+}
+
+/* ---- Reference photo panel (edit mode) ---- */
+
+.reference-photo {
+    position: fixed;
+    left: 16px;
+    top: 16px;
+    max-width: 320px;
+    background: rgba(20, 20, 20, 0.92);
+    border-radius: 10px;
+    padding: 10px;
+    backdrop-filter: blur(6px);
+}
+
+.reference-photo img {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+    max-height: 60vh;
+    object-fit: contain;
+}
+
+.reference-photo .caption {
+    color: #f2f2f2;
+    font-size: 13px;
+    margin-top: 6px;
+    text-align: center;
+}
+
+.reference-photo .close-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #c0392b;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* ---- Reposition gizmo ---- */
+
+.gizmo-handle {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: grab;
+    z-index: 50;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+.gizmo-handle:active {
+    cursor: grabbing;
+}
+
+.gizmo-line {
+    position: fixed;
+    height: 2px;
+    transform-origin: left center;
+    pointer-events: none;
+    z-index: 49;
+    opacity: 0.85;
+}
+
+/* ---- Loading overlay ---- */
+
+#loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: #111;
+    color: #fff;
+    font-family: system-ui, -apple-system, sans-serif;
+    transition: opacity 0.4s ease;
+}
+
+#loading-overlay.loading-overlay-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #fff;
+    animation: loading-spin 0.9s linear infinite;
+}
+
+@keyframes loading-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-label {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+}
