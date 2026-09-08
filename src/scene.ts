@@ -187,20 +187,21 @@ function polygonToWorldXZ(worldRoot: Entity, polygon: RoomPolygon): [number, num
 }
 
 /**
- * Clamps the camera to stay within a room "shell" — a floor/ceiling height fitted to the
- * splat point cloud (see room-bounds.ts) for the vertical extent, and either that same
- * fit's rectangular wall bounds or a custom user-drawn floor polygon (see room-polygon.ts,
- * polygon-2d.ts) for the horizontal extent. This makes flying around feel like being
- * inside the room on a floor rather than drifting through the floor/ceiling/walls into
- * open space. Disabled while placing hotspots (see editor.ts) since getting flush against
- * a wall/floor surface matters there.
+ * Keeps the camera at a fixed eye height above the floor — an "FPS shooter" camera rather
+ * than a floating-head fly camera — and, for the horizontal extent, either the auto-fitted
+ * rectangular wall bounds (see room-bounds.ts) or a custom user-drawn floor polygon (see
+ * room-polygon.ts, polygon-2d.ts). Disabled while placing hotspots (see editor.ts) since
+ * getting flush against a wall/floor surface, and adjusting height freely, matters there.
  *
- * CameraControls' fly mode tracks its own target position internally, independent of the
- * entity's actual transform (see FlyController._targetPose upstream) — just moving the
- * entity here wouldn't stop it from continuing to drift into the wall next frame, which
- * would show up as a laggy "stuck" feeling when the player then tries to back away. So
- * instead of setting the position directly, we re-anchor the controller's target via its
- * public reset() API, keeping the current facing direction.
+ * CameraControls' fly mode still drives WASD/mouse-look normally (including whatever
+ * vertical drift looking up/down or pressing Q/E would otherwise cause) — this just
+ * overrides the result's height back to floor level every frame, same mechanism as the
+ * horizontal wall clamp below. It tracks its own target position internally, independent
+ * of the entity's actual transform (see FlyController._targetPose upstream) — just moving
+ * the entity here wouldn't stop it from continuing to drift next frame, which would show
+ * up as a laggy "stuck" feeling when the player then tries to move back. So instead of
+ * setting the position directly, we re-anchor the controller's target via its public
+ * reset() API, keeping the current facing direction.
  */
 /** Fixed lift above the literal floor surface for an eye-level feel (mirrors the ~12% of
  * room height the auto-fit heuristic used, but as a plain constant since a user-drawn
@@ -243,7 +244,7 @@ function setupCollision(
             x = Math.min(Math.max(p.x, bounds.minX), bounds.maxX);
             z = Math.min(Math.max(p.z, bounds.minZ), bounds.maxZ);
         }
-        const y = Math.min(Math.max(p.y, collisionFloorY()), bounds.ceilingY);
+        const y = collisionFloorY();
         if (x === p.x && y === p.y && z === p.z) return;
         clampedPos.set(x, y, z);
         focus.add2(camera.forward, clampedPos);

@@ -34,9 +34,9 @@ function showAboutModal(): void {
             you can fly through.
         </p>
         <p>
-            Move with <kbd>WASD</kbd>, look by dragging, and use <kbd>Q</kbd>/<kbd>E</kbd> to
-            go down/up. The glowing dots mark individual pieces of crop art — click one to see
-            a clearer photo and details about the piece and its artist.
+            Move with <kbd>WASD</kbd> and look by dragging, same as walking through a
+            first-person game. The glowing dots mark individual pieces of crop art — click one
+            to see a clearer photo and details about the piece and its artist.
         </p>
         <p>
             The 3D reconstruction itself is a bit rough around the edges (that's the nature of

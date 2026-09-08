@@ -32,7 +32,7 @@ npm run dev
 
 Open the printed localhost URL. Controls:
 
-- **WASD** — move, **Q/E** — down/up, **click-drag** — look
+- **WASD** — move, **click-drag** — look (fixed eye height above the floor, like a first-person game)
 - **F2** — toggle the hotspot editor
 
 ## Hotspot editor (F2)
