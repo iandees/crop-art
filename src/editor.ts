@@ -59,9 +59,7 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
 
     function renderHud(): void {
         if (!editMode) {
-            hud.innerHTML =
-                '<div><kbd>WASD</kbd> move &middot; drag to look</div>' +
-                '<div><kbd>F2</kbd> toggle edit mode</div>';
+            hud.innerHTML = '<div><kbd>WASD</kbd> move &middot; drag to look</div>';
         } else if (levelingKind) {
             const needed = LEVELING_POINTS_NEEDED[levelingKind];
             const what = levelingKind === 'floor' ? 'a flat floor area' : 'a straight vertical column (base, then top)';

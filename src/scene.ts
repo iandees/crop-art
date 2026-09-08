@@ -132,7 +132,7 @@ export async function createScene(canvas: HTMLCanvasElement): Promise<SceneHandl
             enableFly: true,
             enableOrbit: false,
             enablePan: false,
-            moveSpeed: 0.4,
+            moveSpeed: 0.7,
             focusPoint: new Vec3(-0.37, -0.09, 0.63)
         }
     });
@@ -206,7 +206,7 @@ function polygonToWorldXZ(worldRoot: Entity, polygon: RoomPolygon): [number, num
 /** Fixed lift above the literal floor surface for an eye-level feel (mirrors the ~12% of
  * room height the auto-fit heuristic used, but as a plain constant since a user-drawn
  * polygon's floorY comes with no matching ceiling estimate to take a fraction of). */
-const EYE_CLEARANCE = 0.15;
+const EYE_CLEARANCE = 0.3;
 
 function setupCollision(
     app: AppBase,

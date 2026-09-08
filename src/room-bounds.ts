@@ -64,7 +64,7 @@ export function computeRoomBounds(worldRoot: Entity, splatCenters: Float32Array)
     const roomHeight = surfaceCeilingY - surfaceFloorY;
 
     return {
-        floorY: surfaceFloorY + roomHeight * 0.12,
+        floorY: surfaceFloorY + roomHeight * 0.24,
         ceilingY: surfaceCeilingY - roomHeight * 0.05,
         surfaceFloorY,
         surfaceCeilingY,
