@@ -107,7 +107,31 @@ This is already set up:
 npx wrangler deploy   # uses whatever's already in dist/ — run `npm run build` first if you changed src/
 ```
 
-**Re-uploading after retraining the splat:**
+**Optimizing the splat before uploading:** the raw trainer output is heavy on
+the GPU mostly because of a small number of degenerate/outlier Gaussians, not
+its overall size — `npx @playcanvas/splat-transform ... --stats null` prints
+a "fill ratio" (average overdraw layers per pixel); ours was **703** on the
+raw file, which is enormous (a healthy scene is usually low double digits).
+Cleaning that up got it to ~35 with no visible quality loss:
+
+```bash
+npx @playcanvas/splat-transform raw-splat-trained-compressed.ply \
+  -N \                                     # drop NaN/Inf/degenerate Gaussians
+  -B -12,-12,-12,12,12,12 \                # drop wild outliers far outside the room
+  -V scale_0,lt,0.5 -V scale_1,lt,0.5 -V scale_2,lt,0.5 \  # drop absurdly oversized Gaussians
+  -d 50% \                                 # halve the Gaussian count (this action must come last, output must be .ply)
+  splat-trained-decimated.ply -w
+
+npx @playcanvas/splat-transform splat-trained-decimated.ply \
+  splat-trained-compressed-optimized.ply -w   # convert to .compressed.ply for the app
+```
+
+This took the file from 8.38M Gaussians / 136MB down to 4.18M / 68MB. Check
+the result with `--stats null` again and eyeball it in the app before
+uploading — the box/scale thresholds above were tuned empirically against
+this specific scene and may need adjusting for a re-trained splat.
+
+**Re-uploading after retraining (or re-optimizing) the splat:**
 
 ```bash
 npx wrangler r2 object put crop-art-splat/splat-trained-compressed.ply \
