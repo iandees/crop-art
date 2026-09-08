@@ -125,7 +125,7 @@ export async function createScene(canvas: HTMLCanvasElement): Promise<SceneHandl
     // not real-world meters — start near the median splat position, not "eye height".
     // These are WORLD-space (camera has no parent transform), so they're tied to the
     // current worldRoot rotation in world-rotation.ts — re-tune if that rotation changes.
-    camera.setLocalPosition(1.4, 0.17, 1.9);
+    camera.setLocalPosition(1.53, 0.21, 2.09);
     camera.addComponent('script');
     const cameraControls = camera.script!.create(CameraControls, {
         properties: {
@@ -133,7 +133,7 @@ export async function createScene(canvas: HTMLCanvasElement): Promise<SceneHandl
             enableOrbit: false,
             enablePan: false,
             moveSpeed: 0.4,
-            focusPoint: new Vec3(-0.5, -0.13, 0.44)
+            focusPoint: new Vec3(-0.37, -0.09, 0.63)
         }
     });
     app.root.addChild(camera);

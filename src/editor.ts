@@ -629,8 +629,10 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
             obviously flat part of the floor and click each — the exact tilt gets computed from those points.</div>
         <button class="f-level-floor">Level via floor (3-point)</button>
         <div class="editor-hint">A real floor can have genuine unevenness the splat then reconstructs faithfully, which
-            throws off floor-based leveling. If the room has a straight structural column, this is more reliable: click
-            its base, then a point near its top — it's known to be plumb, so that fully determines vertical.</div>
+            throws off floor-based leveling. If the room has a straight structural column, this is more reliable: aim the
+            crosshair at its base and click, then <strong>rotate the view (drag) to aim at a point near its top</strong>
+            and click again — like the floor tool, position on screen doesn't matter, only where the crosshair is
+            pointing when you click.</div>
         <button class="f-level-column">Level via column (2-point)</button>
         <h4>Room boundary</h4>
         <div class="editor-hint">
