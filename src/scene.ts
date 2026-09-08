@@ -194,19 +194,21 @@ function polygonToWorldXZ(worldRoot: Entity, polygon: RoomPolygon): [number, num
  * getting flush against a wall/floor surface, and adjusting height freely, matters there.
  *
  * CameraControls' fly mode still drives WASD/mouse-look normally (including whatever
- * vertical drift looking up/down or pressing Q/E would otherwise cause) — this just
- * overrides the result's height back to floor level every frame, same mechanism as the
- * horizontal wall clamp below. It tracks its own target position internally, independent
- * of the entity's actual transform (see FlyController._targetPose upstream) — just moving
- * the entity here wouldn't stop it from continuing to drift next frame, which would show
- * up as a laggy "stuck" feeling when the player then tries to move back. So instead of
- * setting the position directly, we re-anchor the controller's target via its public
- * reset() API, keeping the current facing direction.
+ * vertical drift looking up/down or pressing Q/E would otherwise cause) — the height gets
+ * pinned back to floor level every frame by writing the entity's Y directly, which is safe
+ * because nothing downstream reads Y back out of the entity into the controller's internal
+ * state. Horizontal wall clamping is different: that has to go through the controller's
+ * reset() API (see below) so its internal target position doesn't keep pushing into the
+ * wall and produce a laggy "stuck" feeling — but reset() also force-detaches/reattaches the
+ * fly controller's leading target position, which erases its momentum. Doing that every
+ * single frame (as a naive height clamp would, since Y drifts from pitch on nearly every
+ * frame of movement) throttles WASD speed to whatever the lerp catches up to *this* frame,
+ * making moveSpeed nearly irrelevant — hence the direct-write instead.
  */
 /** Fixed lift above the literal floor surface for an eye-level feel (mirrors the ~12% of
  * room height the auto-fit heuristic used, but as a plain constant since a user-drawn
  * polygon's floorY comes with no matching ceiling estimate to take a fraction of). */
-const EYE_CLEARANCE = 0.3;
+const EYE_CLEARANCE = 0.7;
 
 function setupCollision(
     app: AppBase,
@@ -245,7 +247,11 @@ function setupCollision(
             z = Math.min(Math.max(p.z, bounds.minZ), bounds.maxZ);
         }
         const y = collisionFloorY();
-        if (x === p.x && y === p.y && z === p.z) return;
+        const wallClamped = x !== p.x || z !== p.z;
+        if (!wallClamped) {
+            if (y !== p.y) camera.setLocalPosition(p.x, y, p.z);
+            return;
+        }
         clampedPos.set(x, y, z);
         focus.add2(camera.forward, clampedPos);
         cameraControls.reset(focus, clampedPos);
