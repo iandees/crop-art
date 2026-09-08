@@ -152,7 +152,7 @@ export async function createScene(canvas: HTMLCanvasElement): Promise<SceneHandl
 
     const initialPolygon = await resolveRoomPolygon();
     if (initialPolygon) {
-        createRoomFloor(app, worldRoot, initialPolygon);
+        createRoomFloor(app, worldRoot, initialPolygon, splatCenters);
     }
     const collision = setupCollision(
         app,
