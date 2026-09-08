@@ -812,25 +812,26 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
             if (levelingPoints.length === LEVELING_POINTS_NEEDED[levelingKind]) {
                 // Points are in splat-native local space (unaffected by the current
                 // rotation — see localToWorld/worldToLocal above), so this fully replaces
-                // the old rotation rather than composing with it. upHint uses the CURRENT
-                // rotation's notion of "up" purely to pick the correct one of the two
-                // possible directions — it has no bearing on the computed tilt.
-                const upHintWorld = new Vec3(0, 1, 0);
-                const upHintLocal = new Vec3();
-                invWorldRoot.transformVector(upHintWorld, upHintLocal);
-                const q =
-                    levelingKind === 'floor'
-                        ? computeLevelingRotation(
-                              new Vec3(...levelingPoints[0]),
-                              new Vec3(...levelingPoints[1]),
-                              new Vec3(...levelingPoints[2]),
-                              upHintLocal
-                          )
-                        : computeColumnAlignRotation(
-                              new Vec3(...levelingPoints[0]),
-                              new Vec3(...levelingPoints[1]),
-                              upHintLocal
-                          );
+                // the old rotation rather than composing with it.
+                let q;
+                if (levelingKind === 'floor') {
+                    // A floor plane's normal is direction-ambiguous (cross product could
+                    // point either way) — disambiguate against the CURRENT rotation's
+                    // notion of "up". This has no bearing on the computed tilt itself.
+                    const upHintLocal = new Vec3();
+                    invWorldRoot.transformVector(new Vec3(0, 1, 0), upHintLocal);
+                    q = computeLevelingRotation(
+                        new Vec3(...levelingPoints[0]),
+                        new Vec3(...levelingPoints[1]),
+                        new Vec3(...levelingPoints[2]),
+                        upHintLocal
+                    );
+                } else {
+                    // Clicking base-then-top already unambiguously says which way is up —
+                    // no hint needed, and using one here could flip a correct result (see
+                    // computeColumnAlignRotation's own comment).
+                    q = computeColumnAlignRotation(new Vec3(...levelingPoints[0]), new Vec3(...levelingPoints[1]));
+                }
                 const euler = q.getEulerAngles();
                 applyRotation([euler.x, euler.y, euler.z]);
                 setLevelingMode(null);
