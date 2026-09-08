@@ -1,3 +1,5 @@
+import { reportMissingPieceUrl } from './github-issue';
+
 /** A small always-visible "About" link plus its info modal — reuses the same
  * `.modal-backdrop`/`.modal`/`.modal-body` styling as the piece detail modal (modal.ts). */
 export function setupAboutLink(): void {
@@ -47,6 +49,10 @@ function showAboutModal(): void {
             <strong>This is an independent personal project</strong> and is not affiliated
             with, endorsed by, or sponsored by the Minnesota State Fair or any of the artists
             whose work is shown here.
+        </p>
+        <p>
+            Notice a piece that's missing, mislabeled, or missing its own hotspot?
+            <a class="suggest-edit-link" href="${reportMissingPieceUrl()}" target="_blank" rel="noopener">Let me know on GitHub →</a>
         </p>
     `;
     modal.appendChild(body);

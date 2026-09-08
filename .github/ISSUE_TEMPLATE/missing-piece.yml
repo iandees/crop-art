@@ -1,0 +1,12 @@
+name: Report a missing or misidentified piece
+description: A piece of crop art isn't shown on the site, or a hotspot points at the wrong piece.
+title: "[Missing/Wrong] "
+labels: ["missing-piece"]
+body:
+  - type: textarea
+    id: details
+    attributes:
+      label: What's missing or wrong?
+      description: Describe the piece and roughly where it was in the exhibit hall, and attach a photo if you have one.
+    validations:
+      required: true

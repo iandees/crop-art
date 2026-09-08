@@ -1,0 +1,35 @@
+name: Suggest an edit to a piece
+description: Fix incorrect info, suggest a better photo, or add missing details for a specific piece of crop art.
+title: "[Edit] "
+labels: ["piece-edit"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the catalog! The fields below identify which piece you mean — please leave them as they are and just describe what should change at the bottom. If you have a better or additional photo, drag it into the last box.
+  - type: input
+    id: piece_id
+    attributes:
+      label: Piece ID (leave as-is)
+    validations:
+      required: true
+  - type: input
+    id: current_title
+    attributes:
+      label: Current title (leave as-is)
+  - type: input
+    id: current_artist
+    attributes:
+      label: Current artist (leave as-is)
+  - type: input
+    id: current_photo
+    attributes:
+      label: Current photo filename (leave as-is)
+  - type: textarea
+    id: changes
+    attributes:
+      label: What should change?
+      description: Correct the title, artist, hometown, or description, note a wrong photo, or attach a better one.
+      placeholder: e.g. "Artist's name is misspelled, should be ___" or "Here's a clearer photo of this piece"
+    validations:
+      required: true

@@ -1,4 +1,5 @@
 import type { Piece } from './pieces';
+import { suggestEditUrl } from './github-issue';
 
 export function showPieceModal(piece: Piece): void {
     const backdrop = document.createElement('div');
@@ -91,6 +92,14 @@ export function showPieceModal(piece: Piece): void {
         ribbon.textContent = piece.ribbon;
         body.appendChild(ribbon);
     }
+
+    const suggestLink = document.createElement('a');
+    suggestLink.className = 'suggest-edit-link';
+    suggestLink.href = suggestEditUrl(piece);
+    suggestLink.target = '_blank';
+    suggestLink.rel = 'noopener';
+    suggestLink.textContent = 'Something wrong here? Suggest a fix →';
+    body.appendChild(suggestLink);
 
     modal.appendChild(body);
     backdrop.appendChild(modal);

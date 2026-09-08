@@ -175,6 +175,18 @@ body.edit-mode .pc-annotation-hotspot {
     white-space: pre-wrap;
 }
 
+.modal .suggest-edit-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #9ecbff;
+    text-decoration: none;
+}
+
+.modal .suggest-edit-link:hover {
+    text-decoration: underline;
+}
+
 .modal .ribbon {
     margin-top: 12px;
     display: inline-block;
