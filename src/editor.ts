@@ -564,7 +564,7 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
     }
     renderCatalogCount();
 
-    const identifyHandles = setupIdentifyMode(scene, getAnnotated, setAnnotated);
+    const identifyHandles = setupIdentifyMode(getAnnotated, setAnnotated);
     const catalogHandles = setupCatalogMode(getAnnotated, setAnnotated, () => renderCatalogCount());
 
     (editorPanel.querySelector('.f-identify-open') as HTMLButtonElement).onclick = () => {

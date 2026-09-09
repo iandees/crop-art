@@ -16,6 +16,7 @@ import {
     pixelToWorldRay,
     worldToPixel,
     closestApproachDistance,
+    pointToRayDistance,
     triangulateRays,
     type PhotoCamera,
     type Ray3
@@ -247,6 +248,12 @@ console.log('\n--- Test 3: multi-ray triangulation ---');
     } else {
         console.log('ok   closestApproachDistance (parallel rays): Infinity');
     }
+
+    // pointToRayDistance: 0 for a point exactly on the ray, and the correct perpendicular
+    // distance for one that isn't.
+    const rayOnAxis: Ray3 = { origin: new Vec3(0, 0, 0), dir: new Vec3(1, 0, 0) };
+    assertClose('pointToRayDistance (on ray)', pointToRayDistance(new Vec3(5, 0, 0), rayOnAxis), 0, 1e-9);
+    assertClose('pointToRayDistance (off ray)', pointToRayDistance(new Vec3(5, 3, 4), rayOnAxis), 5, 1e-9);
 
     // Triangulation from 4 noisy rays toward the same true point, from varied camera positions.
     const cameraPositions = [

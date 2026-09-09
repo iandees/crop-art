@@ -293,12 +293,24 @@ export interface Ray3 {
     dir: Vec3;
 }
 
+/** Perpendicular distance from a point to a ray (treated as an infinite line). Used to match
+ * a freshly-drawn polygon's ray against a piece that already has a triangulated position —
+ * once 2+ views have converged on a point, checking a new ray against that consensus point
+ * is a more robust match test than comparing against any single one of the earlier rays. */
+export function pointToRayDistance(point: Vec3, ray: Ray3): number {
+    const toPoint = new Vec3().sub2(point, ray.origin);
+    const along = toPoint.dot(ray.dir);
+    const closest = ray.origin.clone().add(ray.dir.clone().mulScalar(along));
+    return point.distance(closest);
+}
+
 /**
  * Distance between the closest points on two (infinite) rays/lines — the standard
  * closest-point-between-two-lines formula. Two rays through the same real-world point from
  * different calibrated cameras should have a near-zero closest approach; used to match a
- * freshly-drawn polygon against an existing piece when neither has a splat-derived anchor to
- * compare by 3D position instead (see reprojection.ts / identify-mode.ts).
+ * freshly-drawn polygon's ray against a piece that's seen only one prior view so far (once a
+ * piece has a triangulated position from 2+ views, pointToRayDistance is used instead — see
+ * identify-mode.ts).
  *
  * Returns `Infinity` for (near-)parallel rays rather than a numerically unstable huge value —
  * parallel rays carry no triangulation signal regardless of how the degenerate case is

@@ -1,22 +1,17 @@
 import { Vec3 } from 'playcanvas';
-import type { SceneHandles } from './scene';
 import { getAllCalibratedPhotos, getPhotoCamera } from './photo-cameras';
-import { placePieceFromPhotoClick, reprojectPointToPhoto, rayForInstance, triangulatePieceInstances } from './reprojection';
-import { closestApproachDistance, worldToPixel } from './colmap-math';
-import { polygonCentroid01, representativeAnchor, type AnnotatedPiece, type PieceInstance } from './annotated-pieces';
+import { reprojectPointToPhoto, rayForInstance, triangulatePieceInstances } from './reprojection';
+import { closestApproachDistance, pointToRayDistance, worldToPixel } from './colmap-math';
+import { representativeAnchor, type AnnotatedPiece, type PieceInstance } from './annotated-pieces';
 import { showToast } from './toast';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 /** Scene units — see plan notes: comfortably below the measured minimum real spacing
- * (0.112) between distinct placed pieces, generous enough to absorb click imprecision and
- * the accepted calibration drift on a subset of photos. Retune here if links look wrong. */
-const LINK_DISTANCE_THRESHOLD = 0.06;
-/** Same reasoning/magnitude as LINK_DISTANCE_THRESHOLD, but for matching by how closely two
- * camera rays pass each other in 3D (closestApproachDistance) instead of by 3D point
- * distance — used when either side of a potential match has no splat-derived anchor to
- * compare positions with directly. Two rays genuinely aimed at the same real point should
- * pass much closer than this; kept at the same value pending real-world tuning. */
-const RAY_MATCH_DISTANCE_THRESHOLD = 0.06;
+ * (0.112) between distinct placed pieces. Used both for point-to-ray matching (once a piece
+ * has a triangulated position from 2+ views) and ray-to-ray matching (a piece with just one
+ * view so far) — two rays or a ray-and-point genuinely aimed at the same real point should
+ * pass much closer than this. Retune here if links look wrong in practice. */
+const MATCH_DISTANCE_THRESHOLD = 0.06;
 /** Normalized-image-space click tolerance for "close the polygon by clicking the first vertex". */
 const CLOSE_VERTEX_TOLERANCE = 0.02;
 /** Along-ray sample depths (scene units) for drawing an epipolar guide line — the segment a
@@ -35,7 +30,6 @@ export interface IdentifyModeHandles {
 }
 
 export function setupIdentifyMode(
-    scene: Pick<SceneHandles, 'splatCenters'>,
     getAnnotated: () => AnnotatedPiece[],
     setAnnotated: (next: AnnotatedPiece[]) => void
 ): IdentifyModeHandles {
@@ -150,36 +144,37 @@ export function setupIdentifyMode(
     async function closePolygon(): Promise<void> {
         if (vertices.length < 3) return;
         const drawn = vertices;
-        const [cu, cv] = polygonCentroid01(drawn);
-        statusEl.textContent = 'Placing…';
+        statusEl.textContent = 'Computing…';
         const photo = currentPhoto();
-        const [anchorVec, newRay] = await Promise.all([
-            placePieceFromPhotoClick(scene, photo, cu, cv),
-            rayForInstance({ photo, polygon: drawn })
-        ]);
+        const newRay = await rayForInstance({ photo, polygon: drawn });
         vertices = [];
-        const anchor: [number, number, number] | undefined = anchorVec ? [anchorVec.x, anchorVec.y, anchorVec.z] : undefined;
+        if (!newRay) {
+            statusEl.textContent = "This photo has no COLMAP calibration, so it can't be used here. Try a different photo.";
+            return;
+        }
         const annotated = getAnnotated();
 
-        // Prefer matching by 3D position when both sides have one (unchanged from before);
-        // fall back to matching by how closely the two camera rays pass each other in 3D —
-        // real multi-view geometry, not splat density — when either side has no anchor yet.
+        // Match by comparing the new ray against each existing piece's best-known position:
+        // once a piece has triangulated from 2+ views, checking the new ray's distance to
+        // that consensus point is more robust than comparing against any single old ray
+        // (pointToRayDistance); with just one prior view, fall back to ray-to-ray closest
+        // approach (closestApproachDistance) against that lone ray. Either way this is pure
+        // camera geometry — no splat picking anywhere in the match.
         let match: AnnotatedPiece | undefined;
         let bestDist = Infinity;
         for (const p of annotated) {
-            const existingAnchor = representativeAnchor(p);
-            if (anchor && existingAnchor) {
-                const d = new Vec3(...existingAnchor).distance(new Vec3(...anchor));
-                if (d < LINK_DISTANCE_THRESHOLD && d < bestDist) {
+            if (p.triangulatedPosition) {
+                const d = pointToRayDistance(new Vec3(...p.triangulatedPosition), newRay);
+                if (d < MATCH_DISTANCE_THRESHOLD && d < bestDist) {
                     match = p;
                     bestDist = d;
                 }
-            } else if (newRay) {
+            } else {
                 for (const inst of p.instances) {
                     const instRay = await rayForInstance(inst);
                     if (!instRay) continue;
                     const d = closestApproachDistance(newRay, instRay);
-                    if (d < RAY_MATCH_DISTANCE_THRESHOLD && d < bestDist) {
+                    if (d < MATCH_DISTANCE_THRESHOLD && d < bestDist) {
                         match = p;
                         bestDist = d;
                     }
@@ -187,7 +182,7 @@ export function setupIdentifyMode(
             }
         }
 
-        const instance: PieceInstance = { photo, polygon: drawn, anchor };
+        const instance: PieceInstance = { photo, polygon: drawn };
         let targetPiece: AnnotatedPiece;
         if (match) {
             const existingIdx = match.instances.findIndex((i) => i.photo === photo);
@@ -230,7 +225,7 @@ export function setupIdentifyMode(
 
         statusEl.textContent = representativeAnchor(targetPiece)
             ? ''
-            : "Added — this piece's position isn't confirmed yet (no nearby splat, and no matching second view found). Draw a matching polygon for it on another photo to pin it down.";
+            : "Added — this piece needs one more view to pin down its position. Draw a matching polygon for it on another photo (further apart in the walk works better than an adjacent frame — see the epipolar guide line) to triangulate it.";
     }
 
     async function linkGhost(piece: AnnotatedPiece, u01: number, v01: number): Promise<void> {
@@ -248,12 +243,7 @@ export function setupIdentifyMode(
         const annotated = getAnnotated();
         const p = annotated.find((a) => a.id === piece.id)!;
         const existingIdx = p.instances.findIndex((i) => i.photo === currentPhoto());
-        const instance: PieceInstance = {
-            photo: currentPhoto(),
-            polygon: placeholderSquare,
-            anchor: representativeAnchor(p) ?? undefined,
-            placeholder: true
-        };
+        const instance: PieceInstance = { photo: currentPhoto(), polygon: placeholderSquare, placeholder: true };
         if (existingIdx >= 0) p.instances[existingIdx] = instance;
         else p.instances.push(instance);
         await retriangulate(p);
@@ -361,10 +351,10 @@ export function setupIdentifyMode(
         }
 
         // Pieces identified elsewhere but not yet on this photo split into two groups: ones
-        // with a resolved 3D position get a clickable ghost dot at the reprojected point;
-        // ones without one yet (a single view whose centroid never landed near a splat) get
-        // an epipolar guide line instead — no 3D point to reproject, but the ray from their
-        // one existing view still tells you where in *this* photo the match must lie.
+        // with a triangulated 3D position (2+ views) get a clickable ghost dot at the
+        // reprojected point; ones with only a single view so far have no 3D point to
+        // reproject yet, so they get an epipolar guide line instead — the ray from that one
+        // existing view still tells you where in *this* photo the match must lie.
         const anchoredElsewhere = elsewhere.filter((p) => representativeAnchor(p) !== null);
         const unanchoredElsewhere = elsewhere.filter((p) => representativeAnchor(p) === null);
 

@@ -1,23 +1,21 @@
 import type { Piece } from './pieces';
 import { exportPiecesFile } from './pieces';
-import { median } from './median';
 
-/** One photo's view of a piece, captured while identifying it in the F2 editor. */
+/** One photo's view of a piece, captured while identifying it in the F2 editor. Its 3D ray
+ * (photo's camera through this polygon's centroid) is recomputed on demand from `photo` +
+ * `polygon` — see reprojection.ts's rayForInstance — rather than stored, since it's cheap to
+ * derive and storing it would just be a second source of truth. There is deliberately no
+ * splat-derived position here at all: a piece's position comes entirely from triangulating
+ * 2+ instances' rays against each other (see reprojection.ts's triangulatePieceInstances) —
+ * real camera geometry, not a guess against however densely the trained splat happened to
+ * reconstruct that surface. */
 export interface PieceInstance {
-    /** Filename under /photos/ — must be a key in photo-cameras.json for reprojection to work. */
+    /** Filename under /photos/ — must be a key in photo-cameras.json for ray/reprojection math. */
     photo: string;
     /** Normalized (0-1, top-left origin) polygon vertices in click order, image space. Always
      * >= 3. A rectangle (e.g. one set via the catalog step's crop box) is just a 4-vertex
      * polygon here too — there's no separate crop field, this IS the crop source. */
     polygon: [number, number][];
-    /** 3D scene-space point (worldRoot-local, same space Piece.position uses), computed via
-     * placePieceFromPhotoClick on this polygon's centroid — or, for a ghost-linked instance,
-     * copied directly from the piece's representativeAnchor() at link time. Undefined when
-     * the centroid didn't land near any splat (common on thin/sparse surfaces, e.g. a flat
-     * poster) — the piece's real position then depends on triangulating against another
-     * instance of the same piece from a different photo (see reprojection.ts's
-     * triangulatePieceInstances and identify-mode.ts's ray-based matching fallback). */
-    anchor?: [number, number, number];
     /** True for an instance created via the ghost-click fast path (a small synthesized
      * square, not a hand-drawn outline) — flags it in the UI as worth tightening later. */
     placeholder?: boolean;
@@ -32,10 +30,11 @@ export interface AnnotatedPiece {
     id: string;
     instances: PieceInstance[];
     /** Set once >=2 instances exist and real multi-view triangulation succeeds (see
-     * reprojection.ts's triangulatePieceInstances) — preferred over any single instance's
-     * splat-pick anchor wherever a piece's position is needed, since it's derived from
-     * actual camera geometry rather than a guess against splat density. Recomputed (and
-     * possibly cleared back to undefined) every time this piece's instances change. */
+     * reprojection.ts's triangulatePieceInstances) — the piece's only source of a 3D
+     * position. With a single instance (or a triangulation too ill-conditioned to trust —
+     * see colmap-math.ts's triangulateRays), this stays undefined and the piece has no
+     * resolved position yet. Recomputed (and possibly cleared back to undefined) every time
+     * this piece's instances change — see identify-mode.ts's retriangulate. */
     triangulatedPosition?: [number, number, number];
     // Cataloging fields — undefined until filled in. Names match Piece's exactly.
     title?: string;
@@ -64,18 +63,13 @@ export function saveAnnotatedPieces(pieces: AnnotatedPiece[]): void {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(pieces));
 }
 
-/** The best current estimate of a piece's 3D position, or null if none exists yet (a single
- * instance whose centroid never landed near a splat, with no second view to triangulate
- * against — genuinely no 3D information available). Prefers real multi-view triangulation
- * (`triangulatedPosition`) over the per-axis median of whichever instances have their own
- * splat-pick anchor (same robustness idiom as editor.ts's reflattenBoundary — median of
- * clicked floor heights — for the same reason: resist one drifted/mis-clicked instance
- * pulling the estimate off). */
+/** A piece's current 3D position, or null if it doesn't have one yet — true until at least 2
+ * instances exist with rays that triangulate cleanly (see triangulatePieceInstances). There
+ * is no other source of position: no splat picking, no fallback guess — just an alias for
+ * `piece.triangulatedPosition` kept as a function so call sites read as "does this piece
+ * have a resolved position" rather than reaching into the field directly. */
 export function representativeAnchor(piece: AnnotatedPiece): [number, number, number] | null {
-    if (piece.triangulatedPosition) return piece.triangulatedPosition;
-    const anchors = piece.instances.map((i) => i.anchor).filter((a): a is [number, number, number] => !!a);
-    if (anchors.length === 0) return null;
-    return [median(anchors.map((a) => a[0])), median(anchors.map((a) => a[1])), median(anchors.map((a) => a[2]))];
+    return piece.triangulatedPosition ?? null;
 }
 
 export function polygonCentroid01(polygon: [number, number][]): [number, number] {
@@ -99,7 +93,7 @@ export function isCataloged(piece: AnnotatedPiece): boolean {
 }
 
 /** Converts to the Piece[] shape the live site consumes. Pieces with no canonical instance
- * chosen yet, or with no resolvable position at all (triangulated or per-instance), are
+ * chosen yet, or with no triangulated position at all (needs a second linked photo), are
  * skipped (with a console warning for the latter, since it's a real gap rather than just
  * "not cataloged yet") — the catalog UI should warn about both before export. */
 export function toPieces(annotated: AnnotatedPiece[]): Piece[] {
@@ -108,9 +102,9 @@ export function toPieces(annotated: AnnotatedPiece[]): Piece[] {
         if (ap.canonicalInstanceIndex === undefined) continue;
         const inst = ap.instances[ap.canonicalInstanceIndex];
         if (!inst) continue;
-        const position = ap.triangulatedPosition ?? inst.anchor;
+        const position = ap.triangulatedPosition;
         if (!position) {
-            console.warn(`Skipping "${ap.title ?? ap.id}" from export — no resolved 3D position (needs a second linked photo).`);
+            console.warn(`Skipping "${ap.title ?? ap.id}" from export — no triangulated 3D position (needs a second linked photo).`);
             continue;
         }
         result.push({
