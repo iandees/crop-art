@@ -404,6 +404,21 @@ body.edit-mode .pc-annotation-hotspot {
     pointer-events: none;
 }
 
+.crop-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.crop-svg .catalog-poly-shape {
+    fill: rgba(76, 214, 160, 0.12);
+    stroke: #4cd6a0;
+    stroke-width: 0.003;
+    stroke-dasharray: 0.008 0.006;
+}
+
 .reproj-marker {
     position: absolute;
     width: 14px;
@@ -608,6 +623,45 @@ body.edit-mode .pc-annotation-hotspot {
 .identify-draw-controls button:disabled {
     opacity: 0.4;
     cursor: default;
+}
+
+.identify-review-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: rgba(224, 92, 242, 0.12);
+    border: 1px solid rgba(224, 92, 242, 0.4);
+    border-radius: 6px;
+}
+
+.identify-review-bar[hidden] {
+    display: none;
+}
+
+.identify-review-bar .review-progress {
+    font-weight: 600;
+}
+
+.identify-review-bar .review-error {
+    color: #ccc;
+    flex: 1;
+}
+
+.identify-review-bar button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    background: #333;
+    color: #f2f2f2;
+}
+
+.identify-review-bar button.primary {
+    background: #e05cf2;
+    color: #fff;
 }
 
 .identify-wrap {

@@ -1,7 +1,15 @@
 import { Vec3 } from 'playcanvas';
 import { getAllCalibratedPhotos, getPhotoCamera } from './photo-cameras';
-import { reprojectPointToPhoto, rayForInstance, triangulatePieceInstances } from './reprojection';
-import { closestApproachDistance, pointToRayDistance, worldToPixel } from './colmap-math';
+import {
+    reprojectPointToPhoto,
+    rayForInstance,
+    retriangulatePiece,
+    triangulationResidual,
+    epipolarSegmentInPhoto,
+    findRayCandidates,
+    type RayCandidate
+} from './reprojection';
+import { closestApproachDistance, pointToRayDistance } from './colmap-math';
 import { representativeAnchor, type AnnotatedPiece, type PieceInstance } from './annotated-pieces';
 import { showToast } from './toast';
 
@@ -14,15 +22,18 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 const MATCH_DISTANCE_THRESHOLD = 0.06;
 /** Normalized-image-space click tolerance for "close the polygon by clicking the first vertex". */
 const CLOSE_VERTEX_TOLERANCE = 0.02;
-/** Along-ray sample depths (scene units) for drawing an epipolar guide line — the segment a
- * not-yet-triangulated piece's matching point must lie somewhere along, in a photo it hasn't
- * been drawn on yet. Bounds are conservative relative to the room's own measured extent
- * (x in [-3.54, 4.51], z in [-5.86, 4.94] — see README's "Scene scale" notes and the
- * placed-piece bounding box measured while planning the identify tool), not a guess: 0.05 is
- * "just past the camera," 14 comfortably exceeds the room's ~13.5-unit diagonal. */
-const EPIPOLAR_NEAR_DEPTH = 0.05;
-const EPIPOLAR_FAR_DEPTH = 14;
 const PHOTO_INDEX_KEY = 'crop-art-splat:identifyPhotoIndex';
+
+/** Active "review candidate photos for this one piece" session — see startReview. Replaces
+ * normal Prev/Next photo browsing with stepping through just the photos whose camera
+ * geometry suggests they might show this specific piece, ranked best-baseline-first. */
+interface ReviewState {
+    pieceId: string;
+    candidates: RayCandidate[];
+    index: number;
+    /** Photo index to snap back to (via the normal Prev/Next sequence) once review ends. */
+    returnPhotoIndex: number;
+}
 
 export interface IdentifyModeHandles {
     open(): void;
@@ -39,6 +50,7 @@ export function setupIdentifyMode(
     let vertices: [number, number][] = [];
     /** id of the instance-on-this-photo currently in vertex-edit mode, if any. */
     let editingInstanceKey: string | null = null;
+    let reviewState: ReviewState | null = null;
 
     const overlay = document.createElement('div');
     overlay.className = 'identify-overlay';
@@ -58,7 +70,13 @@ export function setupIdentifyMode(
             <button class="id-close-shape primary" type="button" disabled>Close shape (needs 3+ points)</button>
             <button class="id-undo-point" type="button" disabled>Undo last point</button>
         </div>
-        <div class="editor-hint">Click to add a polygon vertex around a piece of art, then click "Close shape" (or press Enter, or click the first larger vertex again). Escape cancels the in-progress shape. Dashed magenta dots are pieces already identified elsewhere — click one to confirm it's also in this photo.</div>
+        <div class="identify-review-bar" hidden>
+            <span class="review-progress"></span>
+            <span class="review-error"></span>
+            <button class="id-review-skip" type="button">Skip &#9654;</button>
+            <button class="id-review-done primary" type="button">Done with this piece</button>
+        </div>
+        <div class="editor-hint">Click to add a polygon vertex around a piece of art, then click "Close shape" (or press Enter, or click the first larger vertex again). Escape cancels the in-progress shape. Dashed magenta dots are pieces already identified elsewhere — click one to confirm it's also in this photo. Outlining a brand-new piece automatically switches to reviewing only the other photos likely to show it — skip the ones that don't match, draw a matching polygon on the ones that do, and watch the position error drop as more views come in.</div>
         <div class="identify-status"></div>
         <ul class="identify-piece-list"></ul>
     `;
@@ -75,12 +93,19 @@ export function setupIdentifyMode(
     const doneBtn = overlay.querySelector('.id-done') as HTMLButtonElement;
     const closeShapeBtn = overlay.querySelector('.id-close-shape') as HTMLButtonElement;
     const undoPointBtn = overlay.querySelector('.id-undo-point') as HTMLButtonElement;
+    const reviewBar = overlay.querySelector('.identify-review-bar') as HTMLDivElement;
+    const reviewProgressEl = overlay.querySelector('.review-progress') as HTMLElement;
+    const reviewErrorEl = overlay.querySelector('.review-error') as HTMLElement;
+    const reviewSkipBtn = overlay.querySelector('.id-review-skip') as HTMLButtonElement;
+    const reviewDoneBtn = overlay.querySelector('.id-review-done') as HTMLButtonElement;
 
     closeShapeBtn.onclick = () => closePolygon();
     undoPointBtn.onclick = () => {
         vertices.pop();
         renderInProgress();
     };
+    reviewSkipBtn.onclick = () => advanceReview();
+    reviewDoneBtn.onclick = () => stopReview();
 
     /** Plain absolutely-positioned divs layered on top of the svg — see identify-mode's
      * plan notes: circles inside a non-uniformly-scaled (preserveAspectRatio="none") SVG
@@ -90,7 +115,47 @@ export function setupIdentifyMode(
     wrap.appendChild(dotLayer);
 
     function currentPhoto(): string {
+        if (reviewState) return reviewState.candidates[reviewState.index].photo;
         return photos[photoIndex];
+    }
+
+    /** Scans every calibrated photo for ones whose camera geometry suggests they might show
+     * `piece` (see reprojection.ts's findRayCandidates), then steps through just those
+     * instead of the full sequential browse — the "draw one outline, then only check photos
+     * that could plausibly match it" flow. */
+    async function startReview(piece: AnnotatedPiece): Promise<void> {
+        const firstInstance = piece.instances[0];
+        const [ray, camera] = await Promise.all([rayForInstance(firstInstance), getPhotoCamera(firstInstance.photo)]);
+        if (!ray || !camera) return;
+        statusEl.textContent = 'Scanning all calibrated photos for likely matches…';
+        const excluded = new Set(piece.instances.map((i) => i.photo));
+        const candidates = await findRayCandidates(ray, new Vec3(...camera.position), excluded);
+        if (candidates.length === 0) {
+            statusEl.textContent =
+                "Added — no other photo's camera position/angle looks likely to show this piece. Draw a matching polygon manually on another photo to pin it down.";
+            return;
+        }
+        reviewState = { pieceId: piece.id, candidates, index: 0, returnPhotoIndex: photoIndex };
+        statusEl.textContent = '';
+        renderPhoto();
+    }
+
+    function advanceReview(): void {
+        if (!reviewState) return;
+        reviewState.index++;
+        if (reviewState.index >= reviewState.candidates.length) {
+            statusEl.textContent = 'No more candidates for this piece — draw on another photo manually if you spot it, or move on.';
+            stopReview();
+        } else {
+            renderPhoto();
+        }
+    }
+
+    function stopReview(): void {
+        if (!reviewState) return;
+        photoIndex = reviewState.returnPhotoIndex;
+        reviewState = null;
+        renderPhoto();
     }
 
     function svgEl(tag: 'polygon' | 'polyline'): SVGElement {
@@ -126,19 +191,6 @@ export function setupIdentifyMode(
         }
         dotLayer.appendChild(dot);
         return dot;
-    }
-
-    /** Recomputes a piece's real multi-view triangulated position from all its instances'
-     * rays (see reprojection.ts) — call after any change to a piece's instance list or any
-     * instance's polygon (which shifts that instance's centroid, hence its ray). With fewer
-     * than 2 instances this just clears any stale triangulation. */
-    async function retriangulate(piece: AnnotatedPiece): Promise<void> {
-        if (piece.instances.length < 2) {
-            piece.triangulatedPosition = undefined;
-            return;
-        }
-        const tri = await triangulatePieceInstances(piece.instances);
-        piece.triangulatedPosition = tri ? [tri.x, tri.y, tri.z] : undefined;
     }
 
     async function closePolygon(): Promise<void> {
@@ -184,6 +236,7 @@ export function setupIdentifyMode(
 
         const instance: PieceInstance = { photo, polygon: drawn };
         let targetPiece: AnnotatedPiece;
+        let isNewPiece = false;
         if (match) {
             const existingIdx = match.instances.findIndex((i) => i.photo === photo);
             const priorInstance = existingIdx >= 0 ? match.instances[existingIdx] : undefined;
@@ -191,9 +244,8 @@ export function setupIdentifyMode(
             if (existingIdx >= 0) match.instances[existingIdx] = instance;
             else match.instances.push(instance);
             targetPiece = match;
-            await retriangulate(targetPiece);
+            await retriangulatePiece(targetPiece);
             setAnnotated(annotated);
-            renderPhoto();
             showToast(`Linked to a piece already seen in ${priorCount} other photo(s)`, {
                 actionLabel: 'Undo',
                 onAction: async () => {
@@ -209,7 +261,7 @@ export function setupIdentifyMode(
                         } else if (idx >= 0) {
                             m.instances.splice(idx, 1);
                         }
-                        await retriangulate(m);
+                        await retriangulatePiece(m);
                     }
                     current.push({ id: crypto.randomUUID(), instances: [instance] });
                     setAnnotated(current);
@@ -220,12 +272,31 @@ export function setupIdentifyMode(
             targetPiece = { id: crypto.randomUUID(), instances: [instance] };
             annotated.push(targetPiece);
             setAnnotated(annotated);
-            renderPhoto();
+            isNewPiece = true;
         }
 
-        statusEl.textContent = representativeAnchor(targetPiece)
-            ? ''
-            : "Added — this piece needs one more view to pin down its position. Draw a matching polygon for it on another photo (further apart in the walk works better than an adjacent frame — see the epipolar guide line) to triangulate it.";
+        // If this is the piece we're actively reviewing candidates for, report the updated
+        // error and move straight to the next candidate — the core "draw one outline, then
+        // only check photos that could plausibly match it, and know when you've got enough
+        // views" loop.
+        if (reviewState && targetPiece.id === reviewState.pieceId) {
+            const residual = await triangulationResidual(targetPiece);
+            statusEl.textContent =
+                residual !== null
+                    ? `Matched — position error now ${residual.toFixed(4)} scene units (${targetPiece.instances.length} views).`
+                    : 'Matched, but these views are still too close in angle to trust a position — try a candidate further along.';
+            advanceReview();
+            return;
+        }
+
+        renderPhoto();
+        if (isNewPiece) {
+            await startReview(targetPiece);
+        } else {
+            statusEl.textContent = representativeAnchor(targetPiece)
+                ? ''
+                : "Added — this piece needs one more view to pin down its position. Draw a matching polygon for it on another photo (further apart in the walk works better than an adjacent frame) to triangulate it.";
+        }
     }
 
     async function linkGhost(piece: AnnotatedPiece, u01: number, v01: number): Promise<void> {
@@ -246,7 +317,7 @@ export function setupIdentifyMode(
         const instance: PieceInstance = { photo: currentPhoto(), polygon: placeholderSquare, placeholder: true };
         if (existingIdx >= 0) p.instances[existingIdx] = instance;
         else p.instances.push(instance);
-        await retriangulate(p);
+        await retriangulatePiece(p);
         setAnnotated(annotated);
         renderPhoto();
     }
@@ -260,7 +331,7 @@ export function setupIdentifyMode(
             setAnnotated(annotated.filter((a) => a.id !== p.id));
         } else {
             p.instances = p.instances.filter((i) => i.photo !== photo);
-            await retriangulate(p);
+            await retriangulatePiece(p);
             setAnnotated(annotated);
         }
         if (editingInstanceKey === `${piece.id}:${photo}`) editingInstanceKey = null;
@@ -286,7 +357,7 @@ export function setupIdentifyMode(
                     dot.removeEventListener('pointerup', onUp);
                     // Dragging a vertex moves this instance's centroid, hence its ray —
                     // re-triangulate before persisting rather than leaving a stale position.
-                    retriangulate(piece).then(() => setAnnotated(getAnnotated()));
+                    retriangulatePiece(piece).then(() => setAnnotated(getAnnotated()));
                 };
                 dot.addEventListener('pointermove', onMove);
                 dot.addEventListener('pointerup', onUp);
@@ -304,7 +375,21 @@ export function setupIdentifyMode(
     async function renderPhoto(): Promise<void> {
         const photo = currentPhoto();
         img.src = `/photos/${photo}`;
-        counterEl.textContent = `Photo ${photoIndex + 1} / ${photos.length} — ${getAnnotated().length} piece(s) identified so far`;
+        prevBtn.disabled = !!reviewState;
+        nextBtn.disabled = !!reviewState;
+        if (reviewState) {
+            const { index, candidates } = reviewState;
+            counterEl.textContent = `Reviewing candidates for one piece — ${getAnnotated().length} piece(s) identified so far`;
+            reviewBar.hidden = false;
+            reviewProgressEl.textContent = `Candidate ${index + 1} / ${candidates.length}`;
+            const reviewedPiece = getAnnotated().find((p) => p.id === reviewState!.pieceId);
+            const residual = reviewedPiece ? await triangulationResidual(reviewedPiece) : null;
+            reviewErrorEl.textContent =
+                residual !== null ? `current error: ${residual.toFixed(4)} scene units (${reviewedPiece!.instances.length} views)` : 'no position yet';
+        } else {
+            counterEl.textContent = `Photo ${photoIndex + 1} / ${photos.length} — ${getAnnotated().length} piece(s) identified so far`;
+            reviewBar.hidden = true;
+        }
         svg.innerHTML = '';
         dotLayer.innerHTML = '';
         closedPolygonElements.clear();
@@ -367,24 +452,15 @@ export function setupIdentifyMode(
             addDot([hit.u01, hit.v01], 'ghost-dot', () => linkGhost(p, hit.u01, hit.v01));
         });
 
-        const currentCamera = await getPhotoCamera(photo);
-        if (currentCamera) {
-            for (const p of unanchoredElsewhere) {
-                const guideRay = await rayForInstance(p.instances[0]);
-                if (!guideRay) continue;
-                const nearPoint = guideRay.origin.clone().add(guideRay.dir.clone().mulScalar(EPIPOLAR_NEAR_DEPTH));
-                const farPoint = guideRay.origin.clone().add(guideRay.dir.clone().mulScalar(EPIPOLAR_FAR_DEPTH));
-                const nearProj = worldToPixel(currentCamera, nearPoint);
-                const farProj = worldToPixel(currentCamera, farPoint);
-                if (!nearProj.inFront || !farProj.inFront) continue;
-                const line = svgEl('polyline') as SVGElement;
-                line.setAttribute(
-                    'points',
-                    `${nearProj.u / currentCamera.width},${nearProj.v / currentCamera.height} ${farProj.u / currentCamera.width},${farProj.v / currentCamera.height}`
-                );
-                line.setAttribute('class', 'epipolar-guide');
-                svg.appendChild(line);
-            }
+        for (const p of unanchoredElsewhere) {
+            const guideRay = await rayForInstance(p.instances[0]);
+            if (!guideRay) continue;
+            const seg = await epipolarSegmentInPhoto(guideRay, photo);
+            if (!seg) continue;
+            const line = svgEl('polyline') as SVGElement;
+            line.setAttribute('points', `${seg.near.u01},${seg.near.v01} ${seg.far.u01},${seg.far.v01}`);
+            line.setAttribute('class', 'epipolar-guide');
+            svg.appendChild(line);
         }
 
         renderInProgress();
