@@ -4,12 +4,23 @@ import { pickSplatSurface } from './raypick';
 import { getPhotoCamera } from './photo-cameras';
 import { pixelToWorldRay, worldToPixel, projScaleYFromIntrinsics } from './colmap-math';
 
+/** Tried in order until one finds a splat — see placePieceFromPhotoClick. The default (10)
+ * matches the live 3D-view click-to-place tool's precision; a piece drawn from a photo often
+ * lands on a thinly-reconstructed area (a flat poster, a dark frame) where nothing is within
+ * that tight a radius even though the ray is clearly pointing at real, if sparse, geometry —
+ * widening the search still derives the anchor from actual reconstructed data, it's just
+ * more tolerant about how close a splat has to be to "count" as that data. */
+const PICK_RADIUS_ATTEMPTS_PX = [10, 30, 80, 200];
+
 /**
  * Computes the 3D scene position a normalized (0-1) click on a training photo corresponds
  * to, by casting a ray from that photo's calibrated camera through the splat point cloud —
  * the same pick used for live 3D-view clicks (see raypick.ts), just with a photo-derived ray
- * instead of one from the live PlayCanvas camera. Returns null if the photo has no
- * calibration (not registered by COLMAP) or the ray doesn't hit any splat.
+ * instead of one from the live PlayCanvas camera, and a progressively wider search radius
+ * (see PICK_RADIUS_ATTEMPTS_PX) since a photo-drawn polygon is more likely to center on a
+ * sparsely-reconstructed flat surface than a live 3D click is. Returns null if the photo has
+ * no calibration, or the ray doesn't hit any splat even at the widest radius tried — meaning
+ * it's pointing at genuinely unreconstructed space, which no amount of search radius can fix.
  */
 export async function placePieceFromPhotoClick(
     scene: Pick<SceneHandles, 'splatCenters'>,
@@ -22,7 +33,12 @@ export async function placePieceFromPhotoClick(
     const u = u01 * camera.width;
     const v = v01 * camera.height;
     const { origin, dir } = pixelToWorldRay(camera, u, v);
-    return pickSplatSurface(scene.splatCenters, origin, dir, projScaleYFromIntrinsics(camera), camera.height);
+    const projScaleY = projScaleYFromIntrinsics(camera);
+    for (const pixelRadius of PICK_RADIUS_ATTEMPTS_PX) {
+        const hit = pickSplatSurface(scene.splatCenters, origin, dir, projScaleY, camera.height, pixelRadius);
+        if (hit) return hit;
+    }
+    return null;
 }
 
 /**

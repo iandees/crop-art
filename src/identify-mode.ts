@@ -127,7 +127,7 @@ export function setupIdentifyMode(
         const anchorVec = await placePieceFromPhotoClick(scene, currentPhoto(), cu, cv);
         if (!anchorVec) {
             statusEl.textContent =
-                "Couldn't anchor this polygon — its center doesn't land on any splat. Adjust the shape and try again.";
+                "Couldn't anchor this polygon — even a wide search around its center found no reconstructed geometry there. Move the center further onto the piece (or a nearby wall) and try again.";
             return; // keep vertices so the user can adjust and retry
         }
         vertices = [];
