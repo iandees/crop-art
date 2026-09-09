@@ -22,7 +22,7 @@ import {
     quatWXYZToMat3,
     colmapCameraCenter,
     cameraAxesWorld,
-    fitSimilarityTransform,
+    fitSimilarityTransformRobust,
     applySimilarityToPoint,
     applySimilarityToDirection,
     type PhotoCamera
@@ -187,14 +187,33 @@ if (sourcePoints.length < 10) {
     process.exit(1);
 }
 
-const sim = fitSimilarityTransform(sourcePoints, targetPoints);
-console.log(`\nFitted similarity transform: scale=${sim.scale.toFixed(4)}, translation=(${sim.translation.x.toFixed(3)}, ${sim.translation.y.toFixed(3)}, ${sim.translation.z.toFixed(3)})`);
+// A minority of correspondences can be badly wrong (an image COLMAP registered against the
+// wrong part of a repetitive scene, or a stray bad anchor in the existing approximate data)
+// without the majority being wrong at all — a plain least-squares fit lets those drag the
+// whole transform off for everyone. Fit robustly instead, dropping the worst-agreeing
+// correspondences rather than trusting all of them equally (see fitSimilarityTransformRobust
+// and its synthetic outlier test in scripts/test-colmap-math.ts).
+const { transform: sim, inlierIndices } = fitSimilarityTransformRobust(sourcePoints, targetPoints, {
+    targetMaxResidual: 0.6
+});
+const outlierCount = sourcePoints.length - inlierIndices.length;
+console.log(
+    `\nFitted similarity transform: scale=${sim.scale.toFixed(4)}, translation=(${sim.translation.x.toFixed(3)}, ${sim.translation.y.toFixed(3)}, ${sim.translation.z.toFixed(3)})`
+);
+console.log(`Used ${inlierIndices.length} of ${sourcePoints.length} correspondences as inliers (${outlierCount} rejected as outliers).`);
+if (outlierCount > 0) {
+    const outlierNames = sourcePoints
+        .map((_, i) => i)
+        .filter((i) => !inlierIndices.includes(i))
+        .map((i) => correspondenceNames[i]);
+    console.log(`Rejected: ${outlierNames.join(', ')}`);
+}
 
 // --- Residual report — READ THIS before trusting the output ------------------------------
-console.log('\n--- Residual report (recomputed positions vs. existing photo-poses.json) ---');
+console.log('\n--- Residual report (recomputed positions vs. existing photo-poses.json, INLIERS ONLY) ---');
 const positionResiduals: number[] = [];
 const angularResidualsDeg: number[] = [];
-for (let i = 0; i < sourcePoints.length; i++) {
+for (const i of inlierIndices) {
     const recomputed = applySimilarityToPoint(sourcePoints[i], sim);
     const residual = recomputed.distance(targetPoints[i]);
     positionResiduals.push(residual);

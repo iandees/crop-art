@@ -11,6 +11,7 @@
 import { Vec3, Quat } from 'playcanvas';
 import {
     fitSimilarityTransform,
+    fitSimilarityTransformRobust,
     applySimilarityToPoint,
     pixelToWorldRay,
     worldToPixel,
@@ -88,6 +89,63 @@ console.log('--- Test 1: fitSimilarityTransform recovers known ground truth ---'
     assertClose('applied point x', got.x, expected.x, 0.05);
     assertClose('applied point y', got.y, expected.y, 0.05);
     assertClose('applied point z', got.z, expected.z, 0.05);
+}
+
+// ---------------------------------------------------------------------------------------
+// Test 1b: fitSimilarityTransformRobust ignores gross outliers that corrupt the plain fit
+// ---------------------------------------------------------------------------------------
+// Real COLMAP correspondences aren't just noisy — a minority can be badly wrong (an image
+// mis-registered against the wrong part of a repetitive scene, or a stray bad anchor in the
+// existing approximate data). This must not be silently "fixed" by the plain fit above.
+console.log('\n--- Test 1b: fitSimilarityTransformRobust survives ~20% gross outliers ---');
+{
+    const rand = mulberry32(99);
+    const trueRotation = new Quat().setFromEulerAngles(-18, 50, 4).normalize();
+    const trueScale = 0.81;
+    const trueTranslation = new Vec3(0.6, -0.02, 0.27);
+
+    const n = 60;
+    const outlierCount = 12; // 20%
+    const source: Vec3[] = [];
+    const target: Vec3[] = [];
+    for (let i = 0; i < n; i++) {
+        const s = new Vec3((rand() - 0.5) * 10, (rand() - 0.5) * 10, (rand() - 0.5) * 10);
+        const t = trueRotation.transformVector(s.clone()).mulScalar(trueScale).add(trueTranslation);
+        t.add(new Vec3((rand() - 0.5) * 0.05, (rand() - 0.5) * 0.05, (rand() - 0.5) * 0.05));
+        if (i < outlierCount) {
+            // A gross mismatch, same magnitude as a real mis-registered image would produce.
+            t.add(new Vec3((rand() - 0.5) * 8, (rand() - 0.5) * 8, (rand() - 0.5) * 8));
+        }
+        source.push(s);
+        target.push(t);
+    }
+
+    const plainFit = fitSimilarityTransform(source, target);
+    const plainProbe = plainFit.rotation.transformVector(new Vec3(1, 0, 0));
+    const trueProbe = trueRotation.transformVector(new Vec3(1, 0, 0));
+    const plainAngleError = (Math.acos(Math.min(1, Math.max(-1, plainProbe.dot(trueProbe)))) * 180) / Math.PI;
+    console.log(`plain fit rotation error vs. ground truth: ${plainAngleError.toFixed(2)} deg (informational only, not asserted — least-squares doesn't always visibly break with only 20% outliers, but the transform below must still be exact)`);
+
+    const { transform: robustFit, inlierIndices } = fitSimilarityTransformRobust(source, target, {
+        targetMaxResidual: 0.1
+    });
+    assertClose('robust fit scale', robustFit.scale, trueScale, 0.02);
+    const robustProbe = robustFit.rotation.transformVector(new Vec3(1, 0, 0));
+    const robustAngleError = (Math.acos(Math.min(1, Math.max(-1, robustProbe.dot(trueProbe)))) * 180) / Math.PI;
+    if (robustAngleError > 1) {
+        failures++;
+        console.error(`FAIL robust fit rotation error: ${robustAngleError.toFixed(2)} deg (expected < 1 deg)`);
+    } else {
+        console.log(`ok   robust fit rotation error: ${robustAngleError.toFixed(4)} deg`);
+    }
+    const outlierIndicesSet = new Set(Array.from({ length: outlierCount }, (_, i) => i));
+    const survivingOutliers = inlierIndices.filter((i) => outlierIndicesSet.has(i));
+    if (survivingOutliers.length > 0) {
+        failures++;
+        console.error(`FAIL robust fit kept ${survivingOutliers.length} of the ${outlierCount} planted outliers as inliers`);
+    } else {
+        console.log(`ok   robust fit rejected all ${outlierCount} planted outliers (${inlierIndices.length}/${n} kept as inliers)`);
+    }
 }
 
 // ---------------------------------------------------------------------------------------

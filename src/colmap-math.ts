@@ -195,6 +195,42 @@ export function fitSimilarityTransform(source: Vec3[], target: Vec3[]): Similari
     return { rotation, scale, translation };
 }
 
+/**
+ * Robust variant of fitSimilarityTransform: a handful of badly-mismatched correspondences
+ * (e.g. an image COLMAP registered against the wrong part of a repetitive scene, or a stray
+ * bad anchor in the existing approximate data) can drag the plain least-squares fit off for
+ * everyone else, even though most correspondences agree well. Iteratively refits while
+ * dropping the worst-residual fraction each round, so the final transform reflects the
+ * well-agreeing majority rather than being pulled toward a minority of outliers.
+ */
+export function fitSimilarityTransformRobust(
+    source: Vec3[],
+    target: Vec3[],
+    options: { maxRounds?: number; keepFraction?: number; targetMaxResidual?: number } = {}
+): { transform: SimilarityTransform; inlierIndices: number[] } {
+    const maxRounds = options.maxRounds ?? 5;
+    const keepFraction = options.keepFraction ?? 0.9;
+    const targetMaxResidual = options.targetMaxResidual ?? Infinity;
+
+    let indices = source.map((_, i) => i);
+    let transform = fitSimilarityTransform(source, target);
+
+    for (let round = 0; round < maxRounds; round++) {
+        const residuals = indices.map((i) => applySimilarityToPoint(source[i], transform).distance(target[i]));
+        if (Math.max(...residuals) <= targetMaxResidual) break;
+
+        const sorted = [...residuals].sort((a, b) => a - b);
+        const keepCount = Math.max(10, Math.round(indices.length * keepFraction));
+        if (keepCount >= indices.length) break;
+        const cutoff = sorted[keepCount - 1];
+
+        indices = indices.filter((_, j) => residuals[j] <= cutoff);
+        transform = fitSimilarityTransform(indices.map((i) => source[i]), indices.map((i) => target[i]));
+    }
+
+    return { transform, inlierIndices: indices };
+}
+
 export function applySimilarityToPoint(point: Vec3, sim: SimilarityTransform): Vec3 {
     return sim.rotation.transformVector(point.clone()).mulScalar(sim.scale).add(sim.translation);
 }
