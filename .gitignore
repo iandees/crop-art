@@ -14,3 +14,6 @@ tsconfig.tsbuildinfo
 # Deliberately NOT under public/, which Vite copies verbatim into dist/ (and
 # Cloudflare Workers rejects any static asset over 25MB).
 local-splat/
+
+# Scratch COLMAP working directory (database, sparse model) — never committed.
+.colmap-work/

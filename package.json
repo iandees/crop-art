@@ -12,6 +12,7 @@
     "playcanvas": "^2.22.0"
   },
   "devDependencies": {
+    "tsx": "^4.23.13",
     "typescript": "^5.7.0",
     "vite": "^6.0.0"
   }

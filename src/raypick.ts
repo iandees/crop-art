@@ -1,4 +1,4 @@
-import { Vec3, type Entity } from 'playcanvas';
+import { Vec3 } from 'playcanvas';
 
 /**
  * CPU ray-vs-point-cloud pick against the splat's own gaussian centers. Gaussian splats
@@ -12,12 +12,17 @@ import { Vec3, type Entity } from 'playcanvas';
  *
  * `rayOrigin`/`rayDir` and the returned point are all in the same local space `centers` is
  * defined in (worldRoot-local — see scene.ts). Returns null if nothing was within range.
+ *
+ * `projScaleY` is the perspective projection's Y-scale term (`cot(fovY/2)`, i.e. a PlayCanvas
+ * camera's `projectionMatrix.data[5]`) — equivalently `2*fy/heightPx` for a pinhole camera
+ * with focal length `fy` in pixels, which lets this be reused for a *synthetic* camera (e.g.
+ * a calibrated training photo, see reprojection.ts) with no live PlayCanvas camera entity.
  */
 export function pickSplatSurface(
     centers: Float32Array,
     rayOrigin: Vec3,
     rayDir: Vec3,
-    camera: Entity,
+    projScaleY: number,
     canvasHeightPx: number,
     pixelRadius = 10
 ): Vec3 | null {
@@ -28,7 +33,6 @@ export function pickSplatSurface(
     const dy = rayDir.y;
     const dz = rayDir.z;
 
-    const projScaleY = camera.camera!.projectionMatrix.data[5];
     const n = centers.length / 3;
 
     let bestT = Infinity;

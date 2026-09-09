@@ -9,6 +9,7 @@ import { loadWorldRotation, saveWorldRotation, type Rotation } from './world-rot
 import { pickSplatSurface } from './raypick';
 import { getPhotoPose } from './photo-poses';
 import { getPhotoCandidates } from './photo-candidates';
+import { placePieceFromPhotoClick, reprojectPointToPhoto } from './reprojection';
 import { resolveRoomPolygon, saveLocalRoomPolygon, type RoomPolygon } from './room-polygon';
 import { computeColumnAlignRotation, computeLevelingRotation } from './plane-fit';
 
@@ -330,6 +331,13 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
                 renderHud();
                 renderList();
             };
+            if (piece.photo) {
+                const photoPlaceBtn = document.createElement('button');
+                photoPlaceBtn.textContent = 'Place from photo';
+                photoPlaceBtn.title = 'Draw a box around this piece on its assigned photo instead of clicking in the 3D view';
+                photoPlaceBtn.onclick = () => openForm(piece);
+                btns.appendChild(photoPlaceBtn);
+            }
             const delBtn = document.createElement('button');
             delBtn.textContent = 'Delete';
             delBtn.onclick = () => {
@@ -419,8 +427,10 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
                 <div class="crop-wrap">
                     <img class="candidate-preview-img">
                     <div class="crop-box" hidden></div>
+                    <div class="reproj-marker" hidden></div>
                 </div>
-                <div class="editor-hint">Drag on the photo above to draw a crop — that's what visitors will see in the detail popup instead of the full frame.</div>
+                <div class="editor-hint f-crop-hint">Drag on the photo above to draw a crop — that's what visitors will see in the detail popup instead of the full frame.</div>
+                <div class="place-status"></div>
                 <div>
                     <button type="button" class="f-use-photo">Use this photo</button>
                     <button type="button" class="primary f-save-crop">Save crop</button>
@@ -453,12 +463,32 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
             const wrap = form.querySelector('.crop-wrap') as HTMLDivElement;
             const candidateImg = form.querySelector('.candidate-preview-img') as HTMLImageElement;
             const cropBox = form.querySelector('.crop-box') as HTMLDivElement;
+            const reprojMarker = form.querySelector('.reproj-marker') as HTMLDivElement;
+            const cropHint = form.querySelector('.f-crop-hint') as HTMLDivElement;
+            const placeStatus = form.querySelector('.place-status') as HTMLDivElement;
             const counterEl = form.querySelector('.cand-counter') as HTMLElement;
             const prevBtn = form.querySelector('.f-cand-prev') as HTMLButtonElement;
             const nextBtn = form.querySelector('.f-cand-next') as HTMLButtonElement;
             const useBtn = form.querySelector('.f-use-photo') as HTMLButtonElement;
             const saveCropBtn = form.querySelector('.f-save-crop') as HTMLButtonElement;
             const clearCropBtn = form.querySelector('.f-clear-crop') as HTMLButtonElement;
+
+            // Unplaced pieces reuse this same panel to get their first position (see
+            // renderList's "Place from photo" button) — draw a box around the art here
+            // instead of hunting for it in the live 3D view. Once placed, this collapses
+            // back into an ordinary crop-drawing panel like any other piece's.
+            function updatePlacementLabels(): void {
+                if (existing!.position) {
+                    saveCropBtn.textContent = 'Save crop';
+                    cropHint.textContent =
+                        "Drag on the photo above to draw a crop — that's what visitors will see in the detail popup instead of the full frame.";
+                } else {
+                    saveCropBtn.textContent = 'Place here';
+                    cropHint.textContent =
+                        'Drag a box around the piece in the photo above, then "Place here" to both position it in the 3D scene and set its crop.';
+                }
+            }
+            updatePlacementLabels();
 
             // Seed with the piece's currently-assigned photo (if any) so it's always
             // browsable even before/if the async candidate list resolves; getPhotoCandidates
@@ -482,6 +512,31 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
                 cropBox.style.height = `${h * 100}%`;
             }
 
+            // Once the piece has a position (already placed, or just placed via "Place
+            // here" below), overlay a dot showing where it should reproject onto whichever
+            // candidate photo is currently previewed — a COLMAP-calibrated cross-check that
+            // this really is a photo of the same piece, and a way to spot a bad/occluded
+            // canonical photo without redrawing a crop on every candidate by hand.
+            let reprojToken = 0;
+            function updateReprojMarker(filename: string): void {
+                if (!existing!.position) {
+                    reprojMarker.hidden = true;
+                    return;
+                }
+                const token = ++reprojToken;
+                const worldPoint = new Vec3(...existing!.position);
+                reprojectPointToPhoto(filename, worldPoint).then((hit) => {
+                    if (token !== reprojToken) return; // a newer candidate was selected meanwhile
+                    if (!hit) {
+                        reprojMarker.hidden = true;
+                        return;
+                    }
+                    reprojMarker.hidden = false;
+                    reprojMarker.style.left = `${hit.u01 * 100}%`;
+                    reprojMarker.style.top = `${hit.v01 * 100}%`;
+                });
+            }
+
             function renderCandidate(): void {
                 if (candidateList.length === 0) {
                     pickerPanel.hidden = true;
@@ -500,6 +555,7 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
                 } else {
                     setOverlayRect(null);
                 }
+                updateReprojMarker(filename);
             }
             renderCandidate();
 
@@ -550,15 +606,37 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
                 dragStart = null;
             });
 
-            saveCropBtn.onclick = () => {
+            saveCropBtn.onclick = async () => {
                 if (!drawnRect || drawnRect[2] < 0.02 || drawnRect[3] < 0.02) return;
                 const filename = candidateList[previewIndex];
+
+                if (!existing.position) {
+                    const [x, y, w, h] = drawnRect;
+                    const u01 = x + w / 2;
+                    const v01 = y + h / 2;
+                    saveCropBtn.disabled = true;
+                    placeStatus.textContent = 'Placing…';
+                    const worldPos = await placePieceFromPhotoClick(scene, filename, u01, v01);
+                    saveCropBtn.disabled = false;
+                    if (!worldPos) {
+                        placeStatus.textContent =
+                            "Couldn't place this — either this photo has no COLMAP calibration, or the box center doesn't land on any splat. Try a different box or candidate photo.";
+                        return;
+                    }
+                    existing.position = [worldPos.x, worldPos.y, worldPos.z];
+                    placeStatus.textContent = '';
+                    updatePlacementLabels();
+                    renderHud();
+                    renderList();
+                }
+
                 photoInput.value = filename;
                 existing.photo = filename;
                 existing.photoCrop = drawnRect;
                 removeHotspotEntity(existing.id);
                 createHotspotEntity(existing);
                 persist();
+                updateReprojMarker(filename);
             };
             clearCropBtn.onclick = () => {
                 setOverlayRect(null);
@@ -611,6 +689,7 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
         };
 
         editorPanel.appendChild(form);
+        form.scrollIntoView({ block: 'start' });
         pendingForm = form;
         form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
@@ -646,7 +725,8 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
         <div class="editor-hint">Saved boundaries only apply in your own browser. Once it looks right, click below and send me the copied JSON to make it the default for everyone.</div>
         <button class="f-boundary-copy">Copy boundary JSON</button>
         <h4>To place (<span class="unplaced-count">0</span>)</h4>
-        <div class="editor-hint">Click directly on a piece to place a hotspot on it. If the click misses every splat (e.g. open air), it falls back to <kbd>[</kbd>/<kbd>]</kbd>-adjustable distance (currently <span class="dist">0.30</span>). Click a title to preview its photo.</div>
+        <div class="editor-hint">Click directly on a piece to place a hotspot on it. If the click misses every splat (e.g. open air), it falls back to <kbd>[</kbd>/<kbd>]</kbd>-adjustable distance (currently <span class="dist">0.30</span>). Click a title to preview its photo. Or use "Place from photo" to draw a box around the piece on its assigned photo instead — no need to find it in the 3D view first.</div>
+        <button class="primary f-next-unplaced">Next unplaced &#8594;</button>
         <ul class="unplaced-list"></ul>
         <h4>Placed (<span class="placed-count">0</span>)</h4>
         <div class="editor-hint">"Move" shows drag handles (red=X, green=Y, blue=Z) to fine-tune position.</div>
@@ -686,6 +766,13 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
     renderBoundaryUI();
     renderLevelingUI();
 
+    (editorPanel.querySelector('.f-next-unplaced') as HTMLButtonElement).onclick = () => {
+        // Recomputed fresh each click (rather than tracking a stored index) since the
+        // unplaced list shrinks as pieces get placed via this same flow.
+        const next = pieces.find((p) => !p.position);
+        if (!next) return;
+        openForm(next);
+    };
     (editorPanel.querySelector('.f-export') as HTMLButtonElement).onclick = () => exportPiecesFile(pieces);
     (editorPanel.querySelector('.f-reload') as HTMLButtonElement).onclick = async () => {
         if (!confirm('Discard local edits and reload public/data/pieces.json?')) return;
@@ -797,7 +884,13 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
         invWorldRoot.transformVector(tmpForward, localDir);
         localDir.normalize();
         const canvasHeight = canvas.clientHeight;
-        const picked = pickSplatSurface(scene.splatCenters, localOrigin, localDir, scene.camera, canvasHeight);
+        const picked = pickSplatSurface(
+            scene.splatCenters,
+            localOrigin,
+            localDir,
+            scene.camera.camera!.projectionMatrix.data[5],
+            canvasHeight
+        );
 
         let position: [number, number, number];
         if (picked) {
