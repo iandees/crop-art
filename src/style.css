@@ -535,3 +535,227 @@ body.edit-mode .pc-annotation-hotspot {
     font-size: 15px;
     color: rgba(255, 255, 255, 0.85);
 }
+
+/* ---- Identify-pieces overlay (photo-by-photo polygon drawing) ---- */
+
+.identify-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.96);
+    color: #f2f2f2;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    font-size: 13px;
+}
+
+.identify-overlay[hidden] {
+    display: none;
+}
+
+.identify-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.identify-nav button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 13px;
+    background: #333;
+    color: #f2f2f2;
+}
+
+.identify-nav button.primary {
+    background: #4c8bf5;
+    color: #fff;
+    margin-left: 16px;
+}
+
+.identify-nav .id-counter {
+    color: #ccc;
+}
+
+.identify-wrap {
+    /* Sized to exactly match .identify-img's rendered box (inline-block shrinks to fit its
+       content) — this must stay true since click coordinates are computed as fractions of
+       this element's own bounding rect. A portrait photo at max-width:900px alone would
+       render taller than most viewports (e.g. ~1195px for a 3072x4080 photo), pushing part
+       of the image below the fold — capping height here too, with width:auto so the image
+       still scales down proportionally, keeps the whole photo clickable without scrolling. */
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    cursor: crosshair;
+    user-select: none;
+}
+
+.identify-img {
+    display: block;
+    max-width: min(900px, calc(100vw - 32px));
+    max-height: calc(100vh - 160px);
+    width: auto;
+    height: auto;
+    background: #000;
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.identify-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.identify-svg .poly-closed {
+    fill: rgba(76, 214, 160, 0.18);
+    stroke: #4cd6a0;
+    stroke-width: 0.003;
+}
+
+.identify-svg .poly-ghost-linked {
+    fill: rgba(76, 214, 160, 0.08);
+    stroke: #4cd6a0;
+    stroke-width: 0.003;
+    stroke-dasharray: 0.01 0.008;
+}
+
+.identify-svg .poly-active {
+    fill: none;
+    stroke: #ffb84c;
+    stroke-width: 0.003;
+    stroke-dasharray: 0.008 0.006;
+}
+
+.identify-dot-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.vertex-dot-active,
+.vertex-dot,
+.ghost-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.vertex-dot-active {
+    background: #ffb84c;
+    border: 1px solid #7a4a00;
+}
+
+.vertex-dot-active.vertex-dot-first {
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    margin-top: -8px;
+    cursor: pointer;
+}
+
+.vertex-dot.vertex-dot-edit {
+    width: 14px;
+    height: 14px;
+    margin-left: -7px;
+    margin-top: -7px;
+    background: #4cd6a0;
+    border: 1px solid #14503a;
+    cursor: grab;
+}
+
+.ghost-dot {
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px dashed #e05cf2;
+    background: rgba(224, 92, 242, 0.25);
+    cursor: pointer;
+}
+
+.identify-piece-list {
+    width: 100%;
+    max-width: 900px;
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+.identify-piece-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #333;
+}
+
+.identify-piece-list li button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 12px;
+    margin-left: 6px;
+    background: #333;
+    color: #f2f2f2;
+}
+
+.identify-status {
+    width: 100%;
+    max-width: 900px;
+    color: #f2a65a;
+    font-size: 12px;
+    min-height: 1.2em;
+    margin-top: 6px;
+}
+
+/* ---- Catalog-pieces panel ---- */
+
+.catalog-panel {
+    left: 16px;
+    right: auto;
+}
+
+/* ---- Toast ---- */
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(20, 20, 20, 0.95);
+    color: #f2f2f2;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 30;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.toast .undo-btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    background: #4c8bf5;
+    color: #fff;
+}

@@ -4,6 +4,14 @@ export type { PhotoCamera };
 
 let cache: Record<string, PhotoCamera> | null = null;
 
+async function loadAll(): Promise<Record<string, PhotoCamera>> {
+    if (!cache) {
+        const res = await fetch('/data/photo-cameras.json');
+        cache = res.ok ? await res.json() : {};
+    }
+    return cache!;
+}
+
 /**
  * Full camera calibration (position + orientation + intrinsics, all in worldRoot-local scene
  * space) for each training photo, derived from a real COLMAP sparse reconstruction — see
@@ -12,9 +20,14 @@ let cache: Record<string, PhotoCamera> | null = null;
  * if we have no calibration for that photo (e.g. it wasn't registered by COLMAP).
  */
 export async function getPhotoCamera(photo: string): Promise<PhotoCamera | null> {
-    if (!cache) {
-        const res = await fetch('/data/photo-cameras.json');
-        cache = res.ok ? await res.json() : {};
-    }
-    return cache![photo] ?? null;
+    const all = await loadAll();
+    return all[photo] ?? null;
+}
+
+/** Every calibrated photo's filename, sorted — filenames embed a capture timestamp, so
+ * lexical sort order is also capture-chronological order (see identify-mode.ts, which walks
+ * photos in this order on the assumption that consecutive photos likely overlap). */
+export async function getAllCalibratedPhotos(): Promise<string[]> {
+    const all = await loadAll();
+    return Object.keys(all).sort();
 }
