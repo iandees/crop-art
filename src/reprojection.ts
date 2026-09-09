@@ -2,7 +2,8 @@ import { Vec3 } from 'playcanvas';
 import type { SceneHandles } from './scene';
 import { pickSplatSurface } from './raypick';
 import { getPhotoCamera } from './photo-cameras';
-import { pixelToWorldRay, worldToPixel, projScaleYFromIntrinsics } from './colmap-math';
+import { pixelToWorldRay, worldToPixel, projScaleYFromIntrinsics, triangulateRays, type Ray3 } from './colmap-math';
+import { polygonCentroid01, type PieceInstance } from './annotated-pieces';
 
 /** Tried in order until one finds a splat — see placePieceFromPhotoClick. The default (10)
  * matches the live 3D-view click-to-place tool's precision; a piece drawn from a photo often
@@ -60,4 +61,29 @@ export async function reprojectPointToPhoto(
     const v01 = v / camera.height;
     if (u01 < 0 || u01 > 1 || v01 < 0 || v01 > 1) return null;
     return { u01, v01 };
+}
+
+/** The world-space ray from a photo's calibrated camera through one of its polygon
+ * instances' centroid — the same ray implicitly used by placePieceFromPhotoClick, exposed
+ * here for matching/triangulating across multiple photos of the same piece. Null if the
+ * photo has no calibration. */
+export async function rayForInstance(instance: Pick<PieceInstance, 'photo' | 'polygon'>): Promise<Ray3 | null> {
+    const camera = await getPhotoCamera(instance.photo);
+    if (!camera) return null;
+    const [cu, cv] = polygonCentroid01(instance.polygon);
+    return pixelToWorldRay(camera, cu * camera.width, cv * camera.height);
+}
+
+/**
+ * Real multi-view triangulation across every instance of a piece that has a calibrated
+ * photo — casts each instance's ray (see rayForInstance) and finds the 3D point that best
+ * explains all of them at once (see colmap-math.ts's triangulateRays). This is the actual
+ * "two-photo geometry" the user asked for, independent of splat density entirely — it works
+ * even where every instance's own splat-pick anchor came back empty. Returns null with
+ * fewer than 2 usable rays, or if the rays are too degenerate to solve (e.g. near-parallel).
+ */
+export async function triangulatePieceInstances(instances: PieceInstance[]): Promise<Vec3 | null> {
+    const rays = await Promise.all(instances.map(rayForInstance));
+    const valid = rays.filter((r): r is Ray3 => r !== null);
+    return valid.length >= 2 ? triangulateRays(valid) : null;
 }

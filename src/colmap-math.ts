@@ -286,3 +286,124 @@ export function worldToPixel(camera: PhotoCamera, point: Vec3): { u: number; v: 
         inFront: true
     };
 }
+
+/** A 3D ray — `dir` is assumed already normalized by the caller. */
+export interface Ray3 {
+    origin: Vec3;
+    dir: Vec3;
+}
+
+/**
+ * Distance between the closest points on two (infinite) rays/lines — the standard
+ * closest-point-between-two-lines formula. Two rays through the same real-world point from
+ * different calibrated cameras should have a near-zero closest approach; used to match a
+ * freshly-drawn polygon against an existing piece when neither has a splat-derived anchor to
+ * compare by 3D position instead (see reprojection.ts / identify-mode.ts).
+ *
+ * Returns `Infinity` for (near-)parallel rays rather than a numerically unstable huge value —
+ * parallel rays carry no triangulation signal regardless of how the degenerate case is
+ * handled, so treating them as "definitely not a match" is both simpler and correct.
+ */
+export function closestApproachDistance(a: Ray3, b: Ray3): number {
+    const w0 = new Vec3().sub2(a.origin, b.origin);
+    const bDotB = 1; // dirs are normalized
+    const aDotA = 1;
+    const aDotB = a.dir.dot(b.dir);
+    const aDotW0 = a.dir.dot(w0);
+    const bDotW0 = b.dir.dot(w0);
+    const denom = aDotA * bDotB - aDotB * aDotB;
+    if (Math.abs(denom) < 1e-9) return Infinity;
+    const t1 = (aDotB * bDotW0 - bDotB * aDotW0) / denom;
+    const t2 = (aDotA * bDotW0 - aDotB * aDotW0) / denom;
+    const p1 = a.origin.clone().add(a.dir.clone().mulScalar(t1));
+    const p2 = b.origin.clone().add(b.dir.clone().mulScalar(t2));
+    return p1.distance(p2);
+}
+
+/** Gaussian elimination with partial pivoting for a 3x3 linear system. Returns null if the
+ * matrix is singular (e.g. all rays parallel in triangulateRays' use of this). */
+function solve3x3(a: number[][], b: number[]): number[] | null {
+    const m = a.map((row, i) => [...row, b[i]]);
+    for (let col = 0; col < 3; col++) {
+        let pivot = col;
+        for (let row = col + 1; row < 3; row++) {
+            if (Math.abs(m[row][col]) > Math.abs(m[pivot][col])) pivot = row;
+        }
+        if (Math.abs(m[pivot][col]) < 1e-9) return null;
+        [m[col], m[pivot]] = [m[pivot], m[col]];
+        for (let row = 0; row < 3; row++) {
+            if (row === col) continue;
+            const factor = m[row][col] / m[col][col];
+            for (let k = col; k < 4; k++) m[row][k] -= factor * m[col][k];
+        }
+    }
+    return [m[0][3] / m[0][0], m[1][3] / m[1][1], m[2][3] / m[2][2]];
+}
+
+/**
+ * Least-squares 3D point minimizing the total squared perpendicular distance to every given
+ * ray — the standard multi-view triangulation formula (accumulate the projection matrix
+ * `I - dir*dirᵀ` for each ray and solve the resulting 3x3 linear system). With exactly two
+ * rays that don't quite intersect (the normal case for real clicks), this is the midpoint of
+ * their closest-approach segment; with more rays it's the point best explaining all of them
+ * at once. Returns null with fewer than 2 rays, if the rays are too degenerate (e.g. all
+ * parallel) to solve, or if every pair of rays is narrower than `minAngleDeg` apart.
+ *
+ * That last check matters in practice, not just in theory: two photos taken back-to-back
+ * during a walk can be almost the same viewpoint (confirmed on real data — two photos 0.015
+ * scene units apart in camera position, looking at a piece 0.34 units away, only ~1.9
+ * degrees apart, triangulated to a point over half a unit from either photo's own
+ * independent splat-pick guess). The least-squares solve below will happily produce *a*
+ * number for a baseline that narrow, but the depth it implies is wildly sensitive to tiny
+ * click or calibration noise — a splat-pick median is more trustworthy than a triangulation
+ * this ill-conditioned, so this rejects it (returns null) rather than reporting a falsely
+ * precise-looking answer.
+ */
+export function triangulateRays(rays: Ray3[], minAngleDeg = 3): Vec3 | null {
+    if (rays.length < 2) return null;
+    let maxAngleRad = 0;
+    for (let i = 0; i < rays.length; i++) {
+        for (let j = i + 1; j < rays.length; j++) {
+            const dot = Math.min(1, Math.max(-1, rays[i].dir.dot(rays[j].dir)));
+            maxAngleRad = Math.max(maxAngleRad, Math.acos(dot));
+        }
+    }
+    if ((maxAngleRad * 180) / Math.PI < minAngleDeg) return null;
+
+    let m00 = 0;
+    let m01 = 0;
+    let m02 = 0;
+    let m11 = 0;
+    let m12 = 0;
+    let m22 = 0;
+    let bx = 0;
+    let by = 0;
+    let bz = 0;
+    for (const { origin, dir } of rays) {
+        const d = dir.clone().normalize();
+        const a00 = 1 - d.x * d.x;
+        const a01 = -d.x * d.y;
+        const a02 = -d.x * d.z;
+        const a11 = 1 - d.y * d.y;
+        const a12 = -d.y * d.z;
+        const a22 = 1 - d.z * d.z;
+        m00 += a00;
+        m01 += a01;
+        m02 += a02;
+        m11 += a11;
+        m12 += a12;
+        m22 += a22;
+        bx += a00 * origin.x + a01 * origin.y + a02 * origin.z;
+        by += a01 * origin.x + a11 * origin.y + a12 * origin.z;
+        bz += a02 * origin.x + a12 * origin.y + a22 * origin.z;
+    }
+    const solved = solve3x3(
+        [
+            [m00, m01, m02],
+            [m01, m11, m12],
+            [m02, m12, m22]
+        ],
+        [bx, by, bz]
+    );
+    return solved ? new Vec3(solved[0], solved[1], solved[2]) : null;
+}

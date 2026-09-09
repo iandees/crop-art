@@ -663,6 +663,14 @@ body.edit-mode .pc-annotation-hotspot {
     stroke-dasharray: 0.008 0.006;
 }
 
+.identify-svg .epipolar-guide {
+    fill: none;
+    stroke: #e05cf2;
+    stroke-width: 0.0015;
+    stroke-dasharray: 0.004 0.01;
+    opacity: 0.6;
+}
+
 .identify-dot-layer {
     position: absolute;
     inset: 0;

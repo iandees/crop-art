@@ -12,8 +12,12 @@ export interface PieceInstance {
     polygon: [number, number][];
     /** 3D scene-space point (worldRoot-local, same space Piece.position uses), computed via
      * placePieceFromPhotoClick on this polygon's centroid — or, for a ghost-linked instance,
-     * copied directly from the piece's representativeAnchor() at link time. */
-    anchor: [number, number, number];
+     * copied directly from the piece's representativeAnchor() at link time. Undefined when
+     * the centroid didn't land near any splat (common on thin/sparse surfaces, e.g. a flat
+     * poster) — the piece's real position then depends on triangulating against another
+     * instance of the same piece from a different photo (see reprojection.ts's
+     * triangulatePieceInstances and identify-mode.ts's ray-based matching fallback). */
+    anchor?: [number, number, number];
     /** True for an instance created via the ghost-click fast path (a small synthesized
      * square, not a hand-drawn outline) — flags it in the UI as worth tightening later. */
     placeholder?: boolean;
@@ -27,6 +31,12 @@ export interface PieceInstance {
 export interface AnnotatedPiece {
     id: string;
     instances: PieceInstance[];
+    /** Set once >=2 instances exist and real multi-view triangulation succeeds (see
+     * reprojection.ts's triangulatePieceInstances) — preferred over any single instance's
+     * splat-pick anchor wherever a piece's position is needed, since it's derived from
+     * actual camera geometry rather than a guess against splat density. Recomputed (and
+     * possibly cleared back to undefined) every time this piece's instances change. */
+    triangulatedPosition?: [number, number, number];
     // Cataloging fields — undefined until filled in. Names match Piece's exactly.
     title?: string;
     artist?: string;
@@ -54,14 +64,18 @@ export function saveAnnotatedPieces(pieces: AnnotatedPiece[]): void {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(pieces));
 }
 
-/** Per-axis median of every instance's anchor — resists a single drifted-calibration or
- * mis-clicked instance pulling the estimate off, same robustness idiom as editor.ts's
- * reflattenBoundary (median of clicked floor heights) for the same reason. */
-export function representativeAnchor(piece: AnnotatedPiece): [number, number, number] {
-    const xs = piece.instances.map((i) => i.anchor[0]);
-    const ys = piece.instances.map((i) => i.anchor[1]);
-    const zs = piece.instances.map((i) => i.anchor[2]);
-    return [median(xs), median(ys), median(zs)];
+/** The best current estimate of a piece's 3D position, or null if none exists yet (a single
+ * instance whose centroid never landed near a splat, with no second view to triangulate
+ * against — genuinely no 3D information available). Prefers real multi-view triangulation
+ * (`triangulatedPosition`) over the per-axis median of whichever instances have their own
+ * splat-pick anchor (same robustness idiom as editor.ts's reflattenBoundary — median of
+ * clicked floor heights — for the same reason: resist one drifted/mis-clicked instance
+ * pulling the estimate off). */
+export function representativeAnchor(piece: AnnotatedPiece): [number, number, number] | null {
+    if (piece.triangulatedPosition) return piece.triangulatedPosition;
+    const anchors = piece.instances.map((i) => i.anchor).filter((a): a is [number, number, number] => !!a);
+    if (anchors.length === 0) return null;
+    return [median(anchors.map((a) => a[0])), median(anchors.map((a) => a[1])), median(anchors.map((a) => a[2]))];
 }
 
 export function polygonCentroid01(polygon: [number, number][]): [number, number] {
@@ -85,13 +99,20 @@ export function isCataloged(piece: AnnotatedPiece): boolean {
 }
 
 /** Converts to the Piece[] shape the live site consumes. Pieces with no canonical instance
- * chosen yet are skipped — the catalog UI should warn about these before export. */
+ * chosen yet, or with no resolvable position at all (triangulated or per-instance), are
+ * skipped (with a console warning for the latter, since it's a real gap rather than just
+ * "not cataloged yet") — the catalog UI should warn about both before export. */
 export function toPieces(annotated: AnnotatedPiece[]): Piece[] {
     const result: Piece[] = [];
     for (const ap of annotated) {
         if (ap.canonicalInstanceIndex === undefined) continue;
         const inst = ap.instances[ap.canonicalInstanceIndex];
         if (!inst) continue;
+        const position = ap.triangulatedPosition ?? inst.anchor;
+        if (!position) {
+            console.warn(`Skipping "${ap.title ?? ap.id}" from export — no resolved 3D position (needs a second linked photo).`);
+            continue;
+        }
         result.push({
             id: ap.id,
             title: ap.title || 'Untitled piece',
@@ -101,7 +122,7 @@ export function toPieces(annotated: AnnotatedPiece[]): Piece[] {
             description: ap.description || undefined,
             photo: inst.photo,
             photoCrop: polygonBBox01(inst.polygon),
-            position: inst.anchor
+            position
         });
     }
     return result;

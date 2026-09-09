@@ -1,7 +1,8 @@
 import { Vec3 } from 'playcanvas';
 import type { SceneHandles } from './scene';
-import { getAllCalibratedPhotos } from './photo-cameras';
-import { placePieceFromPhotoClick, reprojectPointToPhoto } from './reprojection';
+import { getAllCalibratedPhotos, getPhotoCamera } from './photo-cameras';
+import { placePieceFromPhotoClick, reprojectPointToPhoto, rayForInstance, triangulatePieceInstances } from './reprojection';
+import { closestApproachDistance, worldToPixel } from './colmap-math';
 import { polygonCentroid01, representativeAnchor, type AnnotatedPiece, type PieceInstance } from './annotated-pieces';
 import { showToast } from './toast';
 
@@ -10,8 +11,22 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
  * (0.112) between distinct placed pieces, generous enough to absorb click imprecision and
  * the accepted calibration drift on a subset of photos. Retune here if links look wrong. */
 const LINK_DISTANCE_THRESHOLD = 0.06;
+/** Same reasoning/magnitude as LINK_DISTANCE_THRESHOLD, but for matching by how closely two
+ * camera rays pass each other in 3D (closestApproachDistance) instead of by 3D point
+ * distance — used when either side of a potential match has no splat-derived anchor to
+ * compare positions with directly. Two rays genuinely aimed at the same real point should
+ * pass much closer than this; kept at the same value pending real-world tuning. */
+const RAY_MATCH_DISTANCE_THRESHOLD = 0.06;
 /** Normalized-image-space click tolerance for "close the polygon by clicking the first vertex". */
 const CLOSE_VERTEX_TOLERANCE = 0.02;
+/** Along-ray sample depths (scene units) for drawing an epipolar guide line — the segment a
+ * not-yet-triangulated piece's matching point must lie somewhere along, in a photo it hasn't
+ * been drawn on yet. Bounds are conservative relative to the room's own measured extent
+ * (x in [-3.54, 4.51], z in [-5.86, 4.94] — see README's "Scene scale" notes and the
+ * placed-piece bounding box measured while planning the identify tool), not a guess: 0.05 is
+ * "just past the camera," 14 comfortably exceeds the room's ~13.5-unit diagonal. */
+const EPIPOLAR_NEAR_DEPTH = 0.05;
+const EPIPOLAR_FAR_DEPTH = 14;
 const PHOTO_INDEX_KEY = 'crop-art-splat:identifyPhotoIndex';
 
 export interface IdentifyModeHandles {
@@ -119,56 +134,87 @@ export function setupIdentifyMode(
         return dot;
     }
 
+    /** Recomputes a piece's real multi-view triangulated position from all its instances'
+     * rays (see reprojection.ts) — call after any change to a piece's instance list or any
+     * instance's polygon (which shifts that instance's centroid, hence its ray). With fewer
+     * than 2 instances this just clears any stale triangulation. */
+    async function retriangulate(piece: AnnotatedPiece): Promise<void> {
+        if (piece.instances.length < 2) {
+            piece.triangulatedPosition = undefined;
+            return;
+        }
+        const tri = await triangulatePieceInstances(piece.instances);
+        piece.triangulatedPosition = tri ? [tri.x, tri.y, tri.z] : undefined;
+    }
+
     async function closePolygon(): Promise<void> {
         if (vertices.length < 3) return;
         const drawn = vertices;
         const [cu, cv] = polygonCentroid01(drawn);
         statusEl.textContent = 'Placing…';
-        const anchorVec = await placePieceFromPhotoClick(scene, currentPhoto(), cu, cv);
-        if (!anchorVec) {
-            statusEl.textContent =
-                "Couldn't anchor this polygon — even a wide search around its center found no reconstructed geometry there. Move the center further onto the piece (or a nearby wall) and try again.";
-            return; // keep vertices so the user can adjust and retry
-        }
+        const photo = currentPhoto();
+        const [anchorVec, newRay] = await Promise.all([
+            placePieceFromPhotoClick(scene, photo, cu, cv),
+            rayForInstance({ photo, polygon: drawn })
+        ]);
         vertices = [];
-        const anchor: [number, number, number] = [anchorVec.x, anchorVec.y, anchorVec.z];
+        const anchor: [number, number, number] | undefined = anchorVec ? [anchorVec.x, anchorVec.y, anchorVec.z] : undefined;
         const annotated = getAnnotated();
 
+        // Prefer matching by 3D position when both sides have one (unchanged from before);
+        // fall back to matching by how closely the two camera rays pass each other in 3D —
+        // real multi-view geometry, not splat density — when either side has no anchor yet.
         let match: AnnotatedPiece | undefined;
         let bestDist = Infinity;
         for (const p of annotated) {
-            const d = new Vec3(...representativeAnchor(p)).distance(new Vec3(...anchor));
-            if (d < LINK_DISTANCE_THRESHOLD && d < bestDist) {
-                match = p;
-                bestDist = d;
+            const existingAnchor = representativeAnchor(p);
+            if (anchor && existingAnchor) {
+                const d = new Vec3(...existingAnchor).distance(new Vec3(...anchor));
+                if (d < LINK_DISTANCE_THRESHOLD && d < bestDist) {
+                    match = p;
+                    bestDist = d;
+                }
+            } else if (newRay) {
+                for (const inst of p.instances) {
+                    const instRay = await rayForInstance(inst);
+                    if (!instRay) continue;
+                    const d = closestApproachDistance(newRay, instRay);
+                    if (d < RAY_MATCH_DISTANCE_THRESHOLD && d < bestDist) {
+                        match = p;
+                        bestDist = d;
+                    }
+                }
             }
         }
 
-        const instance: PieceInstance = { photo: currentPhoto(), polygon: drawn, anchor };
+        const instance: PieceInstance = { photo, polygon: drawn, anchor };
+        let targetPiece: AnnotatedPiece;
         if (match) {
-            const existingIdx = match.instances.findIndex((i) => i.photo === currentPhoto());
+            const existingIdx = match.instances.findIndex((i) => i.photo === photo);
             const priorInstance = existingIdx >= 0 ? match.instances[existingIdx] : undefined;
             const priorCount = match.instances.length;
             if (existingIdx >= 0) match.instances[existingIdx] = instance;
             else match.instances.push(instance);
+            targetPiece = match;
+            await retriangulate(targetPiece);
             setAnnotated(annotated);
-            statusEl.textContent = '';
             renderPhoto();
             showToast(`Linked to a piece already seen in ${priorCount} other photo(s)`, {
                 actionLabel: 'Undo',
-                onAction: () => {
+                onAction: async () => {
                     // "Undo" here means "these are actually two different pieces" — the
                     // merge already happened, so splitting them back out is the only
                     // useful interpretation once we're past this point.
                     const current = getAnnotated();
                     const m = current.find((p) => p.id === match!.id);
                     if (m) {
-                        const idx = m.instances.findIndex((i) => i.photo === currentPhoto());
+                        const idx = m.instances.findIndex((i) => i.photo === photo);
                         if (priorInstance) {
                             if (idx >= 0) m.instances[idx] = priorInstance;
                         } else if (idx >= 0) {
                             m.instances.splice(idx, 1);
                         }
+                        await retriangulate(m);
                     }
                     current.push({ id: crypto.randomUUID(), instances: [instance] });
                     setAnnotated(current);
@@ -176,11 +222,15 @@ export function setupIdentifyMode(
                 }
             });
         } else {
-            annotated.push({ id: crypto.randomUUID(), instances: [instance] });
+            targetPiece = { id: crypto.randomUUID(), instances: [instance] };
+            annotated.push(targetPiece);
             setAnnotated(annotated);
-            statusEl.textContent = 'New piece identified.';
             renderPhoto();
         }
+
+        statusEl.textContent = representativeAnchor(targetPiece)
+            ? ''
+            : "Added — this piece's position isn't confirmed yet (no nearby splat, and no matching second view found). Draw a matching polygon for it on another photo to pin it down.";
     }
 
     async function linkGhost(piece: AnnotatedPiece, u01: number, v01: number): Promise<void> {
@@ -201,16 +251,17 @@ export function setupIdentifyMode(
         const instance: PieceInstance = {
             photo: currentPhoto(),
             polygon: placeholderSquare,
-            anchor: representativeAnchor(p),
+            anchor: representativeAnchor(p) ?? undefined,
             placeholder: true
         };
         if (existingIdx >= 0) p.instances[existingIdx] = instance;
         else p.instances.push(instance);
+        await retriangulate(p);
         setAnnotated(annotated);
         renderPhoto();
     }
 
-    function deleteInstance(piece: AnnotatedPiece, photo: string): void {
+    async function deleteInstance(piece: AnnotatedPiece, photo: string): Promise<void> {
         const annotated = getAnnotated();
         const p = annotated.find((a) => a.id === piece.id);
         if (!p) return;
@@ -219,6 +270,7 @@ export function setupIdentifyMode(
             setAnnotated(annotated.filter((a) => a.id !== p.id));
         } else {
             p.instances = p.instances.filter((i) => i.photo !== photo);
+            await retriangulate(p);
             setAnnotated(annotated);
         }
         if (editingInstanceKey === `${piece.id}:${photo}`) editingInstanceKey = null;
@@ -242,8 +294,9 @@ export function setupIdentifyMode(
                 const onUp = () => {
                     dot.removeEventListener('pointermove', onMove);
                     dot.removeEventListener('pointerup', onUp);
-                    const annotated = getAnnotated();
-                    setAnnotated(annotated);
+                    // Dragging a vertex moves this instance's centroid, hence its ray —
+                    // re-triangulate before persisting rather than leaving a stale position.
+                    retriangulate(piece).then(() => setAnnotated(getAnnotated()));
                 };
                 dot.addEventListener('pointermove', onMove);
                 dot.addEventListener('pointerup', onUp);
@@ -307,15 +360,42 @@ export function setupIdentifyMode(
             if (editingInstanceKey === key) renderVertexEditor(piece, instance);
         }
 
-        // Ghost dots for pieces identified elsewhere but not yet on this photo.
+        // Pieces identified elsewhere but not yet on this photo split into two groups: ones
+        // with a resolved 3D position get a clickable ghost dot at the reprojected point;
+        // ones without one yet (a single view whose centroid never landed near a splat) get
+        // an epipolar guide line instead — no 3D point to reproject, but the ray from their
+        // one existing view still tells you where in *this* photo the match must lie.
+        const anchoredElsewhere = elsewhere.filter((p) => representativeAnchor(p) !== null);
+        const unanchoredElsewhere = elsewhere.filter((p) => representativeAnchor(p) === null);
+
         const reprojections = await Promise.all(
-            elsewhere.map((p) => reprojectPointToPhoto(photo, new Vec3(...representativeAnchor(p))))
+            anchoredElsewhere.map((p) => reprojectPointToPhoto(photo, new Vec3(...representativeAnchor(p)!)))
         );
-        elsewhere.forEach((p, i) => {
+        anchoredElsewhere.forEach((p, i) => {
             const hit = reprojections[i];
             if (!hit) return;
             addDot([hit.u01, hit.v01], 'ghost-dot', () => linkGhost(p, hit.u01, hit.v01));
         });
+
+        const currentCamera = await getPhotoCamera(photo);
+        if (currentCamera) {
+            for (const p of unanchoredElsewhere) {
+                const guideRay = await rayForInstance(p.instances[0]);
+                if (!guideRay) continue;
+                const nearPoint = guideRay.origin.clone().add(guideRay.dir.clone().mulScalar(EPIPOLAR_NEAR_DEPTH));
+                const farPoint = guideRay.origin.clone().add(guideRay.dir.clone().mulScalar(EPIPOLAR_FAR_DEPTH));
+                const nearProj = worldToPixel(currentCamera, nearPoint);
+                const farProj = worldToPixel(currentCamera, farPoint);
+                if (!nearProj.inFront || !farProj.inFront) continue;
+                const line = svgEl('polyline') as SVGElement;
+                line.setAttribute(
+                    'points',
+                    `${nearProj.u / currentCamera.width},${nearProj.v / currentCamera.height} ${farProj.u / currentCamera.width},${farProj.v / currentCamera.height}`
+                );
+                line.setAttribute('class', 'epipolar-guide');
+                svg.appendChild(line);
+            }
+        }
 
         renderInProgress();
     }

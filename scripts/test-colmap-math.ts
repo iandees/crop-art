@@ -15,7 +15,10 @@ import {
     applySimilarityToPoint,
     pixelToWorldRay,
     worldToPixel,
-    type PhotoCamera
+    closestApproachDistance,
+    triangulateRays,
+    type PhotoCamera,
+    type Ray3
 } from '../src/colmap-math.ts';
 
 let failures = 0;
@@ -193,6 +196,123 @@ console.log('\n--- Test 2: pixelToWorldRay / worldToPixel round-trip ---');
         }
         assertClose(`pixel (${u},${v}) -> u`, proj.u, u, 0.01);
         assertClose(`pixel (${u},${v}) -> v`, proj.v, v, 0.01);
+    }
+}
+
+// ---------------------------------------------------------------------------------------
+// Test 3: closestApproachDistance and triangulateRays recover a known 3D point
+// ---------------------------------------------------------------------------------------
+console.log('\n--- Test 3: multi-ray triangulation ---');
+{
+    const rand = mulberry32(123);
+    const truePoint = new Vec3(1.4, -0.3, 2.1);
+
+    function rayToward(from: Vec3, to: Vec3, noiseDeg = 0): Ray3 {
+        const dir = new Vec3().sub2(to, from).normalize();
+        if (noiseDeg > 0) {
+            // Perturb the direction slightly, same idea as real click imprecision.
+            const wobble = new Quat().setFromEulerAngles(
+                (rand() - 0.5) * 2 * noiseDeg,
+                (rand() - 0.5) * 2 * noiseDeg,
+                (rand() - 0.5) * 2 * noiseDeg
+            );
+            return { origin: from.clone(), dir: wobble.transformVector(dir.clone()).normalize() };
+        }
+        return { origin: from.clone(), dir };
+    }
+
+    // Two rays built to exactly intersect at truePoint -> closest approach should be ~0.
+    const exactA = rayToward(new Vec3(-2, 1, -1), truePoint);
+    const exactB = rayToward(new Vec3(3, -2, 4), truePoint);
+    assertClose('closestApproachDistance (exact intersection)', closestApproachDistance(exactA, exactB), 0, 1e-6);
+
+    // Two rays that don't come close at all -> should report a large distance.
+    const farA: Ray3 = { origin: new Vec3(0, 0, 0), dir: new Vec3(1, 0, 0) };
+    const farB: Ray3 = { origin: new Vec3(0, 10, 0), dir: new Vec3(0, 0, 1) };
+    const farDist = closestApproachDistance(farA, farB);
+    if (farDist < 5) {
+        failures++;
+        console.error(`FAIL closestApproachDistance (far rays): got ${farDist}, expected >= 5`);
+    } else {
+        console.log(`ok   closestApproachDistance (far rays): ${farDist.toFixed(4)} (expected large)`);
+    }
+
+    // Parallel rays -> Infinity, not a wrong finite number.
+    const parA: Ray3 = { origin: new Vec3(0, 0, 0), dir: new Vec3(0, 0, 1) };
+    const parB: Ray3 = { origin: new Vec3(1, 1, 0), dir: new Vec3(0, 0, 1) };
+    const parDist = closestApproachDistance(parA, parB);
+    if (parDist !== Infinity) {
+        failures++;
+        console.error(`FAIL closestApproachDistance (parallel rays): got ${parDist}, expected Infinity`);
+    } else {
+        console.log('ok   closestApproachDistance (parallel rays): Infinity');
+    }
+
+    // Triangulation from 4 noisy rays toward the same true point, from varied camera positions.
+    const cameraPositions = [
+        new Vec3(-2, 1, -1),
+        new Vec3(3, -2, 4),
+        new Vec3(0.5, 3, -3),
+        new Vec3(-1.5, -1, 2.5)
+    ];
+    const noisyRays = cameraPositions.map((p) => rayToward(p, truePoint, 0.05));
+    const triangulated = triangulateRays(noisyRays);
+    if (!triangulated) {
+        failures++;
+        console.error('FAIL triangulateRays returned null for a well-conditioned set of rays');
+    } else {
+        assertClose('triangulated.x', triangulated.x, truePoint.x, 0.01);
+        assertClose('triangulated.y', triangulated.y, truePoint.y, 0.01);
+        assertClose('triangulated.z', triangulated.z, truePoint.z, 0.01);
+    }
+
+    // Degenerate case: all rays parallel -> no unique solution, must return null (not a
+    // wrong point that looks superficially plausible).
+    const parallelRays: Ray3[] = cameraPositions.map((p) => ({ origin: p, dir: new Vec3(0, 1, 0) }));
+    const degenerate = triangulateRays(parallelRays);
+    if (degenerate !== null) {
+        failures++;
+        console.error(`FAIL triangulateRays (parallel rays): expected null, got (${degenerate.x}, ${degenerate.y}, ${degenerate.z})`);
+    } else {
+        console.log('ok   triangulateRays (parallel rays): null, as expected');
+    }
+
+    // Fewer than 2 rays -> null.
+    if (triangulateRays([noisyRays[0]]) !== null) {
+        failures++;
+        console.error('FAIL triangulateRays with a single ray should return null');
+    } else {
+        console.log('ok   triangulateRays (single ray): null, as expected');
+    }
+
+    // Narrow-baseline case (reproduces a real bad result seen on production data): two
+    // cameras almost on top of each other looking at a point far away — individually valid,
+    // non-parallel rays, but too close in angle to trust the resulting depth.
+    const nearCamA = new Vec3(0, 0, 0);
+    const nearCamB = new Vec3(0.015, 0, 0); // ~1.9 degree separation at this depth, matching the real case
+    const farPoint = new Vec3(0, -0.28, 0.34);
+    const narrowBaselineRays: Ray3[] = [
+        { origin: nearCamA, dir: new Vec3().sub2(farPoint, nearCamA).normalize() },
+        { origin: nearCamB, dir: new Vec3().sub2(farPoint, nearCamB).normalize() }
+    ];
+    const rejectedNarrow = triangulateRays(narrowBaselineRays);
+    if (rejectedNarrow !== null) {
+        failures++;
+        console.error(`FAIL triangulateRays (narrow baseline): expected null, got (${rejectedNarrow.x}, ${rejectedNarrow.y}, ${rejectedNarrow.z})`);
+    } else {
+        console.log('ok   triangulateRays (narrow baseline, ~1.9deg): null, as expected');
+    }
+    // The same rays widened to a comfortable angle should NOT be rejected.
+    const wideCamB = new Vec3(0.2, 0, 0);
+    const widerRays: Ray3[] = [
+        { origin: nearCamA, dir: new Vec3().sub2(farPoint, nearCamA).normalize() },
+        { origin: wideCamB, dir: new Vec3().sub2(farPoint, wideCamB).normalize() }
+    ];
+    if (triangulateRays(widerRays) === null) {
+        failures++;
+        console.error('FAIL triangulateRays (wide baseline) unexpectedly rejected');
+    } else {
+        console.log('ok   triangulateRays (wide baseline): accepted, as expected');
     }
 }
 

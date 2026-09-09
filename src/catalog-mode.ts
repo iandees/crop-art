@@ -1,4 +1,10 @@
-import { polygonBBox01, isCataloged, exportAnnotatedPiecesAsPiecesFile, type AnnotatedPiece } from './annotated-pieces';
+import {
+    polygonBBox01,
+    isCataloged,
+    exportAnnotatedPiecesAsPiecesFile,
+    representativeAnchor,
+    type AnnotatedPiece
+} from './annotated-pieces';
 
 export interface CatalogModeHandles {
     open(): void;
@@ -60,8 +66,13 @@ export function setupCatalogMode(
 
         let instanceIndex = piece.canonicalInstanceIndex ?? 0;
 
+        const noPositionWarning = representativeAnchor(piece)
+            ? ''
+            : `<div class="editor-hint" style="color:#f2a65a">This piece's 3D position isn't confirmed yet (needs a second linked photo) — it can still be cataloged, but will be skipped on export until that's resolved.</div>`;
+
         panel.innerHTML = `
             <h3>Catalog piece</h3>
+            ${noPositionWarning}
             <label>Title</label>
             <input type="text" class="f-title" value="${piece.title ?? ''}">
             <label>Artist</label>
