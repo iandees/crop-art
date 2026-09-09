@@ -45,7 +45,11 @@ export function setupIdentifyMode(
             <img class="identify-img">
             <svg class="identify-svg" viewBox="0 0 1 1" preserveAspectRatio="none"></svg>
         </div>
-        <div class="editor-hint">Click to add a polygon vertex around a piece of art; click the first (larger) vertex again, or press Enter, to close it. Escape cancels the in-progress shape. Dashed magenta dots are pieces already identified elsewhere — click one to confirm it's also in this photo.</div>
+        <div class="identify-draw-controls">
+            <button class="id-close-shape primary" type="button" disabled>Close shape (needs 3+ points)</button>
+            <button class="id-undo-point" type="button" disabled>Undo last point</button>
+        </div>
+        <div class="editor-hint">Click to add a polygon vertex around a piece of art, then click "Close shape" (or press Enter, or click the first larger vertex again). Escape cancels the in-progress shape. Dashed magenta dots are pieces already identified elsewhere — click one to confirm it's also in this photo.</div>
         <div class="identify-status"></div>
         <ul class="identify-piece-list"></ul>
     `;
@@ -60,6 +64,14 @@ export function setupIdentifyMode(
     const prevBtn = overlay.querySelector('.id-prev') as HTMLButtonElement;
     const nextBtn = overlay.querySelector('.id-next') as HTMLButtonElement;
     const doneBtn = overlay.querySelector('.id-done') as HTMLButtonElement;
+    const closeShapeBtn = overlay.querySelector('.id-close-shape') as HTMLButtonElement;
+    const undoPointBtn = overlay.querySelector('.id-undo-point') as HTMLButtonElement;
+
+    closeShapeBtn.onclick = () => closePolygon();
+    undoPointBtn.onclick = () => {
+        vertices.pop();
+        renderInProgress();
+    };
 
     /** Plain absolutely-positioned divs layered on top of the svg — see identify-mode's
      * plan notes: circles inside a non-uniformly-scaled (preserveAspectRatio="none") SVG
@@ -311,6 +323,9 @@ export function setupIdentifyMode(
     function renderInProgress(): void {
         // Remove any previously-drawn in-progress elements (they're re-created each call).
         overlay.querySelectorAll('.poly-active, .vertex-dot-active').forEach((el) => el.remove());
+        closeShapeBtn.disabled = vertices.length < 3;
+        closeShapeBtn.textContent = vertices.length < 3 ? 'Close shape (needs 3+ points)' : `Close shape (${vertices.length} points)`;
+        undoPointBtn.disabled = vertices.length === 0;
         if (vertices.length === 0) return;
         const line = svgEl('polyline') as SVGElement;
         line.setAttribute('points', pointsAttr(vertices));

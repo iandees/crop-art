@@ -584,6 +584,32 @@ body.edit-mode .pc-annotation-hotspot {
     color: #ccc;
 }
 
+.identify-draw-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.identify-draw-controls button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 13px;
+    background: #333;
+    color: #f2f2f2;
+}
+
+.identify-draw-controls button.primary {
+    background: #4c8bf5;
+    color: #fff;
+}
+
+.identify-draw-controls button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
 .identify-wrap {
     /* Sized to exactly match .identify-img's rendered box (inline-block shrinks to fit its
        content) — this must stay true since click coordinates are computed as fractions of
