@@ -70,7 +70,7 @@ export function showPieceModal(piece: Piece): void {
     body.className = 'modal-body';
 
     const h2 = document.createElement('h2');
-    h2.textContent = piece.title;
+    h2.textContent = piece.title || '(untitled — help us name this piece!)';
     body.appendChild(h2);
 
     if (piece.artist) {

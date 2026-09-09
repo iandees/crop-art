@@ -9,11 +9,12 @@ const REPO = 'iandees/crop-art';
  * photo, without them having to type or even know that identifying info.
  */
 export function suggestEditUrl(piece: Piece): string {
+    const title = piece.title || '(untitled)';
     const params = new URLSearchParams({
         template: 'suggest-edit.yml',
-        title: `[Edit] ${piece.title}`,
+        title: `[Edit] ${title}`,
         piece_id: piece.id,
-        current_title: piece.title,
+        current_title: title,
         current_artist: piece.artist ?? '',
         current_photo: piece.photo ?? ''
     });

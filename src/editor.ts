@@ -98,7 +98,7 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
     function showReferencePhoto(piece: Piece): void {
         if (!piece.photo) return;
         (referencePanel.querySelector('img') as HTMLImageElement).src = `/photos/${piece.photo}`;
-        referencePanel.querySelector('.caption')!.textContent = piece.title;
+        referencePanel.querySelector('.caption')!.textContent = piece.title || '(untitled)';
         referencePanel.hidden = false;
     }
 
@@ -212,7 +212,7 @@ export async function setupHotspots(scene: SceneHandles): Promise<void> {
         const annotation = entity.script!.create(Annotation, {
             properties: {
                 label: '',
-                title: piece.title,
+                title: piece.title || '(untitled)',
                 text: piece.artist ? `by ${piece.artist}` : ''
             }
         });
